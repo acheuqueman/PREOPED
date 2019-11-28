@@ -1,0 +1,88 @@
+3c3,5
+< $dir = 'BDMapper.php';
+---
+> include_once 'BDMapper.php';
+> include_once 'Familiar.class.php';
+> include_once 'Diagnostico.class.php';
+5,6c7
+< include_once $dir;
+< //echo $dir;
+---
+> class AlumnoMapper extends BDMapper {
+8c9,25
+< class AlumnoMapper extends BDMapper{
+---
+>     /**
+>      * @var Familiar[]
+>      */
+>     protected $familiares;
+> 
+>     /**
+>      *
+>      * @var Diagnostico[]
+>      */
+>     protected $diagnosticos;
+> 
+>     /**
+>      * 
+>      * @since 11.2019 Modifica nombreTabla hacia la vista vwalumno.
+>      * @author Eder dos Santos <esantos@uarg.unpa.edu.ar>
+>      * 
+>      */
+10c27
+<         $this->nombreTabla = "Alumno";
+---
+>         $this->nombreTabla = "vwalumno";
+15,16c32,66
+<     public function findById($id) {
+<         return parent::findById($id);
+---
+>     /**
+>      * 
+>      * @param Int $id
+>      * @return Familiar[]
+>      * 
+>      * @since 11.2019 Modifica nombreTabla hacia la vista vwfamiliar.
+>      * @author Eder dos Santos <esantos@uarg.unpa.edu.ar>
+>      * 
+>      */
+>     public function findFamiliares($id) {
+> 
+>         $this->query = "SELECT * "
+>                 . "FROM vwfamiliar "
+>                 . "WHERE id_alumno = " . $id;
+> 
+>         $this->resultset = $this->bdconexion->query($this->query);
+>         for ($x = 0; $x < $this->resultset->num_rows; $x++) {
+>             $this->familiares[] = new Familiar($this->resultset->fetch_assoc());
+>         }
+>         return $this->familiares;
+>     }
+> 
+>     public function findDiagnosticos($id) {
+> 
+>         $this->query = "SELECT D.* "
+>                 . "FROM Diagnostico D, "
+>                 . "Alumno_Diagnostico AD "
+>                 . "WHERE D.id = AD.id_diagnostico "
+>                 . "AND id_alumno =" . $id;
+> 
+>         $this->resultset = $this->bdconexion->query($this->query);
+>         for ($x = 0; $x < $this->resultset->num_rows; $x++) {
+>             $this->diagnosticos[] = new Diagnostico($this->resultset->fetch_assoc());
+>         }
+>         return $this->diagnosticos;
+18,19d67
+<     
+< }
+20a69,78
+>     /**
+>      * 
+>      * @param Alumno $Alumno
+>      * @todo 28/11/2019 Toda la secuencia SQL para generar un registro en las tablas (persona, alumno)
+>      */
+>     public function insertAlumno($Alumno) {
+>         
+>     }
+> 
+> }
