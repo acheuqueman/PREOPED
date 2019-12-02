@@ -38,5 +38,23 @@ class CarreraMapper extends BDMapper{
         $this->resultset = $this->bdconexion->query($this->query);
         return $this->bdconexion->insert_id;
     }
+    public function update($Carrera){
+        $this->query = "UPDATE " . $this->nombreTabla.
+                " SET " .
+                "nombre = '{$Carrera->getNombre()}' ".
+                "WHERE {$this->nombreAtributoId} = {$Carrera->getId()}";
+        $this->resultset = $this->bdconexion->query($this->query);
+        if(!$this->resultset) return false;
+        return true;
+        
+    }
+    public function delete($Carrera){
+        $this->query = "DELETE FROM " . $this->nombreTabla.
+                "WHERE {$this->nombreAtributoId} = {$Carrera->getId()}";
+        $this->resultset = $this->bdconexion->query($this->query);
+        if(!$this->resultset) return false;
+        return true;
+        
+    }
     
 }
