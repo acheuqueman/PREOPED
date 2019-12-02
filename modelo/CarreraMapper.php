@@ -5,7 +5,7 @@ include_once '../modelo/Asignatura.class.php';
 
 class CarreraMapper extends BDMapper{
     public function __construct() {
-        $this->nombreTabla = "Carrera";
+        $this->nombreTabla = "carrera";
         $this->nombreAtributoId = "id";
         parent::__construct();
     }
@@ -25,6 +25,18 @@ class CarreraMapper extends BDMapper{
             $this->asignaturas[] = new Asignatura($this->resultset->fetch_assoc());
         }
         return $this->asignaturas;
+    }
+    /**
+     * 
+     * @param Carrera $Carrera
+     */
+    public function insert($Carrera){
+        $this->query = "INSERT INTO " . $this->nombreTabla.
+                " VALUES ( " .
+                "NULL, '{$Carrera->getNombre()}'".
+                ")";
+        $this->resultset = $this->bdconexion->query($this->query);
+        return $this->bdconexion->insert_id;
     }
     
 }

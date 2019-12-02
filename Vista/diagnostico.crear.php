@@ -27,7 +27,6 @@
                     <option value="opcion2">Opcion2</option>
                 </select>
             </p>
-
             <p>Descripcion</p>
             <p>
                 <textarea name="descripcion"> </textarea>
