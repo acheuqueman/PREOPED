@@ -47,7 +47,23 @@ class BDMapper {
         return $this->resultset->fetch_assoc();
     }
   
-    
+    function getNombreTabla() {
+        return $this->nombreTabla;
+    }
+
+    function getNombreAtributoId() {
+        return $this->nombreAtributoId;
+    }
+
+    function setNombreTabla($nombreTabla) {
+        $this->nombreTabla = $nombreTabla;
+    }
+
+    function setNombreAtributoId($nombreAtributoId) {
+        $this->nombreAtributoId = $nombreAtributoId;
+    }
+
+
    
 
 }

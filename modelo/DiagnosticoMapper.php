@@ -41,5 +41,7 @@ class DiagnosticoMapper extends BDMapper{
         return true;
         
     }
+    
+    
 }
 
