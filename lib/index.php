@@ -19,7 +19,7 @@
     <div class="row">
       <div class="col-12 bg-dark" padding>
         <!-- Navbar --> 
-        <?php include_once 'bloques/navbar.html'; ?>
+        <?php include_once 'bloques/navbar.php'; ?>
       </div>
     </div>
 
