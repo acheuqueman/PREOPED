@@ -10,7 +10,7 @@ $Coleccion = new ColeccionDiagnostico();
 ?>
 
 <?php foreach($Coleccion->getColeccion() as $Diag){ ?>
-    <p><?= $Diag->getId()." ".$Diag->getDiagnostico()?></p>
+    <p><?= $Diag->getId()." ".$Diag->getDiagnostico()." ".$Diag->getTipo_discapacidad()?></p>
 <?php 
 }
 
