@@ -14,11 +14,42 @@
 
             <li class = "nav-item md-3">
                 <a class = "nav-link btn btn-info" href = "../app">
-                    <span class = "oi oi-graph" /> Panel
+                    <span class = "oi oi-person" /> Alumnos
                 </a>
             </li>
+            <?php // } ?>
             
-
+            <li class = "nav-item md-3">
+                <a class = "nav-link btn btn-info" href = "../app">
+                    <span class = "oi oi-graph" /> Entrevistas
+                </a>
+            </li>
+            <?php // } ?>
+            
+            <li class="nav-item dropdown md-3 ml-3">
+                <a class="nav-link dropdown-toggle btn btn-info" href="#"  id="navbarDropdownConfig" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="oi oi-cog" /> Configuracion
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownUsuarios">
+                    <a class="dropdown-item" href="../app">
+                        <span class="oi oi-cog" /> Diagnosticos
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="../app">
+                        <span class = "oi oi-cog" /> Carreras
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <?php // } ?>
+                    <a class="dropdown-item" href="../app">
+                        <span class="oi oi-cog" /> Asignaturas
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <?php // } ?>
+                    <a class="dropdown-item" href="../app">
+                        <span class="oi oi-cog" /> Informes
+                    </a>
+                </div>
+            </li>
 
             <?php // if (ControlAcceso::verificaPermiso(PermisosSistema::PERMISO_USUARIOS)) { ?>
             <li class="nav-item dropdown md-3 ml-3">

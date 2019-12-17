@@ -22,6 +22,10 @@ class ColeccionDiagnostico extends Coleccion {
         }
     }
     
+    /**
+     * 
+     * @return Diagnostico[]
+     */
     public function getColeccion(){
         return parent::getColeccion();
     }

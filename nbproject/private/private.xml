@@ -3,7 +3,29 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/preoped/Vista/index.php</file>
+            <file>file:/var/www/html/preoped/Pruebas/AlumnoMapper.php</file>
+            <file>file:/var/www/html/preoped/modelo/DiagnosticoMapper.php</file>
+            <file>file:/var/www/html/preoped/Vista/carrera.actualizar.procesar.php</file>
+            <file>file:/var/www/html/preoped/modelo/BDMapper.php</file>
+            <file>file:/var/www/html/preoped/modelo/Carrera.class.php</file>
+            <file>file:/var/www/html/preoped/Vista/carrera.crear.procesar.php</file>
+            <file>file:/var/www/html/preoped/Pruebas/DiagnosticoMapper.php</file>
+            <file>file:/var/www/html/preoped/Vista/carrera.crear.php</file>
+            <file>file:/var/www/html/preoped/modelo/ColeccionDiagnostico.php</file>
+            <file>file:/var/www/html/preoped/modelo/ColeccionCarrera.php</file>
+            <file>file:/var/www/html/preoped/Vista/asignaturas.php</file>
+            <file>file:/var/www/html/preoped/Vista/diagnosticos.php</file>
+            <file>file:/var/www/html/preoped/modelo/ColeccionAsignatura.php</file>
+            <file>file:/var/www/html/preoped/Vista/carreras.php</file>
+            <file>file:/var/www/html/preoped/modelo/AlumnoMapper.php</file>
+            <file>file:/var/www/html/preoped/modelo/BDConfig.php</file>
+            <file>file:/var/www/html/preoped/gui/bloqueMenuContextual.php</file>
+            <file>file:/var/www/html/preoped/Vista/diagnostico.crear.procesar.php</file>
+            <file>file:/var/www/html/preoped/Vista/carrera.coleccion.php</file>
+            <file>file:/var/www/html/preoped/Vista/diagnostico.coleccion.php</file>
+            <file>file:/var/www/html/preoped/modelo/CarreraMapper.php</file>
+            <file>file:/var/www/html/preoped/modelo/Alumno.class.php</file>
+            <file>file:/var/www/html/preoped/Vista/diagnostico.actualizar.php</file>
         </group>
     </open-files>
 </project-private>
