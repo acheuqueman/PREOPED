@@ -1,9 +1,9 @@
 <?php
 //include_once '../lib/ControlAcceso.Class.php';
 include_once '../lib/Constantes.Class.php';
-include_once '../modelo/ColeccionDiagnostico.php';
-include_once '../modelo/Diagnostico.class.php';
-$Coleccion = new  ();
+include_once '../modelo/ColeccionAsignatura.php';
+include_once '../modelo/Asignatura.class.php';
+$Coleccion = new ColeccionAsignatura();
 ?>
 
 <html>
@@ -33,23 +33,21 @@ $Coleccion = new  ();
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5 class="card-title oi oi-list"> Diagnosticos</h5>
+                                        <h5 class="card-title oi oi-list"> Asignaturas</h5>
                                     </div>
                                     <table class="table table-striped small table-bordered border-success">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th>Diagnostico</th>
-                                                <th>Tipo</th>
+                                                <th>Asignaturas</th>
                                                 <th style="text-align: center">Opciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
-                                            <?php foreach ($Coleccion->getColeccion() as $Diagnostico) { ?>
+                                            <?php foreach ($Coleccion->getColeccion() as $Asignatura) { ?>
 
                                                 <tr>
-                                                    <td><?= $Diagnostico->getDiagnostico(); ?></td>
-                                                    <td><?= $Diagnostico->getTipo_discapacidad(); ?></td>
+                                                    <td><?= $Asignatura->getNombre(); ?></td>
                                                     <td style="text-align: center">
                                                                                                                 
                                                         <a title="Ver detalle" href="#">
@@ -58,7 +56,7 @@ $Coleccion = new  ();
                                                             </button>
                                                         </a>
                                                         
-                                                        <a title="Modificar" href="diagnostico.actualizar.php?id=<?= $Diagnostico->getId(); ?>">
+                                                        <a title="Modificar" href="asignatura.actualizar.php?id=<?= $Asignatura->getId(); ?>">
                                                             <button type="button" class="btn btn-outline-warning">
                                                                 <span class="oi oi-pencil"></span>
                                                             </button>
@@ -91,7 +89,7 @@ $Coleccion = new  ();
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- Evaluar soluciones alternativas -->
-                                <?php $_GET['modelo'] = 'diagnostico'; ?>
+                                <?php $_GET['modelo'] = 'asignatura'; ?>
                                 <?php include_once '../gui/bloqueMenuContextual.php'; ?>
                             </div>
                         </div>

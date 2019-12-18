@@ -15,7 +15,7 @@
             </button>
         </a>
         <div>&nbsp;</div>
-        <a title="" href="">
+        <a title="" href="../Vista/asignaturas.php">    
             <button type="button" class="btn btn-outline-secondary btn-block btn-lg">
                 <span class="oi oi-cog"> Asignaturas</span>
             </button>
