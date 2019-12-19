@@ -34,7 +34,15 @@ include_once '../lib/Constantes.Class.php';
                                     </div>
                                     <div class="card-body bg-info text-white">
                                         <div class="col-md-12">
-                                            <?php include_once '../mod_autocompletar/buscador.php'; ?>
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-outline-secondary" type="button">
+                                                        <span class="oi oi-magnifying-glass"></span>
+                                                    </button>
+                                                </div>
+                                            </div>
+
                                         </div>
 
 
@@ -67,18 +75,18 @@ include_once '../lib/Constantes.Class.php';
                                                 <tr>
                                                     <td>Alumno <?= $x ?></td>
                                                     <td style="text-align: center">
-                                    <a title="Ver detalle" href="usuario.ver.php?id=<?= $x; ?>">
-                                        <button type="button" class="btn btn-outline-info">
-                                            <span class="oi oi-zoom-in"></span>
-                                        </button></a>
-                                    <a title="Modificar" href="usuario.modificar.php?id=<?= $x; ?>">
-                                        <button type="button" class="btn btn-outline-warning">
-                                            <span class="oi oi-pencil"></span>
-                                        </button></a>
-                                    <a title="Eliminar" href="usuario.eliminar.php?id=<?= $x; ?>">
-                                        <button type="button" class="btn btn-outline-danger">
-                                            <span class="oi oi-trash"></span>
-                                        </button></a>
+                                                        <a title="Ver detalle" href="usuario.ver.php?id=<?= $x; ?>">
+                                                            <button type="button" class="btn btn-outline-info">
+                                                                <span class="oi oi-zoom-in"></span>
+                                                            </button></a>
+                                                        <a title="Modificar" href="usuario.modificar.php?id=<?= $x; ?>">
+                                                            <button type="button" class="btn btn-outline-warning">
+                                                                <span class="oi oi-pencil"></span>
+                                                            </button></a>
+                                                        <a title="Eliminar" href="usuario.eliminar.php?id=<?= $x; ?>">
+                                                            <button type="button" class="btn btn-outline-danger">
+                                                                <span class="oi oi-trash"></span>
+                                                            </button></a>
                                                     </td>
                                                 </tr>
                                             <?php } ?>

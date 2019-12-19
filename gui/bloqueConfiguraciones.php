@@ -20,9 +20,9 @@
                 <span class="oi oi-cog"> Asignaturas</span>
             </button>
         </a>
-        <div>&nbsp;</div>
+        <!--<div>&nbsp;</div>
         <a title="" href="">
             <span class="btn btn-outline-secondary btn-block btn-lg oi oi-graph"> Informes</span>
-        </a>
+        </a>-->
     </div>
 </div>
