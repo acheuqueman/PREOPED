@@ -51,27 +51,49 @@ $Coleccion = new ColeccionDiagnostico();
                                                     <td><?= $Diagnostico->getDiagnostico(); ?></td>
                                                     <td><?= $Diagnostico->getTipo_discapacidad(); ?></td>
                                                     <td style="text-align: center">
-                                                                                                                
+
                                                         <a title="Ver detalle" href="#">
                                                             <button type="button" class="btn btn-outline-info">
                                                                 <span class="oi oi-zoom-in"></span>
                                                             </button>
                                                         </a>
-                                                        
+
                                                         <a title="Modificar" href="diagnostico.actualizar.php?id=<?= $Diagnostico->getId(); ?>">
                                                             <button type="button" class="btn btn-outline-warning">
                                                                 <span class="oi oi-pencil"></span>
                                                             </button>
                                                         </a>
-                                                        
+
                                                         <a title="Eliminar" href="#">
-                                                            <button type="button" class="btn btn-outline-danger">
+                                                            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
                                                                 <span class="oi oi-trash"></span>
                                                             </button>
+                                                            
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="exampleModalLabel">Eliminar Diagnostico</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                           Segurito? 
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                                            <button type="button" class="btn btn-outline-danger" href="#">Eliminar</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
                                                         </a>
                                                     </td>
                                                 </tr>
-                                        <?php } ?>
+                                            <?php } ?>
 
                                         </tbody>
                                     </table>
