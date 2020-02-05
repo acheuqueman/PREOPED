@@ -25,7 +25,7 @@ include_once '../lib/Constantes.Class.php';
         <?php include_once '../gui/navbar.php'; ?>
 
         <div class="container-fluid">
-            <form action="?accion=busquedaSimple" method="post">
+            
 
                 <div class="row">
                     <div class="col-md-12 justify-content-center">
@@ -70,7 +70,7 @@ include_once '../lib/Constantes.Class.php';
                     </div>
                 </div>
 
-            </form>
+            
         </div>
 
         <?php include_once '../gui/footer.php'; ?>

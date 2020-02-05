@@ -25,7 +25,7 @@ include_once '../lib/Constantes.Class.php';
         <?php include_once '../gui/navbar.php'; ?>
 
         <div class="container-fluid">
-            <form action="?accion=busquedaSimple" method="post">
+            
 
                 <div class="row">
                     <div class="col-md-12 justify-content-center">
@@ -35,14 +35,14 @@ include_once '../lib/Constantes.Class.php';
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5 class="oi oi-plus">Crear Asignatura</h5>
+                                        <h5 class="oi oi-plus">Crear Carrera</h5>
                                     </div>
                                     <form action="carrera.crear.procesar.php" method="POST">
                                         <div class="row">&nbsp;</div>
                                         <div class="row">
                                             <div class="col-sm-4">
                                                 <div class="card">
-                                                    <div class="card-header">Nombre Asignatura</div>
+                                                    <div class="card-header">Nombre Carrera</div>
                                                     <div class="card-body">
                                                         <div class="input-group mb-3">
                                                             <input type="text" class="form-control" name="nombre">
@@ -70,7 +70,7 @@ include_once '../lib/Constantes.Class.php';
                     </div>
                 </div>
 
-            </form>
+            
         </div>
 
         <?php include_once '../gui/footer.php'; ?>
