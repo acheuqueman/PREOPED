@@ -9,7 +9,7 @@
     include_once '../modelo/Diagnostico.class.php';
     include_once '../modelo/DiagnosticoMapper.php';
     $Mapper = new DiagnosticoMapper();
-    $Diagnostico = new Diagnostico($Mapper->findById(2));
+    $Diagnostico = new Diagnostico($Mapper->findById($_GET[id]));
     var_dump($Diagnostico);
 ?>
 

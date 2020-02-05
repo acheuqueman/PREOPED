@@ -9,7 +9,7 @@
     include_once '../modelo/AsignaturaMapper.php';
 
     $Mapper = new AsignaturaMapper();
-    $Asignatura = new Asignatura($Mapper->findById(2));
+    $Asignatura = new Asignatura($Mapper->findById($_GET[id]));
     var_dump($Asignatura);
 
 ?>

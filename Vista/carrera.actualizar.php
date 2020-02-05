@@ -9,7 +9,7 @@
     include_once '../modelo/CarreraMapper.php';
     
     $Mapper = new CarreraMapper();
-    $Carrera = new Carrera($Mapper->findById(1));
+    $Carrera = new Carrera($Mapper->findById($_GET[id]));
     var_dump($Carrera);
 
 ?>
