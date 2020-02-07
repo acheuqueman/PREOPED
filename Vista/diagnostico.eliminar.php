@@ -10,7 +10,7 @@ include_once '../lib/Constantes.Class.php';
     include_once '../modelo/DiagnosticoMapper.php';
     $Mapper = new DiagnosticoMapper();
     $Diagnostico = new Diagnostico($Mapper->findById($_GET[id]));
-    var_dump($Diagnostico);
+    //var_dump($Diagnostico);
 ?>
 
 <html>
@@ -71,9 +71,11 @@ include_once '../lib/Constantes.Class.php';
                                         <div class="col-1">
                                             <button class="btn btn-light">Cancelar</button>
                                         </div>
+                                        <input type ="hidden" value="<?= $Diagnostico->getId(); ?>" name="id"> 
                                         <div class="col-2">
                                             <input type ="submit" class="btn btn-info" value="Eliminar Diagnostico">  
                                         </div>
+                                         
                                     </div>
 
                                     <div class="row">&nbsp;</div>
