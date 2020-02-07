@@ -5,11 +5,19 @@
         <group>
             <file>file:/var/www/html/preoped/modelo/DiagnosticoMapper.php</file>
             <file>file:/var/www/html/preoped/Vista/diagnostico.eliminar.php</file>
-            <file>file:/var/www/html/preoped/Vista/diagnostico.eliminar.procesar.php</file>
             <file>file:/var/www/html/preoped/Vista/index.php</file>
             <file>file:/var/www/html/preoped/modelo/BDMapper.php</file>
+            <file>file:/var/www/html/preoped/Vista/asignatura.eliminar.php</file>
+            <file>file:/var/www/html/preoped/modelo/AsignaturaMapper.php</file>
+            <file>file:/var/www/html/preoped/Vista/asignaturas.php</file>
             <file>file:/var/www/html/preoped/modelo/Diagnostico.class.php</file>
             <file>file:/var/www/html/preoped/Vista/diagnosticos.php</file>
+            <file>file:/var/www/html/preoped/Vista/diagnostico.eliminar.procesar.php</file>
+            <file>file:/var/www/html/preoped/Vista/carreras.php</file>
+            <file>file:/var/www/html/preoped/Vista/asignatura.eliminar.procesar.php</file>
+            <file>file:/var/www/html/preoped/modelo/CarreraMapper.php</file>
+            <file>file:/var/www/html/preoped/Vista/carrera.eliminar.procesar.php</file>
+            <file>file:/var/www/html/preoped/Vista/carrera.eliminar.php</file>
         </group>
     </open-files>
 </project-private>
