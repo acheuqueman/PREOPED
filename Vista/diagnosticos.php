@@ -64,7 +64,7 @@ $Coleccion = new ColeccionDiagnostico();
                                                             </button>
                                                         </a>
 
-                                                        <a title="Eliminar" href="diagnostico.eliminar.php">
+                                                        <a title="Eliminar" href="diagnostico.eliminar.php?id=<?= $Diagnostico->getId(); ?>">
                                                             <button type="button" class="btn btn-outline-danger">
                                                                 <span class="oi oi-trash"></span>
                                                             </button>                                   

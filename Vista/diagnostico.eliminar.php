@@ -5,7 +5,7 @@
  * descripcion: textarea
  * 
  */
-include_once '../lib/Constantes.Class.php';
+
 
 ?>
 
@@ -26,49 +26,65 @@ include_once '../lib/Constantes.Class.php';
         <?php include_once '../gui/navbar.php'; ?>
 
         <div class="container-fluid">
-            
 
-                <div class="row">
-                    <div class="col-md-12 justify-content-center">
 
-                        <div class="row ml-auto">
-                            <!-- LUGAR DE LA LISTA -->
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="oi oi-trash">Eliminar Diagnosticos</h5>
-                                    </div>
-                                    <form action="diagnostico.eliminar.procesar.php" method="POST">
-                                        <div class="row">&nbsp;</div>
-                                        <div class="row">
-                                            
+            <div class="row">
+                <div class="col-md-12 justify-content-center">
+
+                    <div class="row ml-auto">
+                        <!-- LUGAR DE LA LISTA -->
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="oi oi-trash">Eliminar Diagnosticos</h5>
+                                </div>
+                                <form action="diagnostico.eliminar.procesar.php" method="POST">
+           
+                                    <div class="row">&nbsp;</div>
+                                    <div class="row">
+                                        <div class="col-12">
                                             <!-- traer name, tipo, descripccion-->
-                                            
-                                            
+                                        <table class="table table-striped small table-bordered border-success">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th>Diagnostico</th>
+                                                    <th>Tipo</th>
+                                                    <th>Descripcion</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td ><?= $Diagnostico->getDiagnostico(); ?></td>
+                                                    <td><?= $Diagnostico->getTipo_discapacidad(); ?></td>
+                                                    <td><?= $Diagnostico->getDescripcion(); ?></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                         </div>
-                                        <div class="row">&nbsp;</div>
-                                        <div class="row justify-content-end">
-                                             <div class="col-1">
-                                                 <button class="btn btn-light">Cancelar</button>
-                                            </div>
-                                            <div class="col-2">
-                                                 <input type ="submit" class="btn btn-info" value="Eliminar Diagnostico">  
-                                            </div>
+                                    </div>
+                                    <div class="row">&nbsp;</div>
+                                    <div class="row justify-content-end">
+                                        <div class="col-1">
+                                            <button class="btn btn-light">Cancelar</button>
                                         </div>
-                                        
-                                        <div class="row">&nbsp;</div>
-                                    </form>
-                                </div>   
-                            </div> 
+                                        <div class="col-2">
+                                            <input type ="submit" class="btn btn-info" value="Eliminar Diagnostico">  
+                                        </div>
+                                    </div>
 
-                        </div>
-
-                        <div class="row">&nbsp;</div>
+                                    <div class="row">&nbsp;</div>
+                                </form>
+                            </div>   
+                        </div> 
 
                     </div>
-                </div>
 
-            
+                    <div class="row">&nbsp;</div>
+
+                </div>
+            </div>
+
+
         </div>
 
         <?php include_once '../gui/footer.php'; ?>
