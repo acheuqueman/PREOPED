@@ -62,7 +62,7 @@ $Coleccion = new ColeccionAsignatura();
                                                             </button>
                                                         </a>
                                                         
-                                                        <a title="Eliminar" href="#">
+                                                        <a title="Eliminar" href="asignatura.eliminar.php?id=<?= $Asignatura->getId(); ?>">
                                                             <button type="button" class="btn btn-outline-danger">
                                                                 <span class="oi oi-trash"></span>
                                                             </button>

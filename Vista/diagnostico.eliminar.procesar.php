@@ -16,6 +16,6 @@ error_reporting(E_ALL);
     //var_dump($Mapper->findById($_POST['id']));
     $Diagnostico = new Diagnostico($Mapper->findById($_POST['id']));
     //var_dump($Diagnostico);
-    $idDiagnosticoCreado = $Mapper->delete($Diagnostico);
-    var_dump($idDiagnosticoCreado);
+    $DiagnosticoEliminado = $Mapper->delete($Diagnostico);
+    var_dump($DiagnosticoEliminado);
     
