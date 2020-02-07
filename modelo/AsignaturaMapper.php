@@ -37,7 +37,7 @@ class AsignaturaMapper extends BDMapper{
     }
     public function delete($Asignatura){
         $this->query = "DELETE FROM " . $this->nombreTabla.
-                "WHERE {$this->nombreAtributoId} = {$Asignatura->getId()}";
+                " WHERE {$this->nombreAtributoId} = {$Asignatura->getId()}";
         $this->resultset = $this->bdconexion->query($this->query);
         if(!$this->resultset) return false;
         return true;

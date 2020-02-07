@@ -34,8 +34,9 @@ class DiagnosticoMapper extends BDMapper{
         
     }
     public function delete($Diagnostico){
-        $this->query = "DELETE FROM " . $this->nombreTabla.
-                "WHERE {$this->nombreAtributoId} = {$Diagnostico->getId()}";
+        $this->query = "DELETE FROM ".$this->nombreTabla.
+                " WHERE {$this->nombreAtributoId} = {$Diagnostico->getId()}";
+        var_dump($this->query);
         $this->resultset = $this->bdconexion->query($this->query);
         if(!$this->resultset) return false;
         return true;

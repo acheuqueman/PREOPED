@@ -50,7 +50,7 @@ class CarreraMapper extends BDMapper{
     }
     public function delete($Carrera){
         $this->query = "DELETE FROM " . $this->nombreTabla.
-                "WHERE {$this->nombreAtributoId} = {$Carrera->getId()}";
+                " WHERE {$this->nombreAtributoId} = {$Carrera->getId()}";
         $this->resultset = $this->bdconexion->query($this->query);
         if(!$this->resultset) return false;
         return true;
