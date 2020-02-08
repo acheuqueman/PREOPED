@@ -53,11 +53,42 @@ $Coleccion = new ColeccionDiagnostico();
                                                     <td style="text-align: center">
 
                                                         <a title="Ver detalle" href="#">
-                                                            <button type="button" class="btn btn-outline-info">
+                                                            <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModalCenter">
                                                                 <span class="oi oi-zoom-in"></span>
                                                             </button>
                                                         </a>
 
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLongTitle">Diagnostico</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <table class="table table-striped table-bordered border-success">
+                                                                            <thead class="thead-light">
+                                                                                <tr>
+                                                                                    <th>Diagnostico</th>
+                                                                                    <th>Tipo</th>
+                                                                                    <th>Descripcion</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td ><?= $Diagnostico->getDiagnostico(); ?></td>
+                                                                                    <td><?= $Diagnostico->getTipo_discapacidad(); ?></td>
+                                                                                    <td><?= $Diagnostico->getDescripcion(); ?></td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <a title="Modificar" href="diagnostico.actualizar.php?id=<?= $Diagnostico->getId(); ?>">
                                                             <button type="button" class="btn btn-outline-warning">
                                                                 <span class="oi oi-pencil"></span>
