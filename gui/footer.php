@@ -2,6 +2,6 @@
 <footer class="footer">
     <?= Constantes::NOMBRE_SISTEMA; ?>
     <span class="oi oi-person"></span> 
-    <?= $_SESSION['usuario']->nombre; ?>
+    <?php // $_SESSION['usuario']->nombre; ?>
     <a href="../app/salir.php">Salir</a>
 </footer>

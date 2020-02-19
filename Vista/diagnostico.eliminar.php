@@ -6,11 +6,14 @@
  * 
  */
 include_once '../lib/Constantes.Class.php';
-    include_once '../modelo/Diagnostico.class.php';
-    include_once '../modelo/DiagnosticoMapper.php';
-    $Mapper = new DiagnosticoMapper();
-    $Diagnostico = new Diagnostico($Mapper->findById($_GET[id]));
-    //var_dump($Diagnostico);
+include_once '../modelo/Diagnostico.class.php';
+include_once '../modelo/DiagnosticoMapper.php';
+$Mapper = new DiagnosticoMapper();
+$Diagnostico = new Diagnostico($Mapper->findById($_GET["id"]));
+
+/**
+ * @todo 2020.02 Corroborar que el diagnostico realmente exista.
+ */
 ?>
 
 <html>
@@ -40,45 +43,42 @@ include_once '../lib/Constantes.Class.php';
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="oi oi-trash">Eliminar Diagnosticos</h5>
+                                    <h5 class="oi oi-trash"> Eliminar Diagn&oacute;stico</h5>
                                 </div>
                                 <form action="diagnostico.eliminar.procesar.php" method="POST">
-           
+
                                     <div class="row">&nbsp;</div>
                                     <div class="row">
                                         <div class="col-12">
-                                            <!-- traer name, tipo, descripccion-->
-                                        <table class="table table-striped small table-bordered border-success">
-                                            <thead class="thead-light">
-                                                <tr>
-                                                    <th>Diagnostico</th>
-                                                    <th>Tipo</th>
-                                                    <th>Descripcion</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td ><?= $Diagnostico->getDiagnostico(); ?></td>
-                                                    <td><?= $Diagnostico->getTipo_discapacidad(); ?></td>
-                                                    <td><?= $Diagnostico->getDescripcion(); ?></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                            <p>
+                                                <!-- traer name, tipo, descripccion-->
+                                            <table class="table table-striped small table-bordered border-success">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th>Diagnostico</th>
+                                                        <th>Tipo</th>
+                                                        <th>Descripcion</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><?= $Diagnostico->getDiagnostico(); ?></td>
+                                                        <td><?= $Diagnostico->getTipo_discapacidad(); ?></td>
+                                                        <td><?= $Diagnostico->getDescripcion(); ?></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="row">&nbsp;</div>
-                                    <div class="row justify-content-end">
-                                        <div class="col-1">
-                                            <button class="btn btn-light">Cancelar</button>
+                                    <div class="row justify-content-start">
+                                        <div class="col">
+                                            <input type ="hidden" value="<?= $Diagnostico->getId(); ?>" name="id" />
+                                            <input type ="submit" class="btn btn-success" value="Eliminar Diagnostico" />
+                                            <a href="diagnosticos.php"><input type="button" class="btn btn-outline-danger" value="Cancelar"></a>
                                         </div>
-                                        <input type ="hidden" value="<?= $Diagnostico->getId(); ?>" name="id"> 
-                                        <div class="col-2">
-                                            <input type ="submit" class="btn btn-info" value="Eliminar Diagnostico">  
-                                        </div>
-                                         
                                     </div>
-
-                                    <div class="row">&nbsp;</div>
                                 </form>
                             </div>   
                         </div> 

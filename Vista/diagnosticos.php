@@ -52,14 +52,25 @@ $Coleccion = new ColeccionDiagnostico();
                                                     <td><?= $Diagnostico->getTipo_discapacidad(); ?></td>
                                                     <td style="text-align: center">
 
+                                                        <!-- Ini Botones Opciones -->
                                                         <a title="Ver detalle" href="#">
-                                                            <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModalCenter">
+                                                            <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#modal<?= $Diagnostico->getId(); ?>" >
                                                                 <span class="oi oi-zoom-in"></span>
-                                                            </button>
-                                                        </a>
+                                                            </button></a>
 
-                                                        <!-- Modal -->
-                                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                        <a title="Modificar" href="diagnostico.actualizar.php?id=<?= $Diagnostico->getId(); ?>">
+                                                            <button type="button" class="btn btn-outline-warning">
+                                                                <span class="oi oi-pencil"></span>
+                                                            </button></a>
+
+                                                        <a title="Eliminar" href="diagnostico.eliminar.php?id=<?= $Diagnostico->getId(); ?>">
+                                                            <button type="button" class="btn btn-outline-danger">
+                                                                <span class="oi oi-trash"></span>
+                                                            </button></a>
+                                                        <!-- Fin Botones Opciones -->
+
+                                                        <!-- Ini Modal -->
+                                                        <div class="modal fade" id="modal<?= $Diagnostico->getId(); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -79,7 +90,7 @@ $Coleccion = new ColeccionDiagnostico();
                                                                             </thead>
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <td ><?= $Diagnostico->getDiagnostico(); ?></td>
+                                                                                    <td><?= $Diagnostico->getDiagnostico(); ?></td>
                                                                                     <td><?= $Diagnostico->getTipo_discapacidad(); ?></td>
                                                                                     <td><?= $Diagnostico->getDescripcion(); ?></td>
                                                                                 </tr>
@@ -89,17 +100,11 @@ $Coleccion = new ColeccionDiagnostico();
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <a title="Modificar" href="diagnostico.actualizar.php?id=<?= $Diagnostico->getId(); ?>">
-                                                            <button type="button" class="btn btn-outline-warning">
-                                                                <span class="oi oi-pencil"></span>
-                                                            </button>
-                                                        </a>
+                                                        <!-- Fin Modal -->
 
-                                                        <a title="Eliminar" href="diagnostico.eliminar.php?id=<?= $Diagnostico->getId(); ?>">
-                                                            <button type="button" class="btn btn-outline-danger">
-                                                                <span class="oi oi-trash"></span>
-                                                            </button>                                   
-                                                        </a>
+
+
+
                                                     </td>
                                                 </tr>
                                             <?php } ?>

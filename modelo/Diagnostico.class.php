@@ -1,7 +1,8 @@
 <?php
 include_once 'ModeloDatosGenerico.php';
 
-class Diagnostico extends ModeloDatosGenerico{
+class Diagnostico extends ModeloDatosGenerico {
+    
     protected $id;
     protected $diagnostico;
     protected $tipo_discapacidad; 

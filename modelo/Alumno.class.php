@@ -11,10 +11,13 @@ class Alumno extends Persona {
 
     protected $anio_ingreso;
     protected $cud;
-
-//    protected $cursa;
-//    protected $alumno_diagnostico;
-
+    
+    /**
+     *
+     * @var Diagnostico[] 
+     */
+    protected $Diagnosticos;
+    
     /**
      * 
      * @param Array $array
@@ -37,57 +40,33 @@ class Alumno extends Persona {
     function setCud($cud) {
         $this->cud = $cud;
     }
+    
 
-    //Agregar objeto ALumno_Familiar en array en Alumno o Familiar?
-    function createAlumno_Familiar($familiar) {
-        
-        /*
-         * SELECT F.* FROM FAMILIAR F, ALUMNO_FAMILIAR AF WHERE F.id = AF.id_familiar AND id_alumno = 1
-         * $arrayA_F["familiar"] = $familiar;
-        $arrayA_F["alumno"] = $this;
-        $A_F = new Alumno_Familiar($arrayA_F);
-//      O Usar sets?
-//      $A_F->setAlumno($this);
-//      $A_F->setFamiliar($familiar);
-        return $A_F;*/
-    }
-    
-    
-    function createAlumno_Diagnostico($diagnostico){
-        $arrayA_D["alumno"] = $this;
-        $arrayA_D["diagnostico"] = $diagnostico;
-        $A_D = new Alumno_Diagnostico($arrayA_D);
-        return $A_D;
-    }
-    
-    function createCursa_Asignatura($Asignatura){
-        $arrayA_C["alumno"] = $this;
-        $arrayA_C["asignatura"] = $Asignatura;
-        $A_C = new Cursa($arrayA_C);
-        return $A_C;
-    }
-    
-    function createAprueba($Asignatura){
-        $arrayA_A["alumno"] = $this;
-        $arrayA_A["asignatura"] = $Asignatura;
-        $A_A = new Aprueba($arrayA_A);
-        return $A_A;
-    }
-    
-    function createEntrevista_Alumno($Entrevista){
-        $arrayEnt["alumno"] = $this;
-        $arrayEnt["entrevista"] = $Entrevista;
-        $E_A = new Entrevista_Alumno($arrayEnt);
-        return $E_A;
+    /**
+     * 
+     * @return Alumno_Diagnostico[]
+     */
+    function getDiagnosticos() {
+        return $this->Diagnosticos;
     }
 
-//    function getAlumno_diagnostico() {
-//        //return $this->alumno_diagnostico;
-//    }
+    /**
+     * 
+     * @param Alumno_Diagnostico[] $Diagnosticos
+     */
+    function setDiagnosticos($Diagnosticos) {
+        $this->Diagnosticos = $Diagnosticos;
+    }
+    
+    /**
+     * 
+     * @param Alumno_Diagnostico $Diagnostico
+     */
+    function addDiagnostico($Diagnostico) {
+        $this->Diagnosticos[] = $Diagnostico;
+    }
 
-//    function addAlumno_diagnostico($a_l) {
-//        $this->alumno_diagnostico[] = $a_l;
-//    }
+    
 
 }
 

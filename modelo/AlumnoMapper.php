@@ -23,13 +23,12 @@ class AlumnoMapper extends BDMapper {
      * @author Eder dos Santos <esantos@uarg.unpa.edu.ar>
      * 
      */
-
     public function __construct() {
         $this->nombreTabla = "vwalumno";
         $this->nombreAtributoId = "id";
         parent::__construct();
     }
-  
+
     /**
      * 
      * @param Int $id
@@ -52,7 +51,6 @@ class AlumnoMapper extends BDMapper {
         return $this->familiares;
     }
 
-
     public function findDiagnosticos($id) {
 
         $this->query = "SELECT D.* "
@@ -71,10 +69,55 @@ class AlumnoMapper extends BDMapper {
     /**
      * 
      * @param Alumno $Alumno
-     * @todo 28/11/2019 Toda la secuencia SQL para generar un registro en las tablas (persona, alumno)
      */
-    public function insertAlumno($Alumno) {
+    public function insert($Alumno) {
+
+        $this->bdconexion->autocommit("false");
+
+        $this->query = "INSERT INTO persona VALUES ("
+                . "NULL, '{$Alumno->getNombre()}', '{$Alumno->getDni()}', '{$Alumno->getEmail()}', '{$Alumno->getTelefono()}'"
+                . ")";
+        $this->resultset = $this->bdconexion->query($this->query);
+
+        if (!$this->resultset) {
+            echo "Error.";
+            $this->bdconexion->rollback();
+            return false;
+        }
+
+        $this->id = $this->bdconexion->insert_id;
+
+        $this->query = "INSERT INTO alumno VALUES ("
+                . "{$this->id}, '{$Alumno->getAnio_ingreso()}', '{$Alumno->getCud()}'"
+                . ")";
+
+        $this->resultset = $this->bdconexion->query($this->query);
+
+        if (!$this->resultset) {
+            echo "Error.";
+            $this->bdconexion->rollback();
+            return false;
+        }
+
+        $this->bdconexion->commit();
+        $this->bdconexion->autocommit("true");
+
+        return $this->id;
+    }
+
+    /**
+     * 
+     * @todo 2020.02 Método Mapper::insertDiagnosticos(Alumno->getDiagnosticos());
+     * @uses Alumno_DiagnosticoMapper::insert
+     * 
+     * @param Alumno_Diagnostico[] $Diagnosticos
+     * 
+     */
+    public function insertDiagnosticos($Diagnosticos) {
         
+        // 1. foreach
+        // 2. Alumno_DiagnosticoMapper::insert
+        // 3. return
     }
 
 }

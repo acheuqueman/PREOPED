@@ -1,17 +1,13 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 include_once 'ModeloDatosGenerico.php';
 
 class Alumno_Diagnostico extends ModeloDatosGenerico{
+    
     protected $id;
-    //private $id_diagostico;
-    protected $diagnostico;
-    //private $id_alumno;
-    protected $alumno;
+    protected $id_alumno;
+    
+    protected $id_diagnostico;
     protected $profesional_diagnostico;
     
     function __construct($array) {
@@ -35,20 +31,20 @@ class Alumno_Diagnostico extends ModeloDatosGenerico{
         $this->profesional_diagnostico = $profesional_diagnostico;
     }
 
-    function getDiagnostico() {
-        return $this->diagnostico;
+    function getIdDiagnostico() {
+        return $this->id_diagnostico;
     }
 
-    function getAlumno() {
-        return $this->alumno;
+    function getIdAlumno() {
+        return $this->id_alumno;
     }
 
-    function setDiagnostico($diagnostico) {
-        $this->diagnostico = $diagnostico;
+    function setIdDiagnostico($id_diagnostico) {
+        $this->id_diagnostico = $id_diagnostico;
     }
 
-    function setAlumno($alumno) {
-        $this->alumno = $alumno;
+    function setIdAlumno($id_alumno) {
+        $this->id_alumno = $id_alumno;
     }
 
 

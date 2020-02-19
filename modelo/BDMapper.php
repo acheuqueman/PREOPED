@@ -41,7 +41,6 @@ class BDMapper {
      * @return type
      */
     function findById($id) {
-        //$this->query = "SELECT * FROM {$this->nombreTabla} WHERE {$this->nombreAtributo}=$id ";
         $this->query = "SELECT * FROM " . $this->nombreTabla . " WHERE " . $this->nombreAtributoId . "=" . $id;
         $this->resultset = $this->bdconexion->query($this->query);
         return $this->resultset->fetch_assoc();

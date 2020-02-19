@@ -3,7 +3,7 @@
         <h5 class="oi oi-pie-menu"> Carga R&aacute;pida</h5>
     </div>
     <div class="card-body">
-        <a title="" href="">
+        <a title="" href="../Vista/alumno.crear.php">
             <span class="btn btn-outline-info btn-block btn-lg oi oi-person"> Alumno</span>
         </a>
         <div>&nbsp;</div>
