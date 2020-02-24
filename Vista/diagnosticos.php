@@ -27,94 +27,90 @@ $Coleccion = new ColeccionDiagnostico();
 
                 <div class="row">
                     <div class="col-md-9 justify-content-center">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title oi oi-list"> Diagnosticos</h5>
+                            </div>
+                            <div class="card-body">
+                            <table class="table table-striped small table-bordered border-success">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Diagnostico</th>
+                                        <th>Tipo</th>
+                                        <th style="text-align: center">Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                        <div class="row">
-                            <!-- LUGAR DE LA LISTA -->
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="card-title oi oi-list"> Diagnosticos</h5>
-                                    </div>
-                                    <table class="table table-striped small table-bordered border-success">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th>Diagnostico</th>
-                                                <th>Tipo</th>
-                                                <th style="text-align: center">Opciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                    <?php foreach ($Coleccion->getColeccion() as $Diagnostico) { ?>
 
-                                            <?php foreach ($Coleccion->getColeccion() as $Diagnostico) { ?>
+                                        <tr>
+                                            <td><?= $Diagnostico->getDiagnostico(); ?></td>
+                                            <td><?= $Diagnostico->getTipo_discapacidad(); ?></td>
+                                            <td style="text-align: center">
 
-                                                <tr>
-                                                    <td><?= $Diagnostico->getDiagnostico(); ?></td>
-                                                    <td><?= $Diagnostico->getTipo_discapacidad(); ?></td>
-                                                    <td style="text-align: center">
+                                                <!-- Ini Botones Opciones -->
+                                                <a title="Ver detalle" href="#">
+                                                    <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#modal<?= $Diagnostico->getId(); ?>" >
+                                                        <span class="oi oi-zoom-in"></span>
+                                                    </button></a>
 
-                                                        <!-- Ini Botones Opciones -->
-                                                        <a title="Ver detalle" href="#">
-                                                            <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#modal<?= $Diagnostico->getId(); ?>" >
-                                                                <span class="oi oi-zoom-in"></span>
-                                                            </button></a>
+                                                <a title="Modificar" href="diagnostico.actualizar.php?id=<?= $Diagnostico->getId(); ?>">
+                                                    <button type="button" class="btn btn-outline-warning">
+                                                        <span class="oi oi-pencil"></span>
+                                                    </button></a>
 
-                                                        <a title="Modificar" href="diagnostico.actualizar.php?id=<?= $Diagnostico->getId(); ?>">
-                                                            <button type="button" class="btn btn-outline-warning">
-                                                                <span class="oi oi-pencil"></span>
-                                                            </button></a>
+                                                <a title="Eliminar" href="diagnostico.eliminar.php?id=<?= $Diagnostico->getId(); ?>">
+                                                    <button type="button" class="btn btn-outline-danger">
+                                                        <span class="oi oi-trash"></span>
+                                                    </button></a>
+                                                <!-- Fin Botones Opciones -->
 
-                                                        <a title="Eliminar" href="diagnostico.eliminar.php?id=<?= $Diagnostico->getId(); ?>">
-                                                            <button type="button" class="btn btn-outline-danger">
-                                                                <span class="oi oi-trash"></span>
-                                                            </button></a>
-                                                        <!-- Fin Botones Opciones -->
-
-                                                        <!-- Ini Modal -->
-                                                        <div class="modal fade" id="modal<?= $Diagnostico->getId(); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLongTitle">Diagnostico</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <table class="table table-striped table-bordered border-success">
-                                                                            <thead class="thead-light">
-                                                                                <tr>
-                                                                                    <th>Diagnostico</th>
-                                                                                    <th>Tipo</th>
-                                                                                    <th>Descripcion</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td><?= $Diagnostico->getDiagnostico(); ?></td>
-                                                                                    <td><?= $Diagnostico->getTipo_discapacidad(); ?></td>
-                                                                                    <td><?= $Diagnostico->getDescripcion(); ?></td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>                                                                    
-                                                                </div>
+                                                <!-- Ini Modal -->
+                                                <div class="modal fade" id="modal<?= $Diagnostico->getId(); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle">Diagnostico</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
                                                             </div>
+                                                            <div class="modal-body">
+                                                                <table class="table table-striped table-bordered border-success">
+                                                                    <thead class="thead-light">
+                                                                        <tr>
+                                                                            <th>Diagnostico</th>
+                                                                            <th>Tipo</th>
+                                                                            <th>Descripcion</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td><?= $Diagnostico->getDiagnostico(); ?></td>
+                                                                            <td><?= $Diagnostico->getTipo_discapacidad(); ?></td>
+                                                                            <td><?= $Diagnostico->getDescripcion(); ?></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>                                                                    
                                                         </div>
-                                                        <!-- Fin Modal -->
+                                                    </div>
+                                                </div>
+                                                <!-- Fin Modal -->
 
 
 
 
-                                                    </td>
-                                                </tr>
-                                            <?php } ?>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
 
-                                        </tbody>
-                                    </table>
-                                </div>   
-                            </div> 
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>   
 
-                        </div>
 
                         <div class="row">&nbsp;</div>
 

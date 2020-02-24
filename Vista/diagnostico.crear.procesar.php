@@ -23,8 +23,6 @@ $idDiagnosticoCreado = $Mapper->insert($Diagnostico);
         <?php include_once '../gui/navbar.php'; ?>
 
         <div class="container-fluid">
-
-            <div class="row">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="oi oi-plus"> Nuevo Diagn&oacute;stico</h5>
@@ -50,8 +48,6 @@ $idDiagnosticoCreado = $Mapper->insert($Diagnostico);
                 <div class="row">&nbsp;</div>
             </div>
 
-
-        </div>
 
         <?php include_once '../gui/footer.php'; ?>
     </body>

@@ -26,57 +26,13 @@ $Diagnostico = new Diagnostico($Mapper->findById($_GET["id"]));
                 <div class="card-header">
                     <h5 class="oi oi-pencil"> Actualizar Diagn&oacute;stico</h5>
                 </div>
-                <div class="card-body">
-                    <form action="diagnostico.actualizar.procesar.php" method="POST">
-                        <input type="hidden" name="id" value="<?= $Diagnostico->getId(); ?>">
-                        <div class="row">&nbsp;</div>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="card">
-                                    <div class="card-header">Diagnostico</div>
-                                    <div class="card-body">
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control" name="diagnostico" required="" value="<?= $Diagnostico->getDiagnostico(); ?>">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="card">
-                                    <div class="card-header">Tipo de Discapacidad</div>
-                                    <div class="card-body">
-                                        <div class="input-group mb-3">
-                                            <select class="custom-select" name="tipo_discapacidad">
-                                                <optgroup label="Elija">Elija</optgroup>
-                                                <option value="Motriz" <?= ($Diagnostico->getTipo_discapacidad()) == "Motriz" ? "selected" : null; ?>>Motriz</option>
-                                                <option value="Psicologica" <?= ($Diagnostico->getTipo_discapacidad()) == "Psicologica" ? "selected" : null; ?>>Psicol&oacute;gica</option>
-                                                <option value="Visual" <?= ($Diagnostico->getTipo_discapacidad()) == "Visual" ? "selected" : null; ?>>Visual</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="card">
-                                    <div class="card-header">Descripcion</div>
-                                    <div class="card-body">
-                                        <div class="input-group">
-                                            <textarea class="form-control" name="descripcion" required=""><?= $Diagnostico->getDescripcion(); ?></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row ">
-                            <div class="col">
-                                <input type ="submit" class="btn btn-success" />  
-                                <a href="diagnosticos.php"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>
-                            </div>
-                        </div>
-
-                        <div class="row">&nbsp;</div>
-                    </form>
-                </div>
+                <form action="diagnostico.actualizar.procesar.php" method="POST">
+                    <div class="card-body">
+                        <?php $_GET['accion'] = "actualizar;" ?>
+                        <?php include_once './diagnostico.formulario.php'; ?>
+                    </div>
+                        
+                </form>
             </div>   
 
         </div>

@@ -27,12 +27,7 @@ $DiagnosticoEliminado = $Mapper->delete($Diagnostico);
         <div class="container-fluid">
 
 
-            <div class="row">
-                <div class="col-md-12 justify-content-center">
 
-                    <div class="row ml-auto">
-                        <!-- LUGAR DE LA LISTA -->
-                        <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
                                     <h5 class="oi oi-trash"> Eliminar Diagn&oacute;stico</h5>
@@ -56,12 +51,8 @@ $DiagnosticoEliminado = $Mapper->delete($Diagnostico);
                             </div>   
                         </div> 
 
-                    </div>
-
+                    
                     <div class="row">&nbsp;</div>
-
-                </div>
-            </div>
 
 
         </div>
