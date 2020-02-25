@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/preoped/Vista/asignatura.actualizar.php</file>
+            <file>file:/var/www/html/preoped/Vista/alumnos.php</file>
+            <file>file:/var/www/html/preoped/Vista/alumno.actualizar.php</file>
+            <file>file:/var/www/html/preoped/Vista/alumno.formulario.php</file>
+            <file>file:/var/www/html/preoped/Vista/diagnostico.formulario.php</file>
+            <file>file:/var/www/html/preoped/Vista/diagnostico.actualizar.procesar.php</file>
+            <file>file:/var/www/html/preoped/Vista/diagnostico.actualizar.php</file>
+            <file>file:/var/www/html/preoped/Vista/diagnosticos.php</file>
         </group>
     </open-files>
 </project-private>

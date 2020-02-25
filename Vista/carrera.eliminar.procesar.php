@@ -12,7 +12,7 @@ error_reporting(E_ALL);
     $Carrera = new Carrera($Mapper->findById($_POST['id']));
     //var_dump($Diagnostico);
     $CarreraEliminada = $Mapper->delete($Carrera);
-    var_dump($CarreraEliminada);
+   // var_dump($CarreraEliminada);
     
 ?>
 
