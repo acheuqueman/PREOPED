@@ -8,7 +8,7 @@ error_reporting(E_ALL);
     include_once '../modelo/DiagnosticoMapper.php';
     
     $Diagnostico = new Diagnostico($_POST);
-    //var_dump($Diagnostico);
+    var_dump($Diagnostico);
     $Mapper = new DiagnosticoMapper();
     $idDiagnosticoCreado = $Mapper->update($Diagnostico);
     var_dump($idDiagnosticoCreado);
@@ -30,7 +30,7 @@ error_reporting(E_ALL);
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="oi oi-plus"> Nuevo Diagn&oacute;stico</h5>
+                    <h5 class="oi oi-plus"> Actualizar Diagn&oacute;stico</h5>
                 </div>
                 <div class="card-body">
                     <?php if ($idDiagnosticoCreado) { ?>
