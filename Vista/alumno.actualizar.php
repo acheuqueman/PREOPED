@@ -1,4 +1,11 @@
-<?php include_once '../lib/Constantes.Class.php'; ?>
+<?php
+include_once '../lib/Constantes.Class.php';
+include_once '../modelo/Alumno.class.php';
+include_once '../modelo/AlumnoMapper.php';
+$Mapper = new AlumnoMapper();
+$Alumno = new Alumno($Mapper->findById($_GET['id']));
+
+?>
 
 <html>
     <head>
@@ -18,10 +25,10 @@
                 <div class="card-header">
                     <h5 class="oi oi-plus"> Nuevo Alumno</h5>
                 </div>
-                <form action="alumno.crear.procesar.php" method="POST">
+                <form action="alumno.crear.php" method="POST">
                     <div class="card-body">
-                        <?php $_GET['accion'] = "actualizar"; ?>
-                        <?php include_once './alumno.formulario.php'; ?>
+                        <?php //$_GET['accion'] = "actualizar"; ?>
+                        <?php include './alumno.formulario.php'; ?>
                     </div>
                 </form>
             </div>
