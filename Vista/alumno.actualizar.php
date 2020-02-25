@@ -25,7 +25,7 @@ $Alumno = new Alumno($Mapper->findById($_GET['id']));
                 <div class="card-header">
                     <h5 class="oi oi-plus"> Nuevo Alumno</h5>
                 </div>
-                <form action="alumno.crear.php" method="POST">
+                <form action="alumno.actualizar.procesar.php" method="POST">
                     <div class="card-body">
                         <?php //$_GET['accion'] = "actualizar"; ?>
                         <?php include './alumno.formulario.php'; ?>
