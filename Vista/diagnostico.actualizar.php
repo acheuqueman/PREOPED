@@ -1,6 +1,10 @@
 <?php
 include_once '../lib/Constantes.Class.php';
+include_once '../modelo/Diagnostico.class.php';
+    include_once '../modelo/DiagnosticoMapper.php';
 
+    $Mapper = new DiagnosticoMapper();
+    $Diagnostico = new Diagnostico($Mapper->findById($_GET['id']));
 ?>
 
 <html>
@@ -23,7 +27,6 @@ include_once '../lib/Constantes.Class.php';
                 </div>
                 <form action="diagnostico.actualizar.procesar.php" method="POST">
                     <div class="card-body">
-                        <?php $_GET['accion'] = 'actualizar'; ?>
                         <?php include_once './diagnostico.formulario.php'; ?>
                     </div>
                         

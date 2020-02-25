@@ -3,22 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/var/www/html/preoped/modelo/DiagnosticoMapper.php</file>
-            <file>file:/var/www/html/preoped/Vista/alumno.crear.php</file>
-=======
-            <file>file:/var/www/html/preoped/Vista/alumno.crear.procesar.php</file>
-            <file>file:/var/www/html/preoped/Vista/alumno.crear.php</file>
-            <file>file:/var/www/html/preoped/Vista/alumnos.php</file>
->>>>>>> 813f8dc435371c5e1429e3b4fb0bb2f763157223
             <file>file:/var/www/html/preoped/Vista/alumno.actualizar.php</file>
-            <file>file:/var/www/html/preoped/modelo/BDConfig.php</file>
             <file>file:/var/www/html/preoped/Vista/alumno.formulario.php</file>
-            <file>file:/var/www/html/preoped/Vista/diagnostico.actualizar.procesar.php</file>
-            <file>file:/var/www/html/preoped/Vista/alumnos.bloque.php</file>
-            <file>file:/var/www/html/preoped/index.php</file>
+            <file>file:/var/www/html/preoped/Vista/diagnostico.formulario.php</file>
             <file>file:/var/www/html/preoped/Vista/diagnostico.actualizar.php</file>
-            <file>file:/var/www/html/preoped/modelo/BDConexion.php</file>
         </group>
     </open-files>
 </project-private>
