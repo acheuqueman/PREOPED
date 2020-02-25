@@ -25,52 +25,38 @@ include_once '../lib/Constantes.Class.php';
         <?php include_once '../gui/navbar.php'; ?>
 
         <div class="container-fluid">
-            
 
-                <div class="row">
-                    <div class="col-md-12 justify-content-center">
-
-                        <div class="row ml-auto">
-                            <!-- LUGAR DE LA LISTA -->
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="oi oi-plus">Crear Asignatura</h5>
-                                    </div>
-                                    <form action="asignatura.crear.procesar.php" method="POST">
-                                        <div class="row">&nbsp;</div>
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <div class="card">
-                                                    <div class="card-header">Nombre Asignatura</div>
-                                                    <div class="card-body">
-                                                        <div class="input-group mb-3">
-                                                            <input type="text" class="form-control" name="nombre">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>                                            
-                                        </div>
-                                        <div class="row">&nbsp;</div>
-                                        <div class="row justify-content-end">
-                                            <div class="col-2">
-                                                <input type ="submit" class="btn btn-info">  
-
-                                            </div>
-                                        </div>
-                                        <div class="row">&nbsp;</div>
-                                    </form>
-                                </div>   
-                            </div> 
-
-                        </div>
-
-                        <div class="row">&nbsp;</div>
-
-                    </div>
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="oi oi-plus">Crear Asignatura</h5>
                 </div>
+                <div class="card-body">
+                    <form action="asignatura.crear.procesar.php" method="POST">
+                        <div class="row">&nbsp;</div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <div class="card-header">Nombre Asignatura</div>
+                                    <div class="card-body">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" name="nombre">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                                            
+                        </div>
+                        <div class="row">&nbsp;</div>
+                        <div class="row ">
+                            <div class="col">
+                                <input type ="submit" class="btn btn-success" />  
+                                <a href="asignaturas.php"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>
+                            </div>
+                        </div>
+                        <div class="row">&nbsp;</div>
+                    </form>
+                </div>
+            </div>   
 
-            
         </div>
 
         <?php include_once '../gui/footer.php'; ?>

@@ -1,10 +1,9 @@
 <?php
-
 include_once '../lib/Constantes.Class.php';
-    include_once '../modelo/Asignatura.class.php';
-    include_once '../modelo/AsignaturaMapper.php';
-    $Mapper = new AsignaturaMapper();
-    $Asignatura = new Asignatura($Mapper->findById($_GET[id]));
+include_once '../modelo/Asignatura.class.php';
+include_once '../modelo/AsignaturaMapper.php';
+$Mapper = new AsignaturaMapper();
+$Asignatura = new Asignatura($Mapper->findById($_GET['id']));
 ?>
 
 <html>
@@ -36,40 +35,39 @@ include_once '../lib/Constantes.Class.php';
                                 <div class="card-header">
                                     <h5 class="oi oi-trash">Eliminar Asignaturas</h5>
                                 </div>
-                                <form action="asignatura.eliminar.procesar.php" method="POST">
-           
-                                    <div class="row">&nbsp;</div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <!-- traer name, tipo, descripccion-->
-                                        <table class="table table-striped small table-bordered border-success">
-                                            <thead class="thead-light">
-                                                <tr>
-                                                    <th>Nombre</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td ><?= $Asignatura->getNombre(); ?></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                <div class="card-body">
+                                    <form action="asignatura.eliminar.procesar.php" method="POST">
+
+                                        <div class="row">&nbsp;</div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <!-- traer name, tipo, descripccion-->
+                                                <table class="table table-striped small table-bordered border-success">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th>Nombre</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td ><?= $Asignatura->getNombre(); ?></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">&nbsp;</div>
-                                    <div class="row justify-content-end">
-                                        <div class="col-1">
-                                            <button class="btn btn-light">Cancelar</button>
+                                        <div class="row">&nbsp;</div>
+                                       <div class="row justify-content-start">
+                                        <div class="col">
+                                            <input type ="hidden" value="<?= $Asignatura->getId(); ?>" name="id" />
+                                            <input type ="submit" class="btn btn-success" value="Eliminar Asignatura" />
+                                            <a href="asignaturas.php"><input type="button" class="btn btn-outline-danger" value="Cancelar"></a>
                                         </div>
-                                        <input type ="hidden" value="<?= $Asignatura->getId(); ?>" name="id"> 
-                                        <div class="col-2">
-                                            <input type ="submit" class="btn btn-info" value="Eliminar Asignatura">  
-                                        </div>
-                                         
                                     </div>
 
-                                    <div class="row">&nbsp;</div>
-                                </form>
+                                        <div class="row">&nbsp;</div>
+                                    </form>
+                                </div>
                             </div>   
                         </div> 
 

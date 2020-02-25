@@ -100,3 +100,5 @@ if (isset($_GET['accion']) && ($_GET['accion'] == "actualizar")) {
 
 <div class="form-row">&nbsp;</div>
 <input type ="submit" class="btn btn-success">  
+<a href="diagnosticos.php"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>
+
