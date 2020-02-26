@@ -4,7 +4,7 @@ include_once '../lib/Constantes.Class.php';
     include_once '../modelo/Carrera.class.php';
     include_once '../modelo/CarreraMapper.php';
     $Mapper = new CarreraMapper();
-    $Carrera = new Carrera($Mapper->findById($_GET[id]));
+    $Carrera = new Carrera($Mapper->findById($_GET['id']));
 ?>
 
 <html>
@@ -57,15 +57,13 @@ include_once '../lib/Constantes.Class.php';
                                         </div>
                                     </div>
                                     <div class="row">&nbsp;</div>
-                                    <div class="row justify-content-end">
-                                        <div class="col-1">
-                                            <button class="btn btn-light">Cancelar</button>
+                                    
+                                    <div class="row justify-content-start">
+                                        <div class="col">
+                                            <input type ="hidden" value="<?= $Carrera->getId(); ?>" name="id" />
+                                            <input type ="submit" class="btn btn-success" value="Eliminar Carrera" />
+                                            <a href="carreras.php"><input type="button" class="btn btn-outline-danger" value="Cancelar"></a>
                                         </div>
-                                        <input type ="hidden" value="<?= $Carrera->getId(); ?>" name="id"> 
-                                        <div class="col-2">
-                                            <input type ="submit" class="btn btn-info" value="Eliminar Carrera">  
-                                        </div>
-                                         
                                     </div>
 
                                     <div class="row">&nbsp;</div>

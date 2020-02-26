@@ -22,53 +22,9 @@ include_once '../lib/Constantes.Class.php';
                     <h5 class="oi oi-plus"> Nuevo Diagn&oacute;stico</h5>
                 </div>
                 <form action="diagnostico.crear.procesar.php" method="POST">
-                    <div class="row">&nbsp;</div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="card">
-                                <div class="card-header">Diagnostico</div>
-                                <div class="card-body">
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="diagnostico" required="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="card">
-                                <div class="card-header">Tipo de Discapacidad</div>
-                                <div class="card-body">
-                                    <div class="input-group mb-3">
-                                        <select class="custom-select" name="tipo_discapacidad">
-                                            <optgroup label="Elija">Elija</optgroup>
-                                            <option value="Motriz">Motriz</option>
-                                            <option value="Psicologica">Psicol&oacute;gica</option>
-                                            <option value="Visual">Visual</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="card">
-                                <div class="card-header">Descripcion</div>
-                                <div class="card-body">
-                                    <div class="input-group">
-                                        <textarea class="form-control" name="descripcion" required=""></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card-body">
+                        <?php include_once './diagnostico.formulario.php';      ?>
                     </div>
-                    <div class="row">&nbsp;</div>
-                    <div class="row justify-content-end">
-                        <div class="col-2">
-                            <input type ="submit" class="btn btn-info">  
-
-                        </div>
-                    </div>
-
-                    <div class="row">&nbsp;</div>
                 </form>
             </div>   
 
