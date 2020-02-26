@@ -45,6 +45,7 @@ if (isset($_GET['accion']) && ($_GET['accion'] == "actualizar")) {
                 CUD
             </small>                   
         </div>
+        <input type="hidden" name="id" value="<?= isset($Alumno) ? $Alumno->getID() : null; ?>">
     </div>
 </div>
 
