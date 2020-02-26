@@ -31,6 +31,84 @@ class AlumnoMapper extends BDMapper {
 
     /**
      * 
+     * @param Alumno $Alumno
+     */
+    public function insert($Alumno) {
+
+        $this->bdconexion->autocommit(FALSE);
+        $this->bdconexion->begin_transaction();
+
+        $this->query = "INSERT INTO persona VALUES ("
+                . "NULL, '{$Alumno->getNombre()}', '{$Alumno->getDni()}', '{$Alumno->getEmail()}', '{$Alumno->getTelefono()}'"
+                . ")";
+        $this->resultset = $this->bdconexion->query($this->query);
+
+        if (!$this->resultset) {
+            echo "Error.";
+            $this->bdconexion->rollback();
+            return false;
+        }
+
+        $this->id = $this->bdconexion->insert_id;
+
+        $this->query = "INSERT INTO alumno VALUES ("
+                . "{$this->id}, '{$Alumno->getAnio_ingreso()}', '{$Alumno->getCud()}'"
+                . ")";
+
+        $this->resultset = $this->bdconexion->query($this->query);
+
+        if (!$this->resultset) {
+            echo "Error.";
+            $this->bdconexion->rollback();
+            return false;
+        }
+
+        $this->bdconexion->commit();
+        $this->bdconexion->autocommit(TRUE);
+
+        return $this->id;
+    }
+
+    /**
+     * 
+     * @param Alumno $Alumno
+     */
+    function update($Alumno) {
+
+        $this->bdconexion->autocommit(FALSE);
+        $this->bdconexion->begin_transaction();
+
+        $this->query = "UPDATE alumno "
+                . "SET anio_ingreso = " . $Alumno->getAnio_ingreso() . ", "
+                . "cud = '" . $this->bdconexion->escape_string($Alumno->getCud()) . "' "
+                . "WHERE id = " . $Alumno->getId();
+
+        $this->resultset = $this->bdconexion->query($this->query);
+        if (!$this->resultset) {
+            $this->bdconexion->rollback();
+            return false;
+        }
+
+        $this->query = "UPDATE persona "
+                . "SET nombre = '" . $this->bdconexion->escape_string($Alumno->getNombre()) . "', "
+                . "dni = '" . $this->bdconexion->escape_string($Alumno->getDni()) . "', "
+                . "email = '" . $this->bdconexion->escape_string($Alumno->getEmail()) . "', "
+                . "telefono = '" . $this->bdconexion->escape_string($Alumno->getTelefono()) . "' "
+                . "WHERE id = " . $Alumno->getId();
+
+        $this->resultset = $this->bdconexion->query($this->query);
+        if (!$this->resultset) {
+            $this->bdconexion->rollback();
+            return false;
+        }
+
+        $this->bdconexion->commit();
+        $this->bdconexion->autocommit(TRUE);
+        return true;
+    }
+
+    /**
+     * 
      * @param Int $id
      * @return Familiar[]
      * 
@@ -64,60 +142,6 @@ class AlumnoMapper extends BDMapper {
             $this->diagnosticos[] = new Diagnostico($this->resultset->fetch_assoc());
         }
         return $this->diagnosticos;
-    }
-
-    /**
-     * 
-     * @param Alumno $Alumno
-     */
-    public function insert($Alumno) {
-
-        $this->bdconexion->autocommit("false");
-
-        $this->query = "INSERT INTO persona VALUES ("
-                . "NULL, '{$Alumno->getNombre()}', '{$Alumno->getDni()}', '{$Alumno->getEmail()}', '{$Alumno->getTelefono()}'"
-                . ")";
-        $this->resultset = $this->bdconexion->query($this->query);
-
-        if (!$this->resultset) {
-            echo "Error.";
-            $this->bdconexion->rollback();
-            return false;
-        }
-
-        $this->id = $this->bdconexion->insert_id;
-
-        $this->query = "INSERT INTO alumno VALUES ("
-                . "{$this->id}, '{$Alumno->getAnio_ingreso()}', '{$Alumno->getCud()}'"
-                . ")";
-
-        $this->resultset = $this->bdconexion->query($this->query);
-
-        if (!$this->resultset) {
-            echo "Error.";
-            $this->bdconexion->rollback();
-            return false;
-        }
-
-        $this->bdconexion->commit();
-        $this->bdconexion->autocommit("true");
-
-        return $this->id;
-    }
-
-    /**
-     * 
-     * @todo 2020.02 Método Mapper::insertDiagnosticos(Alumno->getDiagnosticos());
-     * @uses Alumno_DiagnosticoMapper::insert
-     * 
-     * @param Alumno_Diagnostico[] $Diagnosticos
-     * 
-     */
-    public function insertDiagnosticos($Diagnosticos) {
-        
-        // 1. foreach
-        // 2. Alumno_DiagnosticoMapper::insert
-        // 3. return
     }
 
 }

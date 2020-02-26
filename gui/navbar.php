@@ -12,63 +12,56 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
 
-            <li class = "nav-item md-3 ml-3">
-                <a class = "nav-link btn btn-info" href = "../Vista/alumnos.php">
-                    <span class = "oi oi-person" /> Alumnos
+            <li class = "nav-item ml-1">
+                <a class = "nav-link btn btn-info btn-sm" href = "../Vista/alumnos.php">
+                    <span class = "oi oi-person"></span> Alumnos
                 </a>
             </li>
 
-
-            <li class = "nav-item md-3 ml-3">
-                <a class = "nav-link btn btn-info" href = "../app">
-                    <span class = "oi oi-graph" /> Entrevistas
+            <li class = "nav-item ml-1">
+                <a class = "nav-link btn btn-info btn-sm" href = "../app">
+                    <span class = "oi oi-graph" ></span> Entrevistas
                 </a>
             </li>
 
-
-            <li class="nav-item dropdown md-3 ml-3">
-                <a class="nav-link dropdown-toggle btn btn-info" href="#"  id="navbarDropdownConfig" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="oi oi-cog" /> Configuracion
+            <li class="nav-item dropdown ml-1">
+                <a class="nav-link dropdown-toggle btn btn-info btn-sm" href="#"  id="navbarDropdownConfig" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="oi oi-cog" ></span> Configuracion
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownUsuarios">
                     <a class="dropdown-item" href="../Vista/diagnosticos.php">
-                        <span class="oi oi-cog" />  Diagnosticos
+                        <span class="oi oi-cog" ></span>  Diagnosticos
                     </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="../Vista/carreras.php">
-                        <span class = "oi oi-cog" /> Carreras
+                        <span class="oi oi-cog" ></span> Carreras
                     </a>
                     <div class="dropdown-divider"></div>
-                    <?php // } ?>
                     <a class="dropdown-item" href="../Vista/asignaturas.php">
-                        <span class="oi oi-cog" /> Asignaturas
+                        <span class="oi oi-cog" ></span> Asignaturas
                     </a>
-                    <?php // } ?>
-                    <!-- <a class="dropdown-item" href="../app">
-                         <span class="oi oi-cog" /> Informes
-                     </a>-->
                 </div>
             </li>
 
             <?php // if (ControlAcceso::verificaPermiso(PermisosSistema::PERMISO_USUARIOS)) { ?>
-            <li class="nav-item dropdown md-3 ml-3">
-                <a class="nav-link dropdown-toggle btn btn-info" href="#"  id="navbarDropdownUsuarios" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="oi oi-person" /> Usuarios
+            <li class="nav-item dropdown ml-1 ">
+                <a class="nav-link dropdown-toggle btn btn-info btn-sm" href="#"  id="navbarDropdownUsuarios" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="oi oi-person" ></span> Usuarios
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownUsuarios">
                     <a class="dropdown-item" href="../uargflow/usuarios.php">
-                        <span class="oi oi-person" /> Usuarios
+                        <span class="oi oi-person" ></span> Usuarios
                     </a>
                     <div class="dropdown-divider"></div>
                     <?php // if (ControlAcceso::verificaPermiso(PermisosSistema::PERMISO_ROLES)) { ?>
                     <a class="dropdown-item" href="../uargflow/roles.php">
-                        <span class = "oi oi-graph" /> Roles
+                        <span class = "oi oi-graph" ></span> Roles
                     </a>
                     <div class="dropdown-divider"></div>
                     <?php // } ?>
                     <?php // if (ControlAcceso::verificaPermiso(PermisosSistema::PERMISO_PERMISOS)) { ?>
                     <a class="dropdown-item" href="../uargflow/permisos.php">
-                        <span class="oi oi-lock-locked" /> Permisos
+                        <span class="oi oi-lock-locked" ></span> Permisos
                     </a>
 
                     <?php // } ?>
@@ -77,10 +70,9 @@
             <?php // } ?>
 
 
-            <li class="nav-item ml-3">
-                <a class="nav-link btn btn-info" href="../uargflow/salir.php">
-                    <span class="oi oi-account-logout" /> 
-                    Salir
+            <li class="nav-item ml-1">
+                <a class="nav-link btn btn-outline-info btn-sm" href="../uargflow/salir.php">
+                    <span class="oi oi-account-logout" ></span> Salir
                 </a>
             </li>
         </ul>

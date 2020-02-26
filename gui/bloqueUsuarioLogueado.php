@@ -5,10 +5,8 @@
     <div class="card-body">
         <p>Bienvenid@, Eder.</p>
         <a href="../uargflow/salir.php">
-            <button type="button" class="btn-outline-danger btn-block btn-lg">
-                <span class="oi oi-account-logout">
-                    Salir
-                </span>
+            <button type="button" class="btn-outline-danger btn-block ">
+                <span class="oi oi-account-logout"> </span> Salir
             </button>
         </a>
     </div>

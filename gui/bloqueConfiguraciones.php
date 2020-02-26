@@ -1,28 +1,18 @@
 <div class="card">
     <div class="card-header text-white bg-secondary">
-        <h5 class="oi oi-cog"> Configuraciones</h5>
+        <h5><span class="oi oi-cog"></span> Configuraciones</h5>
     </div>
-    <div class="card-body">
-        <a title="" href="../Vista/diagnosticos.php">
-            <button type="button" class="btn btn-outline-secondary btn-block btn-lg">
-                <span class="oi oi-cog"> Diagn&oacute;sticos</span>
-            </button>
-        </a>
-        <div>&nbsp;</div>
-        <a title="" href="../Vista/carreras.php">
-            <button type="button" class="btn btn-outline-secondary btn-block btn-lg">
-                <span class="oi oi-cog"> Carreras</span>
-            </button>
-        </a>
-        <div>&nbsp;</div>
-        <a title="" href="../Vista/asignaturas.php">    
-            <button type="button" class="btn btn-outline-secondary btn-block btn-lg">
-                <span class="oi oi-cog"> Asignaturas</span>
-            </button>
-        </a>
-        <!--<div>&nbsp;</div>
-        <a title="" href="">
-            <span class="btn btn-outline-secondary btn-block btn-lg oi oi-graph"> Informes</span>
-        </a>-->
+    <div class="card-body ">
+        <div class="list-group">
+            <a href="../Vista/diagnosticos.php" class="list-group-item list-group-item-action">
+                <span class="oi oi-cog"></span> Diagn&oacute;sticos
+            </a>
+            <a href="../Vista/carreras.php" class="list-group-item list-group-item-action">
+                <span class="oi oi-cog"></span> Carreras
+            </a>
+            <a href="../Vista/asignaturas.php" class="list-group-item list-group-item-action">
+                <span class="oi oi-cog"></span> Asignaturas
+            </a>
+        </div>                            
     </div>
 </div>
