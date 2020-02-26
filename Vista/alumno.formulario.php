@@ -70,7 +70,7 @@ if (isset($_GET['accion']) && ($_GET['accion'] == "actualizar")) {
     </div>
 </div>
 
-
+<?php if(!isset($Alumno)) { ?>
 <div class="form-group">
     <div class="form-row">
         <label for="diagnostico">Diagn&oacute;sticos</label> 
@@ -98,6 +98,7 @@ if (isset($_GET['accion']) && ($_GET['accion'] == "actualizar")) {
         </div>
     </div>
 </div>
+<?php } ?>
 
 <div class="form-row">&nbsp;</div>
 <input type ="submit" class="btn btn-success">  
