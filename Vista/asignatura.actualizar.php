@@ -38,28 +38,9 @@ include_once '../lib/Constantes.Class.php';
                 </div>
                 <div class="card-body">
                     <form action="asignatura.actualizar.procesar.php" method="POST">
-                        <div class="row">&nbsp;</div>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="card">
-                                    <input type="hidden" name="id" value="<?= $Asignatura->getId() ?>">
-                                    <div class="card-header">Nombre Asignatura</div>
-                                    <div class="card-body">
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control" name="nombre" required=" " value="<?= $Asignatura->getNombre() ?>">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                                            
+                        <div class="card-body">
+                            <?php include_once './asignatura.formulario.php'; ?>
                         </div>
-                        <div class="row">&nbsp;</div>
-                        <div class="row ">
-                            <div class="col">
-                                <input type ="submit" class="btn btn-success" />  
-                                <a href="asignaturas.php"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>
-                            </div>
-                        </div>
-                        <div class="row">&nbsp;</div>
                     </form>
                 </div>
             </div>   
