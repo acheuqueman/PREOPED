@@ -23,5 +23,8 @@
 </style>
 
 <style>
-    .columnaOpciones { text-align: center; width: 20%; }
+    .columnaOpciones { 
+        text-align: center; 
+        width: 20%; 
+    }
 </style>

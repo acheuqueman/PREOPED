@@ -8,21 +8,8 @@ include_once '../lib/Constantes.Class.php';
         <title><?= Constantes::NOMBRE_SISTEMA; ?> - Inicio</title>
     </head>
     <body>
-        <script>
-            $(document).ready(function () {
-                $('#tablaAlumnos').DataTable({
-                    "aaSorting": [],
-                    columnDefs: [{
-                            orderable: false,
-                            targets: [1, 3]
-                        }],
-                    "language": {
-                        "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
-                    }
-                });
-                $('.dataTables_length').addClass('bs-select');
-            });
-        </script>
+        <script>var columnasSinSort = [1, 3];</script>
+        <script src="../lib/tablaSort.js"></script>
 
         <?php include_once '../gui/navbar.php'; ?>
 
