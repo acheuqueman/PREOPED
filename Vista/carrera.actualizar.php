@@ -4,7 +4,7 @@ include_once '../modelo/Carrera.class.php';
 include_once '../modelo/CarreraMapper.php';
 
 $Mapper = new CarreraMapper();
-$Asignatura = new Carrera($Mapper->findById($_GET['id']));
+$Carrera = new Carrera($Mapper->findById($_GET['id']));
 ?>
 <html>
     <head>
