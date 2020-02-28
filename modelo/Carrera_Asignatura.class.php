@@ -1,12 +1,13 @@
 <?php
 include_once 'ModeloDatosGenerico.php';
 
-class Carrera_Asignatura extends ModeloDatosGenerico{
+class Carrera_Asignatura extends ModeloDatosGenerico {
+    
     protected $id;
     protected $id_asignatura;
     protected $id_carrera;
-    protected $asignatura;
-    protected $carrera;
+    protected $nombreAsignatura;
+    protected $nombreCarrera;
     
     function __construct($array) {
         parent::mapeoArrayAtributos($array);
@@ -24,6 +25,14 @@ class Carrera_Asignatura extends ModeloDatosGenerico{
         return $this->id_carrera;
     }
 
+    function getNombreAsignatura() {
+        return $this->nombreAsignatura;
+    }
+
+    function getNombreCarrera() {
+        return $this->nombreCarrera;
+    }
+
     function setId($id) {
         $this->id = $id;
     }
@@ -36,21 +45,12 @@ class Carrera_Asignatura extends ModeloDatosGenerico{
         $this->id_carrera = $id_carrera;
     }
 
-    function getAsignatura() {
-        return $this->asignatura;
+    function setNombreAsignatura($nombreAsignatura) {
+        $this->nombreAsignatura = $nombreAsignatura;
     }
 
-    function getCarrera() {
-        return $this->carrera;
+    function setNombreCarrera($nombreCarrera) {
+        $this->nombreCarrera = $nombreCarrera;
     }
-
-    function setAsignatura($asignatura) {
-        $this->asignatura = $asignatura;
-    }
-
-    function setCarrera($carrera) {
-        $this->carrera = $carrera;
-    }
-
 
 }

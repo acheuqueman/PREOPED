@@ -12,7 +12,7 @@ $Coleccion = new ColeccionDiagnostico();
         <title><?= Constantes::NOMBRE_SISTEMA; ?> - Diagn&oacute;sticos</title>
     </head>
     <body>
-        <script>var columnasSinSort = [1];</script>
+        <script>var columnasSinSort = [2];</script>
         <script src="../lib/tablaSort.js"></script>
         <?php include_once '../gui/navbar.php'; ?>
 
