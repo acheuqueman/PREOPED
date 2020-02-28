@@ -35,7 +35,7 @@ $idAsignaturaCreado = $Mapper->update($Asignatura);
                 <div class="card-footer">
                     <p>Opciones:</p>
                     <p>
-                        <a href="asignaturas.php"><input class="btn btn-outline-danger" value="Salir" /></a>
+                        <a href="asignaturas.php"><input type="button"  class="btn btn-outline-danger" value="Salir" /></a>
                     </p>
                 </div>
             </div>   

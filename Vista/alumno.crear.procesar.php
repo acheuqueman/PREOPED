@@ -37,9 +37,9 @@ $DiagnosticoMapper->insert($Diagnostico);
                 <div class="card-footer">
                     <p>Opciones:</p>
                     <p>
-                        <a href="alumno.crear.php"><input class="btn btn-outline-success" value="Cargar otro Alumno" /></a>
-                        <a href="alumno.actualizar.php?id=<?= $idObjetoCreado; ?>"><input class="btn btn-outline-success" value="Ver Alumno" /></a>
-                        <a href="alumnos.php"><input class="btn btn-outline-danger" value="Salir" /></a>
+                        <a href="alumno.crear.php"><input type="button" class="btn btn-outline-success" value="Cargar otro Alumno" /></a>
+                        <a href="alumno.actualizar.php?id=<?= $idObjetoCreado; ?>"><input type="button" class="btn btn-outline-success" value="Ver Alumno" /></a>
+                        <a href="alumnos.php"><input type="button"  class="btn btn-outline-danger" value="Salir" /></a>
                     </p>
                 </div>
             </div>   

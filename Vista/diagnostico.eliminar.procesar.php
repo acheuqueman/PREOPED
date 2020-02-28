@@ -35,7 +35,7 @@ $DiagnosticoEliminado = $Mapper->delete($Diagnostico);
                 <div class="card-footer">
                     <p>Opciones:</p>
                     <p>
-                        <a href="diagnosticos.php"><input class="btn btn-outline-danger" value="Salir" /></a>
+                        <a href="diagnosticos.php"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>
                     </p>
                 </div>
             </div>   

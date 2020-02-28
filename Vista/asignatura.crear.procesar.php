@@ -35,8 +35,8 @@ include_once '../lib/Constantes.Class.php';
                     <div class="card-footer">
                         <p>Opciones:</p>
                         <p>
-                            <a href="asignatura.crear.php"><input class="btn btn-outline-success" value="Cargar otra Asignatura" /></a>
-                            <a href="asignaturas.php"><input class="btn btn-outline-danger" value="Salir" /></a>
+                            <a href="asignatura.crear.php"><input type="button"  class="btn btn-outline-success" value="Cargar otra Asignatura" /></a>
+                            <a href="asignaturas.php"><input type="button"  class="btn btn-outline-danger" value="Salir" /></a>
                         </p>
                     </div>
                 </div>   
