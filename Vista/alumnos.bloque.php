@@ -3,7 +3,7 @@ include_once '../modelo/ColeccionAlumno.php';
 $Coleccion = new ColeccionAlumno();
 ?>
 
-<table id="tablaAlumnos" class="table table-striped table-hover table-sm ">
+<table id="tablaSort" class="table table-striped table-hover table-sm ">
     <thead class="thead-light">
         <tr>
             <th>Nombre</th>
