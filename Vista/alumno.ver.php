@@ -10,7 +10,6 @@ $Alumno->setDiagnosticos($Mapper->findDiagnosticos($Alumno->getId()));
 
 <html>
     <head>
-        <meta charset="UTF-8">
         <?php include_once '../lib/includesCss.php'; ?>
         <?php include_once '../lib/includesJs.php'; ?>
         <title><?= Constantes::NOMBRE_SISTEMA; ?> - Gesti&oacute;n de Alumnos</title>

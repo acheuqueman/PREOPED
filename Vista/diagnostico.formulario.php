@@ -1,13 +1,3 @@
-<?php
-/* $Diagnostico = null;
-  if (isset($_GET['accion']) && ($_GET['accion'] == "actualizar")) {
-  include_once '../modelo/Diagnostico.class.php';
-  include_once '../modelo/DiagnosticoMapper.php';
-
-  $Mapper = new DiagnosticoMapper();
-  $Diagnostico = new Diagnostico($Mapper->findById($_GET['id']));
-  } */
-?>
 <div class="row">&nbsp;</div>
 <div class="row">
     <input type="hidden" name="id" value="<?= isset($Diagnostico) ? $Diagnostico->getId() :null; ?>">

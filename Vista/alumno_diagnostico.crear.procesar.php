@@ -1,6 +1,5 @@
 <?php
 include_once '../lib/Constantes.Class.php';
-
 include_once '../modelo/Alumno_Diagnostico.class.php';
 include_once '../modelo/Alumno_DiagnosticoMapper.php';
 
@@ -12,7 +11,6 @@ $idObjetoCreado = $Mapper->insert($Objeto);
 
 <html>
     <head>
-        <meta charset="UTF-8">
         <?php include_once '../lib/includesCss.php'; ?>
         <?php include_once '../lib/includesJs.php'; ?>
         <title><?= Constantes::NOMBRE_SISTEMA; ?> - Alumnos</title>

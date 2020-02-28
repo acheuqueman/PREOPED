@@ -1,22 +1,17 @@
 <?php
-    //var_dump($_POST);
 include_once '../lib/Constantes.Class.php';
-
     include_once '../modelo/Asignatura.class.php';
     include_once '../modelo/AsignaturaMapper.php';
+
     $Asignatura = new Asignatura($_POST);
-    //var_dump($Carrera);
     $Mapper = new AsignaturaMapper();
     $idAsignaturaCreado = $Mapper->insert($Asignatura);
 ?>
 
 <html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">        <link rel="stylesheet" href="../lib/bootstrap-4.1.1-dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="../lib/open-iconic-master/font/css/open-iconic-bootstrap.css" />
-        <script type="text/javascript" src="../lib/JQuery/jquery-3.3.1.js"></script>
-        <script type="text/javascript" src="../lib/bootstrap-4.1.1-dist/js/bootstrap.min.js"></script>
+        <?php include_once '../lib/includesCss.php'; ?>
+        <?php include_once '../lib/includesJs.php'; ?>
         <title><?= Constantes::NOMBRE_SISTEMA; ?> - Asignaturas</title>
     </head>
     <body>

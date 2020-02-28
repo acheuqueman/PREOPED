@@ -1,3 +1,4 @@
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">        
 <link rel="stylesheet" href="../lib/bootstrap-4.1.1-dist/css/bootstrap.css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
@@ -19,4 +20,8 @@
     table.dataTable thead .sorting_desc_disabled:before {
         bottom: .5em;
     }            
+</style>
+
+<style>
+    .columnaOpciones { text-align: center; width: 20%; }
 </style>
