@@ -36,7 +36,7 @@ $idDiagnosticoCreado = $Mapper->insert($Diagnostico);
                     <p>Opciones:</p>
                     <p>
                         <a href="diagnostico.crear.php"><input class="btn btn-outline-success" value="Cargar otro Diagn&oacute;stico" /></a>
-                        <a href="diagnosticos.php"><input class="btn btn-outline-danger" value="Salir" /></a>
+                        <a href="diagnosticos.php"><input class="btn btn-outline-danger" value="SalirASD" /></a>
                     </p>
                 </div>
             </div>   
