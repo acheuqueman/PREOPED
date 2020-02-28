@@ -1,20 +1,11 @@
 <?php
-
 include_once '../lib/Constantes.Class.php';
+include_once '../modelo/Asignatura.class.php';
+include_once '../modelo/AsignaturaMapper.php';
 
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-    //var_dump($_POST['id']);
-    include_once '../modelo/Asignatura.class.php';
-    include_once '../modelo/AsignaturaMapper.php';
-    $Mapper = new AsignaturaMapper();
-    //var_dump($Mapper->findById($_POST['id']));
-    $Asignatura = new Asignatura($Mapper->findById($_POST['id']));
-    //var_dump($Diagnostico);
-    $AsignaturaEliminada = $Mapper->delete($Asignatura);
-    //var_dump($AsignaturaEliminada);
+$Mapper = new AsignaturaMapper();
+$Objeto = new Asignatura($Mapper->findById($_POST['id']));
+$ObjetoEliminado = $Mapper->delete($Objeto);
 ?>
 
 <html>
@@ -33,38 +24,38 @@ error_reporting(E_ALL);
 
 
 
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="oi oi-trash"> Eliminar Asignatura</h5>
-                                </div>
-                                <div class="card-body">
-                                    <?php if ($AsignaturaEliminada) { ?>
-                                        <p class="alert alert-success">Operaci&oacute;n realizada con &eacute;xito.</p>
-                                        <p>Asignatura eliminado correctamente.</p>
-                                    <?php } ?>
-                                    <?php if (!$AsignaturaEliminada) { ?>
-                                        <p class="alert alert-danger">Hubo un error</p>
-                                        <p>No fue posible eliminar la Asignatura. Por favor, intente nuevamente. Si el problema persiste, contacte el administrador del sistema.</p>
-                                    <?php } ?>                                        
-                                </div>
-                                <div class="card-footer">
-                                    <p>Opciones:</p>
-                                    <p>
-                                        <a href="asignaturas.php"><input class="btn btn-outline-danger" value="Salir" /></a>
-                                    </p>
-                                </div>
-                            </div>   
-                        </div> 
-
-                    
-                    <div class="row">&nbsp;</div>
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="oi oi-trash"> Eliminar Asignatura</h5>
+                </div>
+                <div class="card-body">
+                    <?php if ($ObjetoEliminado) { ?>
+                        <p class="alert alert-success">Operaci&oacute;n realizada con &eacute;xito.</p>
+                        <p>Asignatura eliminado correctamente.</p>
+                    <?php } ?>
+                    <?php if (!$ObjetoEliminado) { ?>
+                        <p class="alert alert-danger">Hubo un error</p>
+                        <p>No fue posible eliminar la Asignatura. Por favor, intente nuevamente. Si el problema persiste, contacte el administrador del sistema.</p>
+                    <?php } ?>                                        
+                </div>
+                <div class="card-footer">
+                    <p>Opciones:</p>
+                    <p>
+                        <a href="asignaturas.php"><input class="btn btn-outline-danger" value="Salir" /></a>
+                    </p>
+                </div>
+            </div>   
+        </div> 
 
 
-        </div>
+        <div class="row">&nbsp;</div>
 
-        <?php include_once '../gui/footer.php'; ?>
-    </body>
+
+    </div>
+
+    <?php include_once '../gui/footer.php'; ?>
+</body>
 </html>
-    
-    
-    
+
+
+

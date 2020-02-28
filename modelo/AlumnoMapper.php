@@ -2,7 +2,9 @@
 
 include_once 'BDMapper.php';
 include_once 'Familiar.class.php';
-include_once 'Diagnostico.class.php';
+
+include_once 'Alumno_Diagnostico.class.php';
+include_once 'Alumno_DiagnosticoMapper.php';
 
 class AlumnoMapper extends BDMapper {
 
@@ -39,7 +41,9 @@ class AlumnoMapper extends BDMapper {
         $this->bdconexion->begin_transaction();
 
         $this->query = "INSERT INTO persona VALUES ("
-                . "NULL, '{$Alumno->getNombre()}', '{$Alumno->getDni()}', '{$Alumno->getEmail()}', '{$Alumno->getTelefono()}'"
+                . "NULL, "
+                . "'" . $this->bdconexion->escape_string($Alumno->getNombre()) . "', "
+                . "'{$Alumno->getDni()}', '{$Alumno->getEmail()}', '{$Alumno->getTelefono()}'"
                 . ")";
         $this->resultset = $this->bdconexion->query($this->query);
 
@@ -131,17 +135,24 @@ class AlumnoMapper extends BDMapper {
 
     public function findDiagnosticos($id) {
 
-        $this->query = "SELECT D.* "
-                . "FROM Diagnostico D, "
-                . "Alumno_Diagnostico AD "
-                . "WHERE D.id = AD.id_diagnostico "
-                . "AND id_alumno =" . $id;
+        $this->query = "SELECT * FROM " . Alumno_DiagnosticoMapper::NOMBRE_VIEW
+                . " WHERE id_alumno = " . $id;
 
         $this->resultset = $this->bdconexion->query($this->query);
         for ($x = 0; $x < $this->resultset->num_rows; $x++) {
-            $this->diagnosticos[] = new Diagnostico($this->resultset->fetch_assoc());
+            $this->diagnosticos[] = new Alumno_Diagnostico($this->resultset->fetch_assoc());
         }
         return $this->diagnosticos;
     }
+    
+    /**
+     * 
+     * @return Diagnostico[]
+     */
+    function getDiagnosticos() {
+        return $this->diagnosticos;
+    }
+
+
 
 }

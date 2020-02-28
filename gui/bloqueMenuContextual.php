@@ -1,15 +1,13 @@
 <div class="card">
     <div class="card-header text-white bg-info">
-        <h5 class="oi oi-cog"> Opciones</h5>
+        <h5><span class="oi oi-cog"></span> Opciones</h5>
     </div>
     <div class="card-body">
-        <a title="" href="<?= $_GET['modelo']; ?>.crear.php">
-            <span class="btn btn-info btn-block btn-lg oi oi-plus"> Nuevo</span>
-        </a>
-        <div>&nbsp;</div>
-        <a title="" href="../Vista/index.php">
-            <span class="btn btn-outline-info btn-block btn-lg oi oi-home"> Volver a Inicio</span>
-        </a>
-      
+
+        <div class="list-group">
+            <a href="<?= $_GET['modelo']; ?>.crear.php" class="list-group-item list-group-item-action"><span class="oi oi-plus"></span> Nuevo</a>
+            <a href="../Vista/index.php" class="list-group-item list-group-item-action"><span class="oi oi-home"></span> Ir a Inicio</a>
+        </div>                            
+        
     </div>
 </div>

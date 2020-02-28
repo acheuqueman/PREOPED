@@ -1,5 +1,4 @@
 <?php
-//include_once '../lib/ControlAcceso.Class.php';
 include_once '../lib/Constantes.Class.php';
 include_once '../modelo/ColeccionDiagnostico.php';
 include_once '../modelo/Diagnostico.class.php';

@@ -12,7 +12,7 @@ include_once '../modelo/Alumno_DiagnosticoMapper.php';
 include_once '../modelo/Alumno_Diagnostico.class.php';
 
 $Diagnostico = new Alumno_Diagnostico($_POST);
-$Diagnostico->setIdAlumno($idObjetoCreado);
+$Diagnostico->setId_alumno($idObjetoCreado);
 $Alumno->addDiagnostico($Diagnostico);
 
 $DiagnosticoMapper = new Alumno_DiagnosticoMapper();
@@ -23,7 +23,8 @@ $DiagnosticoMapper->insert($Diagnostico);
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">        <link rel="stylesheet" href="../lib/bootstrap-4.1.1-dist/css/bootstrap.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <link rel="stylesheet" href="../lib/bootstrap-4.1.1-dist/css/bootstrap.css" />
         <link rel="stylesheet" href="../lib/open-iconic-master/font/css/open-iconic-bootstrap.css" />
         <script type="text/javascript" src="../lib/JQuery/jquery-3.3.1.js"></script>
         <script type="text/javascript" src="../lib/bootstrap-4.1.1-dist/js/bootstrap.min.js"></script>
@@ -38,14 +39,7 @@ $DiagnosticoMapper->insert($Diagnostico);
                         <h5 class="oi oi-plus"> Nuevo Alumno</h5>
                     </div>
                     <div class="card-body">
-                        <?php if ($idObjetoCreado) { ?>
-                            <p class="alert alert-success">Operaci&oacute;n realizada con &eacute;xito.</p>
-                            <p>Alumno cargado correctamente.</p>
-                        <?php } ?>
-                        <?php if (!$idObjetoCreado) { ?>
-                            <p class="alert alert-danger">Hubo un error</p>
-                            <p>No fue posible cargar el Alumno. Por favor, intente nuevamente. Si el problema persiste, contacte el administrador del sistema.</p>
-                        <?php } ?>                                        
+                        <?php include_once '../gui/excepcion.mensajes.php'; ?>
                     </div>
                     <div class="card-footer">
                         <p>Opciones:</p>

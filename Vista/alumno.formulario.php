@@ -1,19 +1,6 @@
-<?php include_once '../modelo/ColeccionDiagnostico.php'; ?>
-<?php $Coleccion = new ColeccionDiagnostico(); ?>
-<?php
-/*
- *  Reemplazado por directamente usar la variable $Alumno de actualizar.php
- *  Conseguir datos del diagnostico
- *  Hacer update de alumno
- * 
-$Alumno = null;
-if (isset($_GET['accion']) && ($_GET['accion'] == "actualizar")) {
-    include_once '../modelo/Alumno.class.php';
-    include_once '../modelo/AlumnoMapper.php';
-    $Mapper = new AlumnoMapper();
-    $Alumno = new Alumno($Mapper->findById($_GET['id']));
-}
-*/
+<?php 
+include_once '../modelo/ColeccionDiagnostico.php'; 
+$Coleccion = new ColeccionDiagnostico(); 
 ?>
 
 <div class="form-group">

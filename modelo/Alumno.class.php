@@ -14,9 +14,18 @@ class Alumno extends Persona {
     
     /**
      *
-     * @var Diagnostico[] 
+     * @var Alumno_Diagnostico[] 
      */
     protected $Diagnosticos;
+    
+    /**
+     * 
+     * @todo $familiares
+     * @todo $carreras
+     * @todo $materias
+     * @todo $entrevistas
+     * 
+     */
     
     /**
      * 
