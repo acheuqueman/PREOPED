@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.23-ndb-7.5.11, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.29, for Linux (x86_64)
 --
 -- Host: localhost    Database: preoped
 -- ------------------------------------------------------
--- Server version	5.7.23-ndb-7.5.11
+-- Server version	5.7.29-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,330 +18,6 @@
 --
 -- Table structure for table `Alumno`
 --
-
-DROP TABLE IF EXISTS `Alumno`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Alumno` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `anio_ingreso` int(5) NOT NULL,
-  `cud` int(10) NOT NULL,
-  `id_persona` varchar(10) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Alumno`
---
-
-LOCK TABLES `Alumno` WRITE;
-/*!40000 ALTER TABLE `Alumno` DISABLE KEYS */;
-INSERT INTO `Alumno` VALUES (1,2019,23456575,'1');
-/*!40000 ALTER TABLE `Alumno` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Alumno_Diagnostico`
---
-
-DROP TABLE IF EXISTS `Alumno_Diagnostico`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Alumno_Diagnostico` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `profesional_diagnostico` varchar(50) NOT NULL,
-  `id_diagnostico` int(10) NOT NULL,
-  `id_alumno` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Alumno_Diagnostico`
---
-
-LOCK TABLES `Alumno_Diagnostico` WRITE;
-/*!40000 ALTER TABLE `Alumno_Diagnostico` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Alumno_Diagnostico` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Aprueba`
---
-
-DROP TABLE IF EXISTS `Aprueba`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Aprueba` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `fecha` date NOT NULL,
-  `calificacion` int(10) NOT NULL,
-  `id_asignatura` int(10) NOT NULL,
-  `id_alumno` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Aprueba`
---
-
-LOCK TABLES `Aprueba` WRITE;
-/*!40000 ALTER TABLE `Aprueba` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Aprueba` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Asignatura`
---
-
-DROP TABLE IF EXISTS `Asignatura`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Asignatura` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(40) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Asignatura`
---
-
-LOCK TABLES `Asignatura` WRITE;
-/*!40000 ALTER TABLE `Asignatura` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Asignatura` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Carrera`
---
-
-DROP TABLE IF EXISTS `Carrera`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Carrera` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(40) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Carrera`
---
-
-LOCK TABLES `Carrera` WRITE;
-/*!40000 ALTER TABLE `Carrera` DISABLE KEYS */;
-INSERT INTO `Carrera` VALUES (1,'dfghjkjghfdsdfghjkjhgfdfghjkjhgf');
-/*!40000 ALTER TABLE `Carrera` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Carrera_Asignatura`
---
-
-DROP TABLE IF EXISTS `Carrera_Asignatura`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Carrera_Asignatura` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `id_asignatura` int(10) NOT NULL,
-  `id_carrera` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Carrera_Asignatura`
---
-
-LOCK TABLES `Carrera_Asignatura` WRITE;
-/*!40000 ALTER TABLE `Carrera_Asignatura` DISABLE KEYS */;
-INSERT INTO `Carrera_Asignatura` VALUES (1,1,1);
-/*!40000 ALTER TABLE `Carrera_Asignatura` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Cursa`
---
-
-DROP TABLE IF EXISTS `Cursa`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Cursa` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `periodo` varchar(20) NOT NULL,
-  `anio` int(10) NOT NULL,
-  `evaluacion` varchar(30) NOT NULL,
-  `id_alumno` int(10) NOT NULL,
-  `id_asignatura` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Cursa`
---
-
-LOCK TABLES `Cursa` WRITE;
-/*!40000 ALTER TABLE `Cursa` DISABLE KEYS */;
-INSERT INTO `Cursa` VALUES (1,'Primer Cuatrimestre',2345,'Bien',1,1);
-/*!40000 ALTER TABLE `Cursa` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Diagnostico`
---
-
-DROP TABLE IF EXISTS `Diagnostico`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Diagnostico` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `diagnostico` varchar(40) NOT NULL,
-  `tipo_discapacidad` varchar(40) NOT NULL,
-  `descripcion` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Diagnostico`
---
-
-LOCK TABLES `Diagnostico` WRITE;
-/*!40000 ALTER TABLE `Diagnostico` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Diagnostico` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Entrevista`
---
-
-DROP TABLE IF EXISTS `Entrevista`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Entrevista` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `fecha` date NOT NULL,
-  `entrevistador` varchar(40) NOT NULL,
-  `conclusiones` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Entrevista`
---
-
-LOCK TABLES `Entrevista` WRITE;
-/*!40000 ALTER TABLE `Entrevista` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Entrevista` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Entrevista_Alumno`
---
-
-DROP TABLE IF EXISTS `Entrevista_Alumno`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Entrevista_Alumno` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `id_alumno` int(10) NOT NULL,
-  `id_entrevista` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Entrevista_Alumno`
---
-
-LOCK TABLES `Entrevista_Alumno` WRITE;
-/*!40000 ALTER TABLE `Entrevista_Alumno` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Entrevista_Alumno` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Familiar`
---
-
-DROP TABLE IF EXISTS `Familiar`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Familiar` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `parentesco` varchar(20) NOT NULL,
-  `id_persona` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Familiar`
---
-
-LOCK TABLES `Familiar` WRITE;
-/*!40000 ALTER TABLE `Familiar` DISABLE KEYS */;
-INSERT INTO `Familiar` VALUES (1,'Madre',2),(2,'Padre',3);
-/*!40000 ALTER TABLE `Familiar` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Familiar_Alumno`
---
-
-DROP TABLE IF EXISTS `Familiar_Alumno`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Familiar_Alumno` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `id_alumno` int(10) NOT NULL,
-  `id_familiar` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Familiar_Alumno`
---
-
-LOCK TABLES `Familiar_Alumno` WRITE;
-/*!40000 ALTER TABLE `Familiar_Alumno` DISABLE KEYS */;
-INSERT INTO `Familiar_Alumno` VALUES (1,1,1),(2,1,2);
-/*!40000 ALTER TABLE `Familiar_Alumno` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Persona`
---
-
-DROP TABLE IF EXISTS `Persona`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Persona` (
-  `id` int(8) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(36) NOT NULL,
-  `dni` int(9) NOT NULL,
-  `email` varchar(36) NOT NULL,
-  `telefono` int(16) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Persona`
---
-
-LOCK TABLES `Persona` WRITE;
-/*!40000 ALTER TABLE `Persona` DISABLE KEYS */;
-INSERT INTO `Persona` VALUES (1,'Jorge',23456789,'34343554',665656565),(2,'Norma',45678904,'343553',76767688),(3,'Diego',45678543,'3453534',7890405);
-/*!40000 ALTER TABLE `Persona` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `alumno`
@@ -365,7 +41,7 @@ CREATE TABLE `alumno` (
 
 LOCK TABLES `alumno` WRITE;
 /*!40000 ALTER TABLE `alumno` DISABLE KEYS */;
-INSERT INTO `alumno` VALUES (12,2008,1234),(13,2005,320165),(14,2020,32156),(15,2020,32156),(16,2020,32156),(17,2020,32156),(18,2020,32156),(19,3,2),(20,3,2),(21,3,2),(22,3,2),(23,3,2);
+INSERT INTO `alumno` VALUES (12,2008,1234),(13,2005,320165),(14,2020,32156),(15,2020,32156),(16,2020,32156),(17,2020,32156),(18,2020,32156),(19,3,2),(20,3,2),(21,2002,2005362),(22,3,2),(23,3,2);
 /*!40000 ALTER TABLE `alumno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -440,7 +116,7 @@ CREATE TABLE `asignatura` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -449,6 +125,7 @@ CREATE TABLE `asignatura` (
 
 LOCK TABLES `asignatura` WRITE;
 /*!40000 ALTER TABLE `asignatura` DISABLE KEYS */;
+INSERT INTO `asignatura` VALUES (1,'Bases de Datos'),(2,'Aspectos Profesionales');
 /*!40000 ALTER TABLE `asignatura` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -463,7 +140,7 @@ CREATE TABLE `carrera` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -472,7 +149,7 @@ CREATE TABLE `carrera` (
 
 LOCK TABLES `carrera` WRITE;
 /*!40000 ALTER TABLE `carrera` DISABLE KEYS */;
-INSERT INTO `carrera` VALUES (1,'Eder dos Santos'),(2,'Eder dos Santos');
+INSERT INTO `carrera` VALUES (3,'Licenciatura en Sistemas'),(4,'Analista de Sistemas');
 /*!40000 ALTER TABLE `carrera` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -492,7 +169,7 @@ CREATE TABLE `carrera_asignatura` (
   KEY `fk_carrera_asignatura_carrera_idx` (`id_carrera`),
   CONSTRAINT `fk_carrera_asignatura_asignatura` FOREIGN KEY (`id_asignatura`) REFERENCES `asignatura` (`id`),
   CONSTRAINT `fk_carrera_asignatura_carrera` FOREIGN KEY (`id_carrera`) REFERENCES `carrera` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -501,6 +178,7 @@ CREATE TABLE `carrera_asignatura` (
 
 LOCK TABLES `carrera_asignatura` WRITE;
 /*!40000 ALTER TABLE `carrera_asignatura` DISABLE KEYS */;
+INSERT INTO `carrera_asignatura` VALUES (1,1,3),(2,1,4),(3,2,3),(4,2,4);
 /*!40000 ALTER TABLE `carrera_asignatura` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -689,7 +367,7 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
-INSERT INTO `persona` VALUES (12,'Eder dos Santos',12345678,'esantos@uarg.unpa.edu.ar',2966),(13,'Guillermo Rodriguez',12345698,'grodriguez@unpa',123456),(14,'Juan Ãndale Ã“rale Pues',12345698,'jperez@uarg',654987),(15,'Juan Perez',12345698,'jperez@uarg',654987),(16,'Juan Perez',12345698,'jperez@uarg',654987),(17,'Juan Perez',12345698,'jperez@uarg',654987),(18,'Juan Perez',12345698,'jperez@uarg',654987),(19,'Eder dos Santos`\' \"',4,'bacteriaut@gmail.com',654987),(20,'Eder dos Santos`\' \"',4,'bacteriaut@gmail.com',654987),(21,'Eder dos Santos`\' \"',4,'bacteriaut@gmail.com',654987),(22,'Eder dos Santos`\' \"',4,'bacteriaut@gmail.com',654987),(23,'Eder dos Santos`\' \"',4,'bacteriaut@gmail.com',654987);
+INSERT INTO `persona` VALUES (12,'Eder dos Santos',12345678,'esantos@uarg.unpa.edu.ar',2966),(13,'Guillermo Rodriguez',12345698,'grodriguez@unpa',123456),(14,'Juan Ãndale Ã“rale Pues',12345698,'jperez@uarg',654987),(15,'Juan Perez',12345698,'jperez@uarg',654987),(16,'Juan Perez',12345698,'jperez@uarg',654987),(17,'Juan Perez',12345698,'jperez@uarg',654987),(18,'Juan Perez',12345698,'jperez@uarg',654987),(19,'Eder dos Santos`\' \"',4,'bacteriaut@gmail.com',654987),(20,'Eder dos Santos`\' \"',4,'bacteriaut@gmail.com',654987),(21,'Eder dos Santos`\' ',19681620,'mimailesmio@com',654987),(22,'Eder dos Santos`\' \"',4,'bacteriaut@gmail.com',654987),(23,'Eder dos Santos`\' \"',4,'bacteriaut@gmail.com',654987);
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -725,6 +403,22 @@ SET character_set_client = utf8;
  1 AS `id_diagnostico`,
  1 AS `id_alumno`,
  1 AS `diagnostico`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `vwcarrera_asignatura`
+--
+
+DROP TABLE IF EXISTS `vwcarrera_asignatura`;
+/*!50001 DROP VIEW IF EXISTS `vwcarrera_asignatura`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vwcarrera_asignatura` AS SELECT 
+ 1 AS `nombreCarrera`,
+ 1 AS `nombreAsignatura`,
+ 1 AS `id`,
+ 1 AS `id_asignatura`,
+ 1 AS `id_carrera`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -782,6 +476,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `vwcarrera_asignatura`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vwcarrera_asignatura`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`preoped`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vwcarrera_asignatura` AS select `C`.`nombre` AS `nombreCarrera`,`A`.`nombre` AS `nombreAsignatura`,`CA`.`id` AS `id`,`CA`.`id_asignatura` AS `id_asignatura`,`CA`.`id_carrera` AS `id_carrera` from ((`carrera` `C` join `asignatura` `A`) join `carrera_asignatura` `CA`) where ((`CA`.`id_asignatura` = `A`.`id`) and (`CA`.`id_carrera` = `C`.`id`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `vwfamiliar`
 --
 
@@ -808,4 +520,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-28 15:46:35
+-- Dump completed on 2020-02-28 17:10:27
