@@ -29,9 +29,9 @@ $idObjetoCreado = $Mapper->insert($Objeto);
                     <div class="card-footer">
                         <p>Opciones:</p>
                         <p>
-                            <a href="alumno_diagnostico.crear.php?id_alumno=<?= $Objeto->getId_alumno(); ?>"><input class="btn btn-outline-success" value="Cargar otro Diagn&oacute;stico" /></a>
-                            <a href="alumno.ver.php?id=<?= $Objeto->getId_alumno(); ?>"><input class="btn btn-outline-success" value="Ver Alumno" /></a>
-                            <a href="alumnos.php"><input class="btn btn-outline-danger" value="Salir" /></a>
+                            <a href="alumno_diagnostico.crear.php?id_alumno=<?= $Objeto->getId_alumno(); ?>"><input type="button"  class="btn btn-outline-success" value="Cargar otro Diagn&oacute;stico" /></a>
+                            <a href="alumno.ver.php?id=<?= $Objeto->getId_alumno(); ?>"><input type="button" class="btn btn-outline-success" value="Ver Alumno" /></a>
+                            <a href="alumnos.php"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>
                         </p>
                     </div>
                 </div>   

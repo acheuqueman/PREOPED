@@ -34,7 +34,7 @@ $idCarreraCreado = $Mapper->update($Carrera);
                 <div class="card-footer">
                     <p>Opciones:</p>
                     <p>
-                        <a href="carreras.php"><input class="btn btn-outline-danger" value="Salir" /></a>
+                        <a href="carreras.php"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>
                     </p>
                 </div>
             </div>   

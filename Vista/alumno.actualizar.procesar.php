@@ -26,7 +26,7 @@ $idObjetoCreado = $Mapper->update($Objeto);
                 </div>
                 <div class="card-footer">
                     <p>Opciones:</p>
-                    <p><a href="alumno.ver.php?id=<?= $Objeto->getId(); ?>"><input class="btn btn-outline-danger" value="Salir" /></a></p>
+                    <p><a href="alumno.ver.php?id=<?= $Objeto->getId(); ?>"><input type="button"  class="btn btn-outline-danger" value="Salir" /></a></p>
                 </div>
             </div>   
             <div class="row">&nbsp;</div>

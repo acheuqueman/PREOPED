@@ -35,8 +35,8 @@ $idCarreraCreado = $Mapper->insert($Carrera);
                 <div class="card-footer">
                     <p>Opciones:</p>
                     <p>
-                        <a href="carrera.crear.php"><input class="btn btn-outline-success" value="Cargar otra Carrera" /></a>
-                        <a href="carreras.php"><input class="btn btn-outline-danger" value="Salir" /></a>
+                        <a href="carrera.crear.php"><input type="button"  class="btn btn-outline-success" value="Cargar otra Carrera" /></a>
+                        <a href="carreras.php"><input type="button"  class="btn btn-outline-danger" value="Salir" /></a>
                     </p>
                 </div>
             </div>   
