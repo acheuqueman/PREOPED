@@ -3,8 +3,9 @@ include_once '../lib/Constantes.Class.php';
 include_once '../modelo/Carrera.class.php';
 include_once '../modelo/CarreraMapper.php';
 
+$Carrera = new Carrera($_POST);
 $Mapper = new CarreraMapper();
-$Carrera = new Carrera($Mapper->findById($_GET['id']));
+$idCarreraCreado = $Mapper->update($Carrera);
 ?>
 
 <html>
@@ -19,38 +20,29 @@ $Carrera = new Carrera($Mapper->findById($_GET['id']));
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="oi oi-plus">Actualizar Carrera</h5>
+                    <h5 class="oi oi-plus"> Actualizar Asignatura</h5>
                 </div>
                 <div class="card-body">
-                    <form action="carrera.actualizar.procesar.php" method="POST">
-                        <div class="row">&nbsp;</div>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="card">
-                                    <input type="hidden" name="id" value="<?= $Carrera->getId() ?>">
-                                    <div class="card-header">Nombre Carrera</div>
-                                    <div class="card-body">
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control" name="nombre" required=" " value="<?= $Carrera->getNombre() ?>">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                                            
-                        </div>
-                        <div class="row">&nbsp;</div>
-                        <div class="row ">
-                            <div class="col">
-                                <input type ="submit" class="btn btn-success" />  
-                                <a href="carreras.php"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>
-                            </div>
-                        </div>
-                        <div class="row">&nbsp;</div>
-                    </form>
+                    <?php if ($idAsignaturaCreado) { ?>
+                        <p class="alert alert-success">Operaci&oacute;n realizada con &eacute;xito.</p>
+                        <p>Asignatura cargado correctamente.</p>
+                    <?php } ?>
+                    <?php if (!$idAsignaturaCreado) { ?>
+                        <p class="alert alert-danger">Hubo un error</p>
+                        <p>No fue posible cargar la Asignatura. Por favor, intente nuevamente. Si el problema persiste, contacte el administrador del sistema.</p>
+                    <?php } ?>                                        
+                </div>
+                <div class="card-footer">
+                    <p>Opciones:</p>
+                    <p>
+                        <a href="Carreras.php"><input class="btn btn-outline-danger" value="Salir" /></a>
+                    </p>
                 </div>
             </div>   
-
+            <div class="row">&nbsp;</div>
         </div>
+
 
         <?php include_once '../gui/footer.php'; ?>
     </body>
-</html>
+</html>  

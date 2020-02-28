@@ -6,39 +6,22 @@ include_once '../lib/Constantes.Class.php';
     <head>
         <?php include_once '../lib/includesCss.php'; ?>
         <?php include_once '../lib/includesJs.php'; ?>
-        <title><?= Constantes::NOMBRE_SISTEMA; ?> - Carreras</title>
+        <title><?= Constantes::NOMBRE_SISTEMA; ?> - Inicio</title>
     </head>
     <body>
         <?php include_once '../gui/navbar.php'; ?>
 
         <div class="container-fluid">
+
             <div class="card">
                 <div class="card-header">
-                    <h5 class="oi oi-plus">Crear Carrera</h5>
+                    <h5 class="oi oi-plus">Crear Asignatura</h5>
                 </div>
                 <div class="card-body">
                     <form action="carrera.crear.procesar.php" method="POST">
-                        <div class="row">&nbsp;</div>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="card">
-                                    <div class="card-header">Nombre Carrera</div>
-                                    <div class="card-body">
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control" name="nombre" required=" ">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                                            
+                        <div class="card-body">
+                            <?php include_once './carrera.formulario.php'; ?>
                         </div>
-                        <div class="row">&nbsp;</div>
-                        <div class="row ">
-                            <div class="col">
-                                <input type ="submit" class="btn btn-success" />  
-                                <a href="carreras.php"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>
-                            </div>
-                        </div>
-                        <div class="row">&nbsp;</div>
                     </form>
                 </div>
             </div>   
@@ -48,3 +31,5 @@ include_once '../lib/Constantes.Class.php';
         <?php include_once '../gui/footer.php'; ?>
     </body>
 </html>
+
+
