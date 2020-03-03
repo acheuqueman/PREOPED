@@ -6,6 +6,7 @@ include_once '../modelo/AlumnoMapper.php';
 $Mapper = new AlumnoMapper();
 $Alumno = new Alumno($Mapper->findById($_GET['id']));
 $Alumno->setDiagnosticos($Mapper->findDiagnosticos($Alumno->getId()));
+$Alumno->setCarreras($Mapper->findCarrera($Alumno->getId()));
 ?>
 
 <html>
@@ -95,47 +96,7 @@ $Alumno->setDiagnosticos($Mapper->findDiagnosticos($Alumno->getId()));
 
                                 <!-- Tab Diagnosticos -->                                
                                 <div class="tab-pane fade show active" id="tab-Diagnosticos" role="tabpanel" aria-labelledby="tabDiagnosticos">
-                                    <p></p>
-                                    <h5>Diagnosticos 
-                                        <a href="alumno_diagnostico.crear.php?id_alumno=<?= $Alumno->getId(); ?>">
-                                            <button class="btn btn-success float-right"><i class="oi oi-plus">&nbsp;</i> Crear Nuevo</button>
-                                        </a>
-                                    </h5>
-                                    <p></p>
-
-                                    <?php if($Alumno->getDiagnosticos()) { ?>
-                                    <table class="table table-striped small table-bordered border-success">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th>Diagnostico</th>
-                                                <th>Profesional</th>
-                                                <th style="text-align: center">Opciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($Alumno->getDiagnosticos() as $Diagnostico) { ?>
-                                                <tr>
-                                                    <td><?= $Diagnostico->getDiagnostico(); ?></td>
-                                                    <td><?= $Diagnostico->getProfesional_diagnostico(); ?></td>
-                                                    <td style="text-align: center">
-
-                                                        <!-- Ini Botones Opciones -->
-                                                        <a title="Eliminar" href="alumno_diagnostico.eliminar.php?id=<?= $Diagnostico->getId(); ?>&id_alumno=<?= $Diagnostico->getId_alumno(); ?>" onclick="return confirm('¿Desea realmente eliminar?');">
-                                                            <button type="button" class="btn btn-outline-danger">
-                                                                <span class="oi oi-trash"></span>
-                                                            </button></a>
-                                                        <!-- Fin Botones Opciones -->
-
-                                                    </td>
-                                                </tr>
-                                            <?php } ?>
-
-                                        </tbody>
-                                    </table>
-                                    <?php } ?>
-                                    
-
-                                    <p></p>
+                                    <?php include_once 'alumno.tabdiagnosticos.php'; ?>
                                 </div>
 
                                 <!-- Tab grupo Familiar -->
@@ -145,7 +106,7 @@ $Alumno->setDiagnosticos($Mapper->findDiagnosticos($Alumno->getId()));
 
                                 <!-- Tab Historial Académico -->
                                 <div class="tab-pane fade" id="tab-Academico" role="tabpanel" aria-labelledby="tabAcademico">
-                                    Historial Académico
+                                    <?php include_once 'alumno.tabhistorialacademico.php'; ?>
                                 </div>
 
                                 <!-- Tab Entrevistas -->

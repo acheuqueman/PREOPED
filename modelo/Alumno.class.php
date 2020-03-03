@@ -2,6 +2,7 @@
 
 include_once 'Persona.class.php';
 include_once 'Alumno_Diagnostico.class.php';
+include_once 'Alumno_Carrera.class.php';
 include_once 'Alumno_Familiar.class.php';
 include_once 'Cursa.class.php';
 include_once 'Aprueba.class.php';
@@ -11,13 +12,19 @@ class Alumno extends Persona {
 
     protected $anio_ingreso;
     protected $cud;
-    
+
     /**
      *
      * @var Alumno_Diagnostico[] 
      */
     protected $Diagnosticos;
-    
+
+    /**
+     *
+     * @var Alumno_Carrera[] 
+     */
+    protected $Carreras;
+
     /**
      * 
      * @todo $familiares
@@ -26,7 +33,7 @@ class Alumno extends Persona {
      * @todo $entrevistas
      * 
      */
-    
+
     /**
      * 
      * @param Array $array
@@ -34,6 +41,7 @@ class Alumno extends Persona {
     function __construct($array) {
         parent::mapeoArrayAtributos($array);
     }
+
     function getAnio_ingreso() {
         return $this->anio_ingreso;
     }
@@ -49,7 +57,6 @@ class Alumno extends Persona {
     function setCud($cud) {
         $this->cud = $cud;
     }
-    
 
     /**
      * 
@@ -66,18 +73,21 @@ class Alumno extends Persona {
     function setDiagnosticos($Diagnosticos) {
         $this->Diagnosticos = $Diagnosticos;
     }
-    
+
     /**
      * 
-     * @param Alumno_Diagnostico $Diagnostico
+     * @return Alumno_Carrera[]
      */
-    function addDiagnostico($Diagnostico) {
-        $this->Diagnosticos[] = $Diagnostico;
+    function getCarreras() {
+        return $this->Carreras;
     }
 
-    
+    /**
+     * 
+     * @param Alumno_Carrera[] $Carreras
+     */
+    function setCarreras(array $Carreras) {
+        $this->Carreras = $Carreras;
+    }
 
 }
-
-
-
