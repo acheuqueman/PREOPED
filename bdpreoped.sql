@@ -16,10 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Alumno`
---
-
---
 -- Table structure for table `alumno`
 --
 
@@ -43,6 +39,34 @@ LOCK TABLES `alumno` WRITE;
 /*!40000 ALTER TABLE `alumno` DISABLE KEYS */;
 INSERT INTO `alumno` VALUES (12,2008,1234),(13,2005,320165),(14,2020,32156),(15,2020,32156),(16,2020,32156),(17,2020,32156),(18,2020,32156),(19,3,2),(20,3,2),(21,2002,2005362),(22,3,2),(23,3,2);
 /*!40000 ALTER TABLE `alumno` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `alumno_carrera`
+--
+
+DROP TABLE IF EXISTS `alumno_carrera`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `alumno_carrera` (
+  `id` int(11) NOT NULL,
+  `id_alumno` int(11) NOT NULL,
+  `id_carrera` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_alumno_carrera_alumno_idx` (`id_alumno`),
+  KEY `fk_alumno_carrera_carrera_idx` (`id_carrera`),
+  CONSTRAINT `fk_alumno_carrera_alumno` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_alumno_carrera_carrera` FOREIGN KEY (`id_carrera`) REFERENCES `carrera` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `alumno_carrera`
+--
+
+LOCK TABLES `alumno_carrera` WRITE;
+/*!40000 ALTER TABLE `alumno_carrera` DISABLE KEYS */;
+/*!40000 ALTER TABLE `alumno_carrera` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -390,6 +414,21 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary table structure for view `vwalumno_carrera`
+--
+
+DROP TABLE IF EXISTS `vwalumno_carrera`;
+/*!50001 DROP VIEW IF EXISTS `vwalumno_carrera`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vwalumno_carrera` AS SELECT 
+ 1 AS `id`,
+ 1 AS `id_alumno`,
+ 1 AS `id_carrera`,
+ 1 AS `nombre`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary table structure for view `vwalumno_diagnostico`
 --
 
@@ -458,6 +497,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `vwalumno_carrera`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vwalumno_carrera`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`preoped`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vwalumno_carrera` AS select `AC`.`id` AS `id`,`AC`.`id_alumno` AS `id_alumno`,`AC`.`id_carrera` AS `id_carrera`,`C`.`nombre` AS `nombre` from (`alumno_carrera` `AC` join `carrera` `C`) where (`AC`.`id_carrera` = `C`.`id`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `vwalumno_diagnostico`
 --
 
@@ -520,4 +577,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-28 17:10:27
+-- Dump completed on 2020-03-03 15:35:03
