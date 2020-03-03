@@ -13,6 +13,8 @@ $Coleccion = new ColeccionAsignatura();
         <title><?= Constantes::NOMBRE_SISTEMA; ?> - Inicio</title>
     </head>
     <body>
+        <script>var columnasSinSort = [1];</script>
+        <script src="../lib/tablaSort.js"></script>
         <?php include_once '../gui/navbar.php'; ?>
 
         <div class="container-fluid">
@@ -29,7 +31,7 @@ $Coleccion = new ColeccionAsignatura();
                                         <h5 class="card-title oi oi-list"> Asignaturas</h5>
                                     </div>
                                     <div class="card-body">
-                                        <table class="table table-striped small table-bordered border-success">
+                                        <table id="tablaSort" class="table table-striped small table-bordered border-success">
                                             <thead class="thead-light">
                                                 <tr>
                                                     <th>Asignaturas</th>
