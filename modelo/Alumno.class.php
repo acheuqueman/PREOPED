@@ -11,13 +11,18 @@ class Alumno extends Persona {
 
     protected $anio_ingreso;
     protected $cud;
-    
+
+    /*
+     * @var Alumno_Carrera[]
+     */
+    protected $Carreras;
+
     /**
      *
      * @var Alumno_Diagnostico[] 
      */
     protected $Diagnosticos;
-    
+
     /**
      * 
      * @todo $familiares
@@ -26,7 +31,7 @@ class Alumno extends Persona {
      * @todo $entrevistas
      * 
      */
-    
+
     /**
      * 
      * @param Array $array
@@ -34,6 +39,7 @@ class Alumno extends Persona {
     function __construct($array) {
         parent::mapeoArrayAtributos($array);
     }
+
     function getAnio_ingreso() {
         return $this->anio_ingreso;
     }
@@ -49,7 +55,6 @@ class Alumno extends Persona {
     function setCud($cud) {
         $this->cud = $cud;
     }
-    
 
     /**
      * 
@@ -66,7 +71,7 @@ class Alumno extends Persona {
     function setDiagnosticos($Diagnosticos) {
         $this->Diagnosticos = $Diagnosticos;
     }
-    
+
     /**
      * 
      * @param Alumno_Diagnostico $Diagnostico
@@ -74,10 +79,22 @@ class Alumno extends Persona {
     function addDiagnostico($Diagnostico) {
         $this->Diagnosticos[] = $Diagnostico;
     }
+    /**
+     * 
+     * @return Alumno_Carrera[]
+     */
+    function getCarreras() {
+        return $this->Carreras;
+    }
+    /**
+     * 
+     * @param Alumno_Carrera[] $Carreras
+     */
 
-    
+    function setCarreras($Carreras) {
+        $this->Carreras = $Carreras;
+    }
+
+
 
 }
-
-
-
