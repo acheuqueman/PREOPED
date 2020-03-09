@@ -50,7 +50,7 @@ $Alumno = new Alumno($Mapper->findById($_GET['id_alumno']));
 
                                     <?php foreach ($Coleccion->getColeccion() as $Carrera) { ?>
 
-                                    <input type="checkbox" name="id_carrera[(<?= $Carrera->getId(); ?>)]" id="id_carrera[(<?= $Carrera->getId(); ?>)]"><?= $Carrera->getNombre(); ?><br> <br>
+                                    <input type="checkbox" name="id_carrera[<?= $Carrera->getId(); ?>]" value="<?= $Carrera->getId(); ?>"><?= $Carrera->getNombre(); ?><br> <br>
 
 
                                     <?php } ?>

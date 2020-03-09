@@ -117,7 +117,6 @@ $Alumno->setCarreras($Mapper->findCarreras($Alumno->getId()));
                                 </div>
                             </div>                            
 
-
                         </div>
                     </div>
                 </div>

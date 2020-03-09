@@ -4,7 +4,7 @@
 <p></p>
 <h5>Historial Academico 
     <a href="alumno_carrera.crear.php?id_alumno=<?= $Alumno->getId(); ?>">
-        <button class="btn btn-success float-right"><i class="oi oi-plus">&nbsp;</i> Crear Nuevo</button>
+        <button class="btn btn-success float-right"><i class="oi oi-plus">&nbsp;</i> Agregar Carreras</button>
     </a>
 </h5>
 <p></p>
