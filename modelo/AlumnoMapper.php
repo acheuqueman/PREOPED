@@ -6,6 +6,9 @@ include_once 'Familiar.class.php';
 include_once 'Alumno_Diagnostico.class.php';
 include_once 'Alumno_DiagnosticoMapper.php';
 
+include_once 'Alumno_Carrera.class.php';
+include_once 'Alumno_CarreraMapper.php';
+
 class AlumnoMapper extends BDMapper {
 
     /**
@@ -13,6 +16,11 @@ class AlumnoMapper extends BDMapper {
      */
     protected $familiares;
 
+    /**
+     *
+     * @var Carreras[]
+     */
+    protected $carreras;
     /**
      *
      * @var Diagnostico[]
@@ -145,13 +153,24 @@ class AlumnoMapper extends BDMapper {
         return $this->diagnosticos;
     }
     
-    /**
+  
+    
+    /*
      * 
-     * @return Diagnostico[]
      */
-    function getDiagnosticos() {
-        return $this->diagnosticos;
+    public function findCarreras($id) {
+
+        $this->query = "SELECT * FROM " . Alumno_CarreraMapper::NOMBRE_VIEW
+                . " WHERE id_alumno = " . $id;
+
+        $this->resultset = $this->bdconexion->query($this->query);
+        for ($x = 0; $x < $this->resultset->num_rows; $x++) {
+            $this->carreras[] = new Alumno_Carrera($this->resultset->fetch_assoc());
+        }
+        return $this->carreras;
     }
+    
+    
 
 
 
