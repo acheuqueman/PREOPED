@@ -1,9 +1,9 @@
 <?php
 include_once '../lib/Constantes.Class.php';
-include_once '../modelo/Alumno_Diagnostico.class.php';
-include_once '../modelo/Alumno_DiagnosticoMapper.php';
+include_once '../modelo/Alumno_Carrera.class.php';
+include_once '../modelo/Alumno_CarreraMapper.php';
 
-$Mapper = new Alumno_DiagnosticoMapper();
+$Mapper = new Alumno_CarreraMapper();
 $idObjetoCreado = $Mapper->delete($_GET['id']);
 ?>
 

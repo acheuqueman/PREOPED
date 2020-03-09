@@ -36,7 +36,7 @@ if (isset($_POST["id_carrera"]) ) {
                 <div class="card-footer">
                     <p>Opciones:</p>
                     <p>
-                        <a href="alumno_carrera.crear.php?id_alumno=<?= $_POST["id_alumno"]; ?>"><input type="button"  class="btn btn-outline-success" value="Cargar otro Diagn&oacute;stico" /></a>
+                        <a href="alumno_carrera.crear.php?id_alumno=<?= $_POST["id_alumno"]; ?>"><input type="button"  class="btn btn-outline-success" value="Cargar otra Carrera" /></a>
                         <a href="alumno.ver.php?id=<?= $_POST["id_alumno"]; ?>"><input type="button" class="btn btn-outline-success" value="Ver Alumno" /></a>
                         <a href="alumnos.php"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>
                     </p>
