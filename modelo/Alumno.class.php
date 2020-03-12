@@ -79,6 +79,7 @@ class Alumno extends Persona {
     function addDiagnostico($Diagnostico) {
         $this->Diagnosticos[] = $Diagnostico;
     }
+
     /**
      * 
      * @return Alumno_Carrera[]
@@ -86,15 +87,27 @@ class Alumno extends Persona {
     function getCarreras() {
         return $this->Carreras;
     }
+
     /**
      * 
      * @param Alumno_Carrera[] $Carreras
      */
-
     function setCarreras($Carreras) {
         $this->Carreras = $Carreras;
     }
 
-
+    /**
+     * 
+     * @param Int $id_carrera
+     */
+    function poseeCarrera($id_carrera) {
+        if (!$this->Carreras)
+            return FALSE;
+        foreach ($this->Carreras as $carrera) {
+            if ($carrera->getId_carrera() == $id_carrera)
+                return true;
+        }
+        return false;
+    }
 
 }

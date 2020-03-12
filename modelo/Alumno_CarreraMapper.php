@@ -2,19 +2,20 @@
 
 include_once 'BDMapper.php';
 
-class Alumno_CarreraMapper extends BDMapper{
+class Alumno_CarreraMapper extends BDMapper {
 
     const NOMBRE_TABLA = "alumno_carrera";
     const NOMBRE_VIEW = "vwalumno_carrera";
-    
+
     protected $nombreview;
-    
+
     public function __construct() {
 
         $this->nombreTabla = self::NOMBRE_TABLA;
         $this->nombreAtributoId = "id";
         parent::__construct();
     }
+
     public function findById($id) {
         $this->nombreTabla = self::NOMBRE_VIEW;
         return parent::findById($id);
@@ -31,26 +32,37 @@ class Alumno_CarreraMapper extends BDMapper{
                 . "'{$Alumno_Carrera->getId_alumno()}', "
                 . "'{$Alumno_Carrera->getId_carrera()}'"
                 . ")";
-                
+
         $this->resultset = $this->bdconexion->query($this->query);
+
         return $this->resultset;
-    
     }
-    
+
     /**
      * 
      * @param Int $id
      * @return Int Numero de filas eliminadas.
      */
     public function delete($id_) {
-        
+
         $this->query = "DELETE FROM {$this->nombreTabla} "
-        . "WHERE {$this->nombreAtributoId} = {$id_}";
-                
+                . "WHERE {$this->nombreAtributoId} = {$id_}";
+
         $this->resultset = $this->bdconexion->query($this->query);
         return $this->resultset;
     }
-    
-    
-    
+
+    /**
+     * 
+     * @param type $id_alumno
+     * @return type
+     */
+    public function deleteAll($id_alumno) {
+        $this->query = "DELETE FROM {$this->nombreTabla} "
+                . "WHERE id_alumno = {$id_alumno}";
+
+        $this->resultset = $this->bdconexion->query($this->query);
+        return $this->resultset;
+    }
+
 }
