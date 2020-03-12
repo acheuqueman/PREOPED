@@ -8,9 +8,7 @@ include_once '../modelo/AlumnoMapper.php';
 
 $Mapper = new AlumnoMapper();
 $Alumno = new Alumno($Mapper->findById($_GET['id_alumno']));
-
-
-
+$Alumno->setCarreras($Mapper->findCarreras($Alumno->getId()));
 
 ?>
 
@@ -46,27 +44,18 @@ $Alumno = new Alumno($Mapper->findById($_GET['id_alumno']));
                                         <label for="carrera">Carreras</label> 
                                     </div>
 
-
-
                                     <?php foreach ($Coleccion->getColeccion() as $Carrera) { ?>
-
-                                    <input type="checkbox" name="id_carrera[<?= $Carrera->getId(); ?>]" value="<?= $Carrera->getId(); ?>"><?= $Carrera->getNombre(); ?><br> <br>
-
-
+                                    <input type="checkbox" name="id_carrera[<?= $Carrera->getId(); ?>]" value="<?= $Carrera->getId(); ?>" <?php if($Alumno->poseeCarrera($Carrera->getId())) { echo "checked"; } ?> />
+                                        <?= $Carrera->getNombre(); ?>
+                                        <br> <br>
                                     <?php } ?>
 
                                 </div>
 
-
                                 <input type="submit" class="btn btn-success">
                                 <a href="alumno.ver.php?id=<?= $Alumno->getId(); ?>"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>                        
 
-
                             </form>
-
-
-
-
                         </div>                            
                     </div>
                 </div>

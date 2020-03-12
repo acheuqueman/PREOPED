@@ -5,25 +5,27 @@ include_once '../modelo/Alumno_CarreraMapper.php';
 
 $Mapper = new Alumno_CarreraMapper();
 $idObjetoCreado = false;
-if (isset($_POST["id_carrera"]) ) {
+
+if (isset($_POST["id_carrera"])) {
+
+    $Mapper->deleteAll($_POST['id_alumno']);
     foreach ($_POST["id_carrera"] as $carrera) {
         $parametros = array("id_alumno" => $_POST["id_alumno"], "id_carrera" => $carrera);
         $Objeto = new Alumno_Carrera($parametros);
-        //** No permitir carreras repetidas?
-        //** Como hacer con idObjetoCreado y el mensaje de error?
         $idObjetoCreado = $Mapper->insert($Objeto);
     }
+    
 }
 ?>
 
 <html>
     <head>
-<?php include_once '../lib/includesCss.php'; ?>
+        <?php include_once '../lib/includesCss.php'; ?>
         <?php include_once '../lib/includesJs.php'; ?>
         <title><?= Constantes::NOMBRE_SISTEMA; ?> - Alumnos</title>
     </head>
     <body>
-<?php include_once '../gui/navbar.php'; ?>
+        <?php include_once '../gui/navbar.php'; ?>
 
         <div class="container-fluid">
             <div class="card">
@@ -31,7 +33,7 @@ if (isset($_POST["id_carrera"]) ) {
                     <h5 class="oi oi-plus"> Nueva Carrera</h5>
                 </div>
                 <div class="card-body">
-<?php include_once '../gui/excepcion.mensajes.php'; ?>
+                    <?php include_once '../gui/excepcion.mensajes.php'; ?>
                 </div>
                 <div class="card-footer">
                     <p>Opciones:</p>
@@ -44,6 +46,6 @@ if (isset($_POST["id_carrera"]) ) {
             </div>   
             <div class="row">&nbsp;</div>
         </div>
-<?php include_once '../gui/footer.php'; ?>
+        <?php include_once '../gui/footer.php'; ?>
     </body>
 </html>
