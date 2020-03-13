@@ -6,7 +6,11 @@ include_once '../modelo/AlumnoMapper.php';
 $Mapper = new AlumnoMapper();
 $Alumno = new Alumno($Mapper->findById($_GET['id']));
 $Alumno->setDiagnosticos($Mapper->findDiagnosticos($Alumno->getId()));
+<<<<<<< HEAD
 $Alumno->setCarreras($Mapper->findCarrera($Alumno->getId()));
+=======
+$Alumno->setCarreras($Mapper->findCarreras($Alumno->getId()));
+>>>>>>> fcd1d68393d08a3d61b26d151e54ca05c4c6c8b4
 ?>
 
 <html>
@@ -94,9 +98,14 @@ $Alumno->setCarreras($Mapper->findCarrera($Alumno->getId()));
 
                             <div class="tab-content" id="myTabContent">
 
-                                <!-- Tab Diagnosticos -->                                
+                                <!-- Tab Diagnosticos -->   
                                 <div class="tab-pane fade show active" id="tab-Diagnosticos" role="tabpanel" aria-labelledby="tabDiagnosticos">
+<<<<<<< HEAD
                                     <?php include_once 'alumno.tabdiagnosticos.php'; ?>
+=======
+
+                                    <?php include_once './alumno.tabdiagnosticos.php'; ?>
+>>>>>>> fcd1d68393d08a3d61b26d151e54ca05c4c6c8b4
                                 </div>
 
                                 <!-- Tab grupo Familiar -->
@@ -106,7 +115,12 @@ $Alumno->setCarreras($Mapper->findCarrera($Alumno->getId()));
 
                                 <!-- Tab Historial Académico -->
                                 <div class="tab-pane fade" id="tab-Academico" role="tabpanel" aria-labelledby="tabAcademico">
+<<<<<<< HEAD
                                     <?php include_once 'alumno.tabhistorialacademico.php'; ?>
+=======
+                                    <?php include_once './alumno.tabHistorialAcademico.php'; ?>
+
+>>>>>>> fcd1d68393d08a3d61b26d151e54ca05c4c6c8b4
                                 </div>
 
                                 <!-- Tab Entrevistas -->
@@ -114,7 +128,6 @@ $Alumno->setCarreras($Mapper->findCarrera($Alumno->getId()));
                                     Entrevistas
                                 </div>
                             </div>                            
-
 
                         </div>
                     </div>

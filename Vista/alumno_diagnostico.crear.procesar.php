@@ -21,7 +21,7 @@ $idObjetoCreado = $Mapper->insert($Objeto);
         <div class="container-fluid">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="oi oi-plus"> Nuevo Alumno</h5>
+                        <h5 class="oi oi-plus"> Nuevo Diagnostico</h5>
                     </div>
                     <div class="card-body">
                         <?php include_once '../gui/excepcion.mensajes.php'; ?>

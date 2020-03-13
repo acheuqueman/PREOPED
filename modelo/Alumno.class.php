@@ -13,18 +13,29 @@ class Alumno extends Persona {
     protected $anio_ingreso;
     protected $cud;
 
+<<<<<<< HEAD
+=======
+    /*
+     * @var Alumno_Carrera[]
+     */
+    protected $Carreras;
+
+>>>>>>> fcd1d68393d08a3d61b26d151e54ca05c4c6c8b4
     /**
      *
      * @var Alumno_Diagnostico[] 
      */
     protected $Diagnosticos;
 
+<<<<<<< HEAD
     /**
      *
      * @var Alumno_Carrera[] 
      */
     protected $Carreras;
 
+=======
+>>>>>>> fcd1d68393d08a3d61b26d151e54ca05c4c6c8b4
     /**
      * 
      * @todo $familiares
@@ -84,10 +95,41 @@ class Alumno extends Persona {
 
     /**
      * 
+<<<<<<< HEAD
      * @param Alumno_Carrera[] $Carreras
      */
     function setCarreras(array $Carreras) {
         $this->Carreras = $Carreras;
     }
 
+=======
+     * @return Alumno_Carrera[]
+     */
+    function getCarreras() {
+        return $this->Carreras;
+    }
+
+    /**
+     * 
+     * @param Alumno_Carrera[] $Carreras
+     */
+    function setCarreras($Carreras) {
+        $this->Carreras = $Carreras;
+    }
+
+    /**
+     * 
+     * @param Int $id_carrera
+     */
+    function poseeCarrera($id_carrera) {
+        if (!$this->Carreras)
+            return FALSE;
+        foreach ($this->Carreras as $carrera) {
+            if ($carrera->getId_carrera() == $id_carrera)
+                return true;
+        }
+        return false;
+    }
+
+>>>>>>> fcd1d68393d08a3d61b26d151e54ca05c4c6c8b4
 }
