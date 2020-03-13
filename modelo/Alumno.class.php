@@ -7,7 +7,7 @@ include_once 'Alumno_Familiar.class.php';
 include_once 'Cursa.class.php';
 include_once 'Aprueba.class.php';
 include_once 'Entrevista_Alumno.class.php';
-include_once './Familiar.class.php';
+include_once 'Familiar.class.php';
 
 class Alumno extends Persona {
 

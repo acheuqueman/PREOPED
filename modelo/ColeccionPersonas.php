@@ -1,14 +1,14 @@
 <?php
 
 include_once 'Coleccion.php';
-include_once 'FamiliarMapper.php';
-include_once 'Familiar.class.php';
+include_once 'Persona.class.php';
+include_once 'PersonaMapper.php';
 
-class ColeccionFamiliares extends Coleccion {
+class ColeccionPersonas extends Coleccion {
     
     public function __construct() {
         parent::__construct();
-        $this->mapper = new FamiliarMapper();
+        $this->mapper = new PersonaMapper();
         $this->setColeccion();
     }
     

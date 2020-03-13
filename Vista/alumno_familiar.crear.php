@@ -6,8 +6,9 @@ include_once '../modelo/AlumnoMapper.php';
 $Mapper = new AlumnoMapper();
 $Alumno = new Alumno($Mapper->findById($_GET['id_alumno']));
 
-include_once '../modelo/ColeccionFamiliares.php';
-$Coleccion = new ColeccionFamiliares();
+include_once '../modelo/ColeccionPersonas.php';
+$Coleccion = new ColeccionPersonas();
+
 ?>
 
 <html>
@@ -28,16 +29,15 @@ $Coleccion = new ColeccionFamiliares();
                 <div class="card-body">
 
 
-                    <p>¿No encontro a la persona que busca :(?</p>
+                    <p>¿No encuentra a la persona que busca?</p>
                     <input type="button" class="btn-info">
                     <!-- INI Formulario -->
-                    <form action="alumno_diagnostico.crear.procesar.php" method="POST">
+                    <form action="alumno_familiar.crear.procesar.php" method="POST">
                         <table id="tablaSort" class="table table-striped table-hover table-sm ">
                             <thead class="thead-light">
                                 <tr>
                                     <th>Nombre</th>
                                     <th>DNI</th>
-                                    <th>Ingreso</th>
                                     <th class="columnaOpciones">Opciones</th>
                                 </tr>
                             </thead>
@@ -48,7 +48,6 @@ $Coleccion = new ColeccionFamiliares();
                                     <tr>
                                         <td><?= $Alumno->getNombre(); ?></td>
                                         <td><?= $Alumno->getDni(); ?></td>
-                                        <td><?= $Alumno->getAnio_ingreso(); ?></td>
                                         <td class="columnaOpciones">
 
                                             <!-- Ini Botones Opciones -->

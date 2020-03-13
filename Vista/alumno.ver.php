@@ -7,6 +7,9 @@ $Mapper = new AlumnoMapper();
 $Alumno = new Alumno($Mapper->findById($_GET['id']));
 $Alumno->setDiagnosticos($Mapper->findDiagnosticos($Alumno->getId()));
 $Alumno->setCarreras($Mapper->findCarreras($Alumno->getId()));
+//var_dump($Mapper->findFamiliares($Alumno->getId()));
+
+$Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
 ?>
 
 <html>
@@ -101,7 +104,7 @@ $Alumno->setCarreras($Mapper->findCarreras($Alumno->getId()));
 
                                 <!-- Tab grupo Familiar -->
                                 <div class="tab-pane fade" id="tab-Familiares" role="tabpanel" aria-labelledby="tabFamiliares">
-                                    Grupo Familiar
+                                    <?php include_once 'alumno.tabfamiliar.php'; ?>
                                 </div>
 
                                 <!-- Tab Historial Académico -->
