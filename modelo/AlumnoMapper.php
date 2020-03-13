@@ -2,6 +2,7 @@
 
 include_once 'BDMapper.php';
 include_once 'Familiar.class.php';
+include_once 'FamiliarMapper.php';
 
 include_once 'Alumno_Diagnostico.class.php';
 include_once 'Alumno_DiagnosticoMapper.php';
@@ -131,9 +132,8 @@ class AlumnoMapper extends BDMapper {
      */
     public function findFamiliares($id) {
 
-        $this->query = "SELECT * "
-                . "FROM vwfamiliar "
-                . "WHERE id_alumno = " . $id;
+        $this->query = "SELECT * FROM " . FamiliarMapper::NOMBRE_VIEW
+                . " WHERE id_alumno = " . $id;
 
         $this->resultset = $this->bdconexion->query($this->query);
         for ($x = 0; $x < $this->resultset->num_rows; $x++) {

@@ -7,6 +7,7 @@ include_once 'Alumno_Familiar.class.php';
 include_once 'Cursa.class.php';
 include_once 'Aprueba.class.php';
 include_once 'Entrevista_Alumno.class.php';
+include_once './Familiar.class.php';
 
 class Alumno extends Persona {
 
@@ -27,13 +28,20 @@ class Alumno extends Persona {
 
     /**
      * 
-     * @todo $familiares
+     * 
      * @todo $carreras
      * @todo $materias
      * @todo $entrevistas
      * 
      */
-
+    
+    /**
+     *
+     * @var Familiar[]
+     */
+    protected $Familiares;
+    
+    
     /**
      * 
      * @param Array $array
@@ -88,7 +96,15 @@ class Alumno extends Persona {
     function setCarreras($Carreras) {
         $this->Carreras = $Carreras;
     }
+    function getFamiliares() {
+        return $this->Familiares;
+    }
 
+    function setFamiliares(array $Familiares) {
+        $this->Familiares = $Familiares;
+    }
+
+    
     /**
      * 
      * @param Int $id_carrera
