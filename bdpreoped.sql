@@ -66,6 +66,7 @@ CREATE TABLE `alumno_carrera` (
 
 LOCK TABLES `alumno_carrera` WRITE;
 /*!40000 ALTER TABLE `alumno_carrera` DISABLE KEYS */;
+INSERT INTO `alumno_carrera` VALUES (1,12,3);
 /*!40000 ALTER TABLE `alumno_carrera` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -325,9 +326,15 @@ DROP TABLE IF EXISTS `familiar`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `familiar` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id_alumno` int(10) NOT NULL,
+  `id_persona` int(10) NOT NULL,
+  `parentesco` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_familiar_persona` FOREIGN KEY (`id`) REFERENCES `persona` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `fk_familiar_alumno_idx` (`id_alumno`),
+  KEY `fk_familiar_persona_idx` (`id_persona`),
+  CONSTRAINT `fk_familiar_alumno` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_familiar_persona` FOREIGN KEY (`id_persona`) REFERENCES `persona` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -336,36 +343,8 @@ CREATE TABLE `familiar` (
 
 LOCK TABLES `familiar` WRITE;
 /*!40000 ALTER TABLE `familiar` DISABLE KEYS */;
+INSERT INTO `familiar` VALUES (1,12,13,'Padre');
 /*!40000 ALTER TABLE `familiar` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `familiar_alumno`
---
-
-DROP TABLE IF EXISTS `familiar_alumno`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `familiar_alumno` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `id_alumno` int(10) NOT NULL,
-  `id_familiar` int(10) NOT NULL,
-  `parentesco` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_familiar_alumno_alumno_idx` (`id_alumno`),
-  KEY `fk_familiar_alumno_familiar_idx` (`id_familiar`),
-  CONSTRAINT `fk_familiar_alumno_alumno` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id`),
-  CONSTRAINT `fk_familiar_alumno_familiar` FOREIGN KEY (`id_familiar`) REFERENCES `familiar` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `familiar_alumno`
---
-
-LOCK TABLES `familiar_alumno` WRITE;
-/*!40000 ALTER TABLE `familiar_alumno` DISABLE KEYS */;
-/*!40000 ALTER TABLE `familiar_alumno` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -470,12 +449,10 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 /*!50001 CREATE VIEW `vwfamiliar` AS SELECT 
  1 AS `id`,
- 1 AS `nombre`,
- 1 AS `dni`,
- 1 AS `email`,
- 1 AS `telefono`,
  1 AS `id_alumno`,
- 1 AS `parentesco`*/;
+ 1 AS `id_persona`,
+ 1 AS `parentesco`,
+ 1 AS `nombre`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -563,7 +540,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vwfamiliar` AS select `p`.`id` AS `id`,`p`.`nombre` AS `nombre`,`p`.`dni` AS `dni`,`p`.`email` AS `email`,`p`.`telefono` AS `telefono`,`fa`.`id_alumno` AS `id_alumno`,`fa`.`parentesco` AS `parentesco` from ((`persona` `p` join `familiar` `f` on((`p`.`id` = `f`.`id`))) join `familiar_alumno` `fa`) where (`f`.`id` = `fa`.`id_familiar`) */;
+/*!50001 VIEW `vwfamiliar` AS select `F`.`id` AS `id`,`F`.`id_alumno` AS `id_alumno`,`F`.`id_persona` AS `id_persona`,`F`.`parentesco` AS `parentesco`,`P`.`nombre` AS `nombre` from (`familiar` `F` join `persona` `P`) where (`F`.`id_persona` = `P`.`id`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -577,4 +554,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-03-03 15:35:03
+-- Dump completed on 2020-03-13 16:05:14
