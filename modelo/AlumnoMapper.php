@@ -18,11 +18,6 @@ class AlumnoMapper extends BDMapper {
 
     /**
      *
-     * @var Carreras[]
-     */
-    protected $carreras;
-    /**
-     *
      * @var Diagnostico[]
      */
     protected $diagnosticos;
@@ -168,28 +163,10 @@ class AlumnoMapper extends BDMapper {
     
     /*
      * 
-<<<<<<< HEAD
      * @param Int $id ID del alumno
      * @return Alumno_Carreras[]
      */
-    public function findCarrera($id) {
-=======
-     */
     public function findCarreras($id) {
-
-        $this->query = "SELECT * FROM " . Alumno_CarreraMapper::NOMBRE_VIEW
-                . " WHERE id_alumno = " . $id;
-
-        $this->resultset = $this->bdconexion->query($this->query);
-        for ($x = 0; $x < $this->resultset->num_rows; $x++) {
-            $this->carreras[] = new Alumno_Carrera($this->resultset->fetch_assoc());
-        }
-        return $this->carreras;
-    }
-    
-    
-
->>>>>>> fcd1d68393d08a3d61b26d151e54ca05c4c6c8b4
 
         $this->query = "SELECT * FROM " . Alumno_CarreraMapper::NOMBRE_VIEW
                 . " WHERE id_alumno = " . $id;
