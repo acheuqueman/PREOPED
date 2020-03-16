@@ -16,9 +16,10 @@ include_once '../lib/Constantes.Class.php';
 
             <div class="card">
                 <div class="card-header">
-                    <h5 class="oi oi-plus"> Nuevo Familiar</h5>
+                    <h5 class="oi oi-plus"> Nueva Persona</h5>
                 </div>
                 <form action="persona.crear.procesar.php" method="POST">
+                    <input type="hidden" name="id_alumno" value="<?= $_GET['id_alumno']; ?>" />
                     <div class="card-body">
                         <div class="form-group">
                             <div class="form-row">

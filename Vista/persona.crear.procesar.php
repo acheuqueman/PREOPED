@@ -12,6 +12,8 @@ $idObjetoCreado = $Mapper->insert($Persona);
 
 <html>
     <head>
+        <?php include_once '../lib/includesCss.php'; ?>
+        <?php include_once '../lib/includesJs.php'; ?>
         <title><?= Constantes::NOMBRE_SISTEMA; ?> - Alumnos</title>
     </head>
     <body>
@@ -28,8 +30,8 @@ $idObjetoCreado = $Mapper->insert($Persona);
                 <div class="card-footer">
                     <p>Opciones:</p>
                     <p>
-                 <!--       <a href="alumno.crear.php"><input type="button" class="btn btn-outline-success" value="Cargar otro Alumno" /></a>
-                        <a href="alumno.actualizar.php?id=<?= $idObjetoCreado; ?>"><input type="button" class="btn btn-outline-success" value="Ver Alumno" /></a>-->
+                        <a href="persona.crear.php?id_alumno=<?= $_POST["id_alumno"]; ?>"><input type="button" class="btn btn-outline-success" value="Cargar otra Persona" /></a>
+                        <a href="alumno_familiar.crear.php?id_alumno=<?= $_POST["id_alumno"]; ?>"><input type="button" class="btn btn-outline-success" value="Menu Agregar Familiar" /></a>
                         <a href="alumnos.php"><input type="button"  class="btn btn-outline-danger" value="Salir" /></a>
                     </p>
                 </div>
