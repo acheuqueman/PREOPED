@@ -33,30 +33,32 @@ $Coleccion = new ColeccionPersonas();
                     <input type="button" class="btn-info">
                     <!-- INI Formulario -->
                     <form action="alumno_familiar.crear.procesar.php" method="POST">
+                        <input type="hidden" name="id_alumno" value="<?= $Alumno->getId(); ?>" />
                         <table id="tablaSort" class="table table-striped table-hover table-sm ">
                             <thead class="thead-light">
                                 <tr>
                                     <th>Nombre</th>
                                     <th>DNI</th>
                                     <th class="columnaOpciones">Opciones</th>
+                                    <th>Agregar</th> 
                                 </tr>
                             </thead>
                             <tbody>
 
-                                <?php foreach ($Coleccion->getColeccion() as $Alumno) { ?>
+                                <?php foreach ($Coleccion->getColeccion() as $Persona) { ?>
 
                                     <tr>
-                                        <td><?= $Alumno->getNombre(); ?></td>
-                                        <td><?= $Alumno->getDni(); ?></td>
+                                        <td><?= $Persona->getNombre(); ?></td>
+                                        <td><?= $Persona->getDni(); ?></td>
                                         <td class="columnaOpciones">
 
                                             <!-- Ini Botones Opciones -->
-                                            <a title="Ver detalle" href="alumno.ver.php?id=<?= $Alumno->getId(); ?>">
+                                            <a title="Ver detalle" href="alumno.ver.php?id=<?= $Persona->getId(); ?>">
                                                 <button type="button" class="btn btn-outline-info">
                                                     <span class="oi oi-zoom-in"></span>
                                                 </button></a>
 
-                                            <a title="Modificar" href="alumno.actualizar.php?id=<?= $Alumno->getId(); ?>">
+                                            <a title="Modificar" href="alumno.actualizar.php?id=<?= $Persona->getId(); ?>">
                                                 <button type="button" class="btn btn-outline-warning">
                                                     <span class="oi oi-pencil"></span>
                                                 </button></a>
@@ -67,6 +69,11 @@ $Coleccion = new ColeccionPersonas();
                                                 </button></a>
                                             <!-- Fin Botones Opciones -->
 
+                                        </td>
+                                        <td>
+                                            <!-- @todo if alumno posee familiar checked true --> 
+                                            <input type="checkbox" name="id_persona[<?= $Persona->getId(); ?>]" value="<?= $Persona->getId(); ?>" />
+                                            <input type="text" id="parentesco[<?= $Persona->getId(); ?>]" name="parentesco[<?= $Persona->getId(); ?>]" placeholder="Parentesco">
                                         </td>
                                     </tr>
                                 <?php } ?>

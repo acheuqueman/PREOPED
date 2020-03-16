@@ -31,7 +31,7 @@ class FamiliarMapper extends BDMapper {
                 . "NULL, "
                 . "'{$Familiar->getId_alumno()}', "
                 . "'{$Familiar->getId_persona()}',"
-                . "'{$Familiar->getId_parentesco()}'" 
+                . "'{$Familiar->getParentesco()}'" 
                 . ")";
         $this->resultset = $this->bdconexion->query($this->query);
 

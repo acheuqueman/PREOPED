@@ -100,7 +100,11 @@ class Alumno extends Persona {
         return $this->Familiares;
     }
 
-    function setFamiliares(array $Familiares) {
+    /**
+     * 
+     * @param Familiar[] $Familiares
+     */
+    function setFamiliares($Familiares) {
         $this->Familiares = $Familiares;
     }
 
