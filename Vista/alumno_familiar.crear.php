@@ -8,7 +8,6 @@ $Alumno = new Alumno($Mapper->findById($_GET['id_alumno']));
 
 include_once '../modelo/ColeccionPersonas.php';
 $Coleccion = new ColeccionPersonas();
-
 ?>
 
 <html>
@@ -24,13 +23,17 @@ $Coleccion = new ColeccionPersonas();
 
             <div class="card">
                 <div class="card-header">
-                    <h5 class="oi oi-plus"> Agregar Diagn&oacute;stico</h5>
+                    <h5 class="oi oi-plus"> Agregar Familiar</h5>
                 </div>
                 <div class="card-body">
 
 
-                    <p>¿No encuentra a la persona que busca?</p>
-                    <input type="button" class="btn-info">
+                    <label>¿No encuentra a la persona que busca?</label>>
+                    <a href="persona.crear.php?id_alumno=<?= $Alumno->getId(); ?>">
+                        <button class="btn"><i class="oi oi-plus"></i> Crear Nuevo</button>
+                    </a>
+                    <div class="form-row">&nbsp;</div>
+
                     <!-- INI Formulario -->
                     <form action="alumno_familiar.crear.procesar.php" method="POST">
                         <input type="hidden" name="id_alumno" value="<?= $Alumno->getId(); ?>" />
@@ -39,7 +42,6 @@ $Coleccion = new ColeccionPersonas();
                                 <tr>
                                     <th>Nombre</th>
                                     <th>DNI</th>
-                                    <th class="columnaOpciones">Opciones</th>
                                     <th>Agregar</th> 
                                 </tr>
                             </thead>
@@ -50,26 +52,6 @@ $Coleccion = new ColeccionPersonas();
                                     <tr>
                                         <td><?= $Persona->getNombre(); ?></td>
                                         <td><?= $Persona->getDni(); ?></td>
-                                        <td class="columnaOpciones">
-
-                                            <!-- Ini Botones Opciones -->
-                                            <a title="Ver detalle" href="alumno.ver.php?id=<?= $Persona->getId(); ?>">
-                                                <button type="button" class="btn btn-outline-info">
-                                                    <span class="oi oi-zoom-in"></span>
-                                                </button></a>
-
-                                            <a title="Modificar" href="alumno.actualizar.php?id=<?= $Persona->getId(); ?>">
-                                                <button type="button" class="btn btn-outline-warning">
-                                                    <span class="oi oi-pencil"></span>
-                                                </button></a>
-
-                                            <a title="Eliminar" href="#">
-                                                <button type="button" class="btn btn-outline-danger">
-                                                    <span class="oi oi-trash"></span>
-                                                </button></a>
-                                            <!-- Fin Botones Opciones -->
-
-                                        </td>
                                         <td>
                                             <!-- @todo if alumno posee familiar checked true --> 
                                             <input type="checkbox" name="id_persona[<?= $Persona->getId(); ?>]" value="<?= $Persona->getId(); ?>" />

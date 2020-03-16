@@ -1,16 +1,17 @@
 <?php
 include_once '../lib/Constantes.Class.php';
-include_once '../modelo/Familiar.class.php';
-include_once '../modelo/FamiliarMapper.php';
 
-$Mapper = new FamiliarMapper();
-$idObjetoCreado = $Mapper->delete($_GET['id']);
+include_once '../modelo/Persona.class.php';
+include_once '../modelo/PersonaMapper.php';
+
+$Persona = new Persona($_POST);
+$Mapper = new PersonaMapper();
+$idObjetoCreado = $Mapper->insert($Persona);
+
 ?>
 
 <html>
     <head>
-        <?php include_once '../lib/includesCss.php'; ?>
-        <?php include_once '../lib/includesJs.php'; ?>
         <title><?= Constantes::NOMBRE_SISTEMA; ?> - Alumnos</title>
     </head>
     <body>
@@ -19,7 +20,7 @@ $idObjetoCreado = $Mapper->delete($_GET['id']);
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="oi oi-person"> Gesti&oacute;n de Alumnos</h5>
+                    <h5 class="oi oi-plus"> Nuevo Persona</h5>
                 </div>
                 <div class="card-body">
                     <?php include_once '../gui/excepcion.mensajes.php'; ?>
@@ -27,7 +28,9 @@ $idObjetoCreado = $Mapper->delete($_GET['id']);
                 <div class="card-footer">
                     <p>Opciones:</p>
                     <p>
-                        <a href="alumno.ver.php?id=<?= $_GET['id_alumno']; ?>"><input type="button" class="btn btn-outline-success" value="Volver a Alumno" /></a>
+                 <!--       <a href="alumno.crear.php"><input type="button" class="btn btn-outline-success" value="Cargar otro Alumno" /></a>
+                        <a href="alumno.actualizar.php?id=<?= $idObjetoCreado; ?>"><input type="button" class="btn btn-outline-success" value="Ver Alumno" /></a>-->
+                        <a href="alumnos.php"><input type="button"  class="btn btn-outline-danger" value="Salir" /></a>
                     </p>
                 </div>
             </div>   
