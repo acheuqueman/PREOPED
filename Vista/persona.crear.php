@@ -63,7 +63,7 @@ include_once '../lib/Constantes.Class.php';
                         </div>
 
                         <div class="form-row">&nbsp;</div>
-                        <input type ="submit" class="btn btn-success">  
+                        <input type ="submit" class="btn btn-success" />  
                         <a href="alumnos.php"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>
                     </div>
                 </form>

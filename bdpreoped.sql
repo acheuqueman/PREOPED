@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 5.7.29, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.19, for macos10.15 (x86_64)
 --
 -- Host: localhost    Database: preoped
 -- ------------------------------------------------------
--- Server version	5.7.29-0ubuntu0.16.04.1
+-- Server version	8.0.19
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,13 +21,13 @@
 
 DROP TABLE IF EXISTS `alumno`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `alumno` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `anio_ingreso` int(5) NOT NULL,
-  `cud` int(10) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `anio_ingreso` int NOT NULL,
+  `cud` int NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_alumno_persona` FOREIGN KEY (`id`) REFERENCES `persona` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_alumno_persona` FOREIGN KEY (`id`) REFERENCES `persona` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -47,16 +47,16 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `alumno_carrera`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `alumno_carrera` (
-  `id` int(11) NOT NULL,
-  `id_alumno` int(11) NOT NULL,
-  `id_carrera` int(11) NOT NULL,
+  `id` int NOT NULL,
+  `id_alumno` int NOT NULL,
+  `id_carrera` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_alumno_carrera_alumno_idx` (`id_alumno`),
   KEY `fk_alumno_carrera_carrera_idx` (`id_carrera`),
-  CONSTRAINT `fk_alumno_carrera_alumno` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_alumno_carrera_carrera` FOREIGN KEY (`id_carrera`) REFERENCES `carrera` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_alumno_carrera_alumno` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id`),
+  CONSTRAINT `fk_alumno_carrera_carrera` FOREIGN KEY (`id_carrera`) REFERENCES `carrera` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -76,12 +76,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `alumno_diagnostico`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `alumno_diagnostico` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `profesional_diagnostico` varchar(50) NOT NULL,
-  `id_diagnostico` int(10) NOT NULL,
-  `id_alumno` int(10) NOT NULL,
+  `id_diagnostico` int NOT NULL,
+  `id_alumno` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_alumno_dianostico_alumno_idx` (`id_alumno`),
   KEY `fk_alumno_diagnostico_diagnostico_idx` (`id_diagnostico`),
@@ -106,13 +106,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `aprueba`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `aprueba` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `fecha` date NOT NULL,
-  `calificacion` int(10) NOT NULL,
-  `id_asignatura` int(10) NOT NULL,
-  `id_alumno` int(10) NOT NULL,
+  `calificacion` int NOT NULL,
+  `id_asignatura` int NOT NULL,
+  `id_alumno` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_aprueba_asignatura_idx` (`id_asignatura`),
   KEY `fk_aprueba_alumno_idx` (`id_alumno`),
@@ -136,9 +136,9 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `asignatura`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `asignatura` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
@@ -160,9 +160,9 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `carrera`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `carrera` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
@@ -184,11 +184,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `carrera_asignatura`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `carrera_asignatura` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `id_asignatura` int(10) NOT NULL,
-  `id_carrera` int(10) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_asignatura` int NOT NULL,
+  `id_carrera` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_carrera_asignatura_asignatura_idx` (`id_asignatura`),
   KEY `fk_carrera_asignatura_carrera_idx` (`id_carrera`),
@@ -213,14 +213,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `cursa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cursa` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `periodo` varchar(20) NOT NULL,
-  `anio` int(10) NOT NULL,
+  `anio` int NOT NULL,
   `evaluacion` varchar(30) NOT NULL,
-  `id_alumno` int(10) NOT NULL,
-  `id_asignatura` int(10) NOT NULL,
+  `id_alumno` int NOT NULL,
+  `id_asignatura` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_cursa_asignatura_idx` (`id_asignatura`),
   KEY `fk_cursa_alumno_idx` (`id_alumno`),
@@ -244,9 +244,9 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `diagnostico`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `diagnostico` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `diagnostico` varchar(40) NOT NULL,
   `tipo_discapacidad` varchar(40) NOT NULL,
   `descripcion` varchar(250) DEFAULT NULL,
@@ -270,9 +270,9 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `entrevista`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `entrevista` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `fecha` date NOT NULL,
   `entrevistador` varchar(40) NOT NULL,
   `conclusiones` varchar(50) NOT NULL,
@@ -295,11 +295,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `entrevista_alumno`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `entrevista_alumno` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `id_alumno` int(10) NOT NULL,
-  `id_entrevista` int(10) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_alumno` int NOT NULL,
+  `id_entrevista` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_entrevista_alumno_alumno_idx` (`id_alumno`),
   KEY `fk_entrevista_alumno_entrevista_idx` (`id_entrevista`),
@@ -323,18 +323,18 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `familiar`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `familiar` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `id_alumno` int(10) NOT NULL,
-  `id_persona` int(10) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_alumno` int NOT NULL,
+  `id_persona` int NOT NULL,
   `parentesco` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_familiar_alumno_idx` (`id_alumno`),
   KEY `fk_familiar_persona_idx` (`id_persona`),
-  CONSTRAINT `fk_familiar_alumno` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_familiar_persona` FOREIGN KEY (`id_persona`) REFERENCES `persona` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_familiar_alumno` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id`),
+  CONSTRAINT `fk_familiar_persona` FOREIGN KEY (`id_persona`) REFERENCES `persona` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -353,13 +353,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `persona`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `persona` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(36) NOT NULL,
-  `dni` int(9) NOT NULL,
+  `dni` int NOT NULL,
   `email` varchar(36) NOT NULL,
-  `telefono` int(16) NOT NULL,
+  `telefono` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -370,18 +370,18 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
-INSERT INTO `persona` VALUES (12,'Eder dos Santos',12345678,'esantos@uarg.unpa.edu.ar',2966),(13,'Guillermo Rodriguez',12345698,'grodriguez@unpa',123456),(14,'Juan Ãndale Ã“rale Pues',12345698,'jperez@uarg',654987),(15,'Juan Perez',12345698,'jperez@uarg',654987),(16,'Juan Perez',12345698,'jperez@uarg',654987),(17,'Juan Perez',12345698,'jperez@uarg',654987),(18,'Juan Perez',12345698,'jperez@uarg',654987),(19,'Eder dos Santos`\' \"',4,'bacteriaut@gmail.com',654987),(20,'Eder dos Santos`\' \"',4,'bacteriaut@gmail.com',654987),(21,'Eder dos Santos`\' ',19681620,'mimailesmio@com',654987),(22,'Eder dos Santos`\' \"',4,'bacteriaut@gmail.com',654987),(23,'Eder dos Santos`\' \"',4,'bacteriaut@gmail.com',654987);
+INSERT INTO `persona` VALUES (12,'Eder dos Santos',12345678,'esantos@uarg.unpa.edu.ar',2966),(13,'Guillermo Rodriguez',12345698,'grodriguez@unpa',123456),(14,'Franco',12345698,'jperez@uarg',654987),(15,'Facundo',12345698,'jperez@uarg',654987),(16,'Andrea',12345698,'jperez@uarg',654987),(17,'Juan',12345698,'jperez@uarg',654987),(18,'Pedro',12345698,'jperez@uarg',654987),(19,'Maria',4,'bacteriaut@gmail.com',654987),(20,'Adriana',4,'bacteriaut@gmail.com',654987),(21,'Maykel',19681620,'mimailesmio@com',654987),(22,'Antonia',4,'bacteriaut@gmail.com',654987),(23,'Ivana',4,'bacteriaut@gmail.com',654987);
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Temporary table structure for view `vwalumno`
+-- Temporary view structure for view `vwalumno`
 --
 
 DROP TABLE IF EXISTS `vwalumno`;
 /*!50001 DROP VIEW IF EXISTS `vwalumno`*/;
 SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `vwalumno` AS SELECT 
  1 AS `id`,
  1 AS `nombre`,
@@ -393,13 +393,13 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary table structure for view `vwalumno_carrera`
+-- Temporary view structure for view `vwalumno_carrera`
 --
 
 DROP TABLE IF EXISTS `vwalumno_carrera`;
 /*!50001 DROP VIEW IF EXISTS `vwalumno_carrera`*/;
 SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `vwalumno_carrera` AS SELECT 
  1 AS `id`,
  1 AS `id_alumno`,
@@ -408,13 +408,13 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary table structure for view `vwalumno_diagnostico`
+-- Temporary view structure for view `vwalumno_diagnostico`
 --
 
 DROP TABLE IF EXISTS `vwalumno_diagnostico`;
 /*!50001 DROP VIEW IF EXISTS `vwalumno_diagnostico`*/;
 SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `vwalumno_diagnostico` AS SELECT 
  1 AS `id`,
  1 AS `profesional_diagnostico`,
@@ -424,13 +424,13 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary table structure for view `vwcarrera_asignatura`
+-- Temporary view structure for view `vwcarrera_asignatura`
 --
 
 DROP TABLE IF EXISTS `vwcarrera_asignatura`;
 /*!50001 DROP VIEW IF EXISTS `vwcarrera_asignatura`*/;
 SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `vwcarrera_asignatura` AS SELECT 
  1 AS `nombreCarrera`,
  1 AS `nombreAsignatura`,
@@ -440,13 +440,13 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary table structure for view `vwfamiliar`
+-- Temporary view structure for view `vwfamiliar`
 --
 
 DROP TABLE IF EXISTS `vwfamiliar`;
 /*!50001 DROP VIEW IF EXISTS `vwfamiliar`*/;
 SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `vwfamiliar` AS SELECT 
  1 AS `id`,
  1 AS `id_alumno`,
@@ -463,12 +463,12 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8 */;
-/*!50001 SET character_set_results     = utf8 */;
-/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 SET character_set_client      = latin1 */;
+/*!50001 SET character_set_results     = latin1 */;
+/*!50001 SET collation_connection      = latin1_swedish_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vwalumno` AS select `persona`.`id` AS `id`,`persona`.`nombre` AS `nombre`,`persona`.`dni` AS `dni`,`persona`.`email` AS `email`,`persona`.`telefono` AS `telefono`,`alumno`.`anio_ingreso` AS `anio_ingreso`,`alumno`.`cud` AS `cud` from (`persona` join `alumno` on((`persona`.`id` = `alumno`.`id`))) */;
+/*!50001 VIEW `vwalumno` AS select `persona`.`id` AS `id`,`persona`.`nombre` AS `nombre`,`persona`.`dni` AS `dni`,`persona`.`email` AS `email`,`persona`.`telefono` AS `telefono`,`alumno`.`anio_ingreso` AS `anio_ingreso`,`alumno`.`cud` AS `cud` from (`persona` join `alumno` on((`persona`.`id` = `alumno`.`id`))) order by `persona`.`nombre` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -554,4 +554,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-03-13 16:05:14
+-- Dump completed on 2020-03-20 16:57:10

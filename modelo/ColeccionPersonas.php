@@ -14,9 +14,9 @@ class ColeccionPersonas extends Coleccion {
     
     public function setColeccion() {
         $this->query = "SELECT * "
-                ."FROM ".$this->mapper->getNombreTabla();
-        $this->resultset = $this->bdconexion->query($this->query);
-        
+                . " FROM " . $this->mapper->getNombreTabla()
+                . " ORDER BY nombre";
+        $this->resultset = $this->bdconexion->query($this->query);        
         
         for ($x = 0; $x < $this->resultset->num_rows; $x++) {
             $this->coleccion[] = new Persona($this->resultset->fetch_assoc());
