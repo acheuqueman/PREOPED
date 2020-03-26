@@ -4,14 +4,47 @@ include_once 'BDMapper.php';
 include_once '../modelo/Alumno.class.php';
 
 class EntrevistaMapper extends BDMapper{
+
     public function __construct() {
-        $this->nombreTabla = "Entrevista";
+        $this->nombreTabla = "entrevista";
         $this->nombreAtributoId = "id";
         parent::__construct();
     }
 
     public function findById($id) {
+        //$this->nombreTabla = self::NOMBRE_VIEW;
         return parent::findById($id);
+    }
+
+     /**
+     * 
+     * @param Entrevista $Entrevista
+     *
+     */
+    public function insert($Entrevista) {
+        
+        $this->query = "INSERT INTO {$this->nombreTabla} VALUES ("
+                . "NULL, "
+                . "'{$Entrevista->getFecha()}', "
+                . "'{$Entrevista->getEntrevistador()}',"
+                . "'{$Entrevista->getConclusiones()}'" 
+                . ")";
+        $this->resultset = $this->bdconexion->query($this->query);
+
+        return $this->resultset;
+    }
+
+    /**
+     * 
+     * @param Int $id_
+     * @return Int Numero de filas eliminadas.
+     */
+    public function delete($id_) {
+        $this->query = "DELETE FROM {$this->nombreTabla} "
+                . "WHERE {$this->nombreAtributoId} = {$id_}";
+
+        $this->resultset = $this->bdconexion->query($this->query);
+        return $this->resultset;
     }
     
     public function findAlumnos($id){

@@ -40,6 +40,12 @@ class Alumno extends Persona {
      * @var Familiar[]
      */
     protected $Familiares;
+
+    /**
+     *
+     * @var Entrevista_Alumno[]
+     */
+    protected $Entrevista_Alumno;
     
     
     /**
@@ -96,6 +102,7 @@ class Alumno extends Persona {
     function setCarreras($Carreras) {
         $this->Carreras = $Carreras;
     }
+
     function getFamiliares() {
         return $this->Familiares;
     }
@@ -106,6 +113,21 @@ class Alumno extends Persona {
      */
     function setFamiliares($Familiares) {
         $this->Familiares = $Familiares;
+    }
+
+    /**
+     * @return Entrevista_Alumno[]
+     */
+    function getEntrevista_Alumno() {
+        return $this->Entrevista_Alumno;
+    }
+
+    /**
+     * 
+     * @param Entrevista_Alumno[] $Entrevista_Alumno
+     */
+    function setEntrevista_Alumno($Entrevista_Alumno) {
+        $this->Entrevista_Alumno = Entrevista_Alumno;
     }
 
     

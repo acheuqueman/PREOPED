@@ -10,6 +10,9 @@ include_once 'Alumno_DiagnosticoMapper.php';
 include_once 'Alumno_Carrera.class.php';
 include_once 'Alumno_CarreraMapper.php';
 
+include_once 'Entrevista_Alumno.class.php';
+include_once 'Entrevista_AlumnoMapper.php';
+
 class AlumnoMapper extends BDMapper {
 
     /**
@@ -28,6 +31,12 @@ class AlumnoMapper extends BDMapper {
      * @var Carrera[]
      */
     protected $carreras;
+
+    /**
+     *
+     * @var Entrevista[]
+     */
+    protected $entrevistas;
 
     /**
      * 
@@ -176,6 +185,23 @@ class AlumnoMapper extends BDMapper {
             $this->carreras[] = new Alumno_Carrera($this->resultset->fetch_assoc());
         }
         return $this->carreras;
+    }
+
+    /*
+     * 
+     * @param Int $id ID del alumno
+     * @return Entrevista_Alumno[]
+     */
+    public function findEntrevista($id) {
+
+        $this->query = "SELECT * FROM " .Entrevista_AlumnoMapper::NOMBRE_VIEW
+                . " WHERE id_alumno = " . $id;
+
+        $this->resultset = $this->bdconexion->query($this->query);
+        for ($x = 0; $x < $this->resultset->num_rows; $x++) {
+            $this->entrevistas[] = new Entrevista_Alumno($this->resultset->fetch_assoc());
+        }
+        return $this->entrevistas;
     }
     
 }

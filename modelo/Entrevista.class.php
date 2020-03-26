@@ -55,8 +55,3 @@ class Entrevista extends ModeloDatosGenerico{
 
 
 }
-$array["id"] = 1;
-$array["fecha"] = "asd";
-
-$P1 = new Entrevista($array);
-var_dump($P1);
