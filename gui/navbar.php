@@ -19,7 +19,7 @@
             </li>
 
             <li class = "nav-item ml-1">
-                <a class = "nav-link btn btn-info btn-sm" href = "../app">
+                <a class = "nav-link btn btn-info btn-sm" href = "../Vista/entrevista.php">
                     <span class = "oi oi-graph" ></span> Entrevistas
                 </a>
             </li>
