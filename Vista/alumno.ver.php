@@ -114,7 +114,7 @@ $Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
 
                                 <!-- Tab Entrevistas -->
                                 <div class="tab-pane fade" id="tab-Entrevistas" role="tabpanel" aria-labelledby="tabEntrevistas">
-                                    Entrevistas
+                                    <?php include_once './alumno.tabentrevista.php'; ?>
                                 </div>
                             </div>                            
 
