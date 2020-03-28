@@ -27,8 +27,6 @@ $Coleccion = new ColeccionDiagnostico();
                 </div>
                 <div class="card-body">
 
-
-
                     <!-- INI Formulario -->
                     <form action="alumno_diagnostico.crear.procesar.php" method="POST">
                         <input type="hidden" name="id_alumno" value="<?= $Alumno->getId(); ?>" />

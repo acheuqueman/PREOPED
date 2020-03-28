@@ -28,7 +28,7 @@ class Entrevista_AlumnoMapper extends BDMapper{
         $this->query = "INSERT INTO {$this->nombreTabla} VALUES ("
                 . "NULL, "
                 . "'{$Entrevista_Alumno->getId_alumno()}', "
-                . "'{$Entrevista_Alumno->getId_entrevista()}',"
+                . "'{$Entrevista_Alumno->getId_entrevista()}'"
                 . ")";
         $this->resultset = $this->bdconexion->query($this->query);
 

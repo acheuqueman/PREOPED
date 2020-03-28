@@ -8,8 +8,8 @@ $Alumno = new Alumno($Mapper->findById($_GET['id']));
 $Alumno->setDiagnosticos($Mapper->findDiagnosticos($Alumno->getId()));
 $Alumno->setCarreras($Mapper->findCarreras($Alumno->getId()));
 //var_dump($Mapper->findFamiliares($Alumno->getId()));
-
 $Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
+$Alumno->setEntrevistas($Mapper->findEntrevistas($Alumno->getId()));
 ?>
 
 <html>

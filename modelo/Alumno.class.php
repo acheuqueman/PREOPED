@@ -45,7 +45,7 @@ class Alumno extends Persona {
      *
      * @var Entrevista_Alumno[]
      */
-    protected $Entrevista_Alumno;
+    protected $Entrevistas;
     
     
     /**
@@ -118,16 +118,16 @@ class Alumno extends Persona {
     /**
      * @return Entrevista_Alumno[]
      */
-    function getEntrevista_Alumno() {
-        return $this->Entrevista_Alumno;
+    function getEntrevistas() {
+        return $this->Entrevistas;
     }
 
     /**
      * 
      * @param Entrevista_Alumno[] $Entrevista_Alumno
      */
-    function setEntrevista_Alumno($Entrevista_Alumno) {
-        $this->Entrevista_Alumno = Entrevista_Alumno;
+    function setEntrevistas($Entrevista_Alumno) {
+        $this->Entrevistas = $Entrevista_Alumno;
     }
 
     

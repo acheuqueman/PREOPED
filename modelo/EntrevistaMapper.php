@@ -31,7 +31,9 @@ class EntrevistaMapper extends BDMapper{
                 . ")";
         $this->resultset = $this->bdconexion->query($this->query);
 
-        return $this->resultset;
+        // ** Cambiado para que devuelva id de objeto creado, nose si afectara algo
+        //return $this->resultset;
+        return $this->bdconexion->insert_id;
     }
 
     /**

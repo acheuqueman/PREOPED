@@ -12,9 +12,7 @@
             <tr>
                 <th>Fecha</th>
                 <th>Entrevistador</th>
-                <th>Conclusiones</th>
-
-                <th style="text-align: center">Opciones</th>
+                <th style="text-align: center">Opciones</th> <!-- vista ampliada con modal -->
             </tr>
         </thead>
         <tbody>
