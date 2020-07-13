@@ -7,7 +7,6 @@ $Mapper = new AlumnoMapper();
 $Alumno = new Alumno($Mapper->findById($_GET['id']));
 $Alumno->setDiagnosticos($Mapper->findDiagnosticos($Alumno->getId()));
 $Alumno->setCarreras($Mapper->findCarreras($Alumno->getId()));
-//var_dump($Mapper->findFamiliares($Alumno->getId()));
 $Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
 $Alumno->setEntrevistas($Mapper->findEntrevistas($Alumno->getId()));
 ?>
@@ -127,13 +126,13 @@ $Alumno->setEntrevistas($Mapper->findEntrevistas($Alumno->getId()));
 
                     <div class="card">
                         <div class="card-header text-white bg-info">
-                            <h5 ><span class="oi oi-cog"></span> Opciones</h5>
+                            <h5><span class="oi oi-cog"></span> Opciones</h5>
                         </div>
 
                         <div class="card-body">
                             <div class="list-group">
                                 <a href="alumno.actualizar.php?id=<?= $Alumno->getId(); ?>" class="list-group-item list-group-item-action"><span class="oi oi-pencil"></span> Actualizar Datos</a>
-                                <a href="#" class="list-group-item list-group-item-action"><span class="oi oi-document"></span> Descargar Reporte</a>
+                                <a  target="_blank" href="alumno.verpdf.php?id=<?= $Alumno->getId(); ?>" class="list-group-item list-group-item-action"><span class="oi oi-document"></span> Descargar Reporte</a>
                                 <a href="alumnos.php" class="list-group-item list-group-item-action"><span class="oi oi-home"></span> Volver a Alumnos</a>
                             </div>                            
                         </div>

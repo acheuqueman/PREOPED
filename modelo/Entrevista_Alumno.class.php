@@ -1,7 +1,8 @@
 <?php
 include_once 'ModeloDatosGenerico.php';
 
-class Entrevista_Alumno extends ModeloDatosGenerico{
+class Entrevista_Alumno extends ModeloDatosGenerico {
+    
     protected $id;
     protected $id_entrevista;
     protected $id_alumno; 

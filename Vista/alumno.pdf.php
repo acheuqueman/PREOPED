@@ -4,10 +4,9 @@ include_once '../modelo/Alumno.class.php';
 include_once '../modelo/AlumnoMapper.php';
 
 $Mapper = new AlumnoMapper();
-$Alumno = new Alumno($Mapper->findById(12));
+$Alumno = new Alumno($Mapper->findById($_GET['id']));
 $Alumno->setDiagnosticos($Mapper->findDiagnosticos($Alumno->getId()));
 $Alumno->setCarreras($Mapper->findCarreras($Alumno->getId()));
-
 $Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
 ?>
 
@@ -78,22 +77,6 @@ $Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
                             </div>            
                             <hr />
 
-                            <!-- Menu tabulado -->
-<!--                            <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="tabDiagnosticos" data-toggle="tab" href="#tab-Diagnosticos" role="tab" aria-controls="tab-Diagnosticos" aria-selected="true">Diagnosticos</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="tabFamiliares" data-toggle="tab" href="#tab-Familiares" role="tab" aria-controls="tab-Familiares" aria-selected="false">Grupo Familiar</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="tabAcademico" data-toggle="tab" href="#tab-Academico" role="tab" aria-controls="tab-Academico" aria-selected="false">Historial Academico</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="tabEntrevistas" data-toggle="tab" href="#tab-Entrevistas" role="tab" aria-controls="tabE-ntrevistas" aria-selected="false">Entrevistas</a>
-                                </li>
-                            </ul>-->
-
                             <div class="tab-content" id="myTabContent">
 
                                 <!-- Tab Diagnosticos -->   
@@ -116,36 +99,12 @@ $Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
                                     Entrevistas
                                 </div>
                             </div>                            
-                            <div class="row" id="tab-HTMl-PDF" role="tabpanel" aria-labelledby="tabHtmlPdf">
-                                <?php include_once '../Pruebas/html_a_pdf01.php'; ?>
-                            </div>
+
                         </div>
                     </div>
                 </div>
-
-<!--                <div class="col-md-3">
-
-
-                    <div class="card">
-                        <div class="card-header text-white bg-info">
-                            <h5 ><span class="oi oi-cog"></span> Opciones</h5>
-                        </div>
-
-                        <div class="card-body">
-                            <div class="list-group">
-                                <a href="alumno.actualizar.php?id=<?= $Alumno->getId(); ?>" class="list-group-item list-group-item-action"><span class="oi oi-pencil"></span> Actualizar Datos</a>
-                                <a href="#" class="list-group-item list-group-item-action"><span class="oi oi-document"></span> Descargar Reporte</a>
-                                <a href="alumnos.php" class="list-group-item list-group-item-action"><span class="oi oi-home"></span> Volver a Alumnos</a>
-                            </div>                            
-                        </div>
-                    </div>                    
-                    <hr />
-
-                    <?php include_once '../gui/bloqueUsuarioLogueado.php'; ?>
-                </div>-->
             </div>
-
         </div>
-        <?php include_once '../gui/footer.php'; ?>
+
     </body>
 </html>
