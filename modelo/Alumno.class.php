@@ -25,15 +25,6 @@ class Alumno extends Persona {
      * @var Alumno_Carrera[] 
      */
     protected $Carreras;
-
-    /**
-     * 
-     * 
-     * @todo $carreras
-     * @todo $materias
-     * @todo $entrevistas
-     * 
-     */
     
     /**
      *

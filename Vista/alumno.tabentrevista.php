@@ -16,8 +16,23 @@
             </tr>
         </thead>
         <tbody>
-           
+            <?php foreach ($Alumno->getEntrevistas() as $Entrevista) { ?>
+                    <tr>
+                        <td><?= $Entrevista->getFecha(); ?></td>
+                        <td><?= $Entrevista->getEntrevistador(); ?></td>
+                        <td style="text-align: center">
 
+                            <!-- Ini Botones Opciones -->
+                            <!-- @todo eliminar entrevista -->
+                            <a title="Eliminar" href="alumno_entrevista.eliminar.php?id=<?= $Entrevista->getId(); ?>" onclick="return confirm('¿Desea realmente eliminar?');">
+                                <button type="button" class="btn btn-outline-danger">
+                                    <span class="oi oi-trash"></span>
+                                </button></a>
+                            <!-- Fin Botones Opciones -->
+
+                        </td>
+                    </tr>
+                <?php } ?>
         </tbody>
     </table>
 <?php //} ?>

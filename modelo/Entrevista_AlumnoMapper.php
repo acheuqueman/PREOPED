@@ -5,7 +5,7 @@ include_once 'BDMapper.php';
 class Entrevista_AlumnoMapper extends BDMapper{
 
     const NOMBRE_TABLA = "entrevista_alumno";
-    const NOMBRE_VIEW = "vwentrevista_alumno";
+    const NOMBRE_VIEW = "vwalumno_entrevista";
 
     public function __construct() {
         $this->nombreTabla = self::NOMBRE_TABLA;

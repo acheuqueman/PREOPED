@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 13-07-2020 a las 20:13:27
--- Versión del servidor: 5.7.27-0ubuntu0.18.04.1
--- Versión de PHP: 7.2.19-0ubuntu0.18.04.2
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 14-07-2020 a las 00:43:23
+-- Versión del servidor: 10.4.10-MariaDB
+-- Versión de PHP: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,11 +28,13 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `alumno`
 --
 
-CREATE TABLE `alumno` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `alumno`;
+CREATE TABLE IF NOT EXISTS `alumno` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `anio_ingreso` int(11) NOT NULL,
-  `cud` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `cud` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `alumno`
@@ -56,20 +60,23 @@ INSERT INTO `alumno` (`id`, `anio_ingreso`, `cud`) VALUES
 -- Estructura de tabla para la tabla `alumno_carrera`
 --
 
-CREATE TABLE `alumno_carrera` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `alumno_carrera`;
+CREATE TABLE IF NOT EXISTS `alumno_carrera` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_alumno` int(11) NOT NULL,
-  `id_carrera` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_carrera` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_alumno_carrera_alumno_idx` (`id_alumno`),
+  KEY `fk_alumno_carrera_carrera_idx` (`id_carrera`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `alumno_carrera`
 --
 
 INSERT INTO `alumno_carrera` (`id`, `id_alumno`, `id_carrera`) VALUES
-(1, 12, 3),
-(2, 20, 3),
-(3, 20, 4);
+(8, 20, 3),
+(9, 20, 4);
 
 -- --------------------------------------------------------
 
@@ -77,12 +84,16 @@ INSERT INTO `alumno_carrera` (`id`, `id_alumno`, `id_carrera`) VALUES
 -- Estructura de tabla para la tabla `alumno_diagnostico`
 --
 
-CREATE TABLE `alumno_diagnostico` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `alumno_diagnostico`;
+CREATE TABLE IF NOT EXISTS `alumno_diagnostico` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `profesional_diagnostico` varchar(50) NOT NULL,
   `id_diagnostico` int(11) NOT NULL,
-  `id_alumno` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_alumno` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_alumno_dianostico_alumno_idx` (`id_alumno`),
+  KEY `fk_alumno_diagnostico_diagnostico_idx` (`id_diagnostico`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `alumno_diagnostico`
@@ -108,12 +119,16 @@ INSERT INTO `alumno_diagnostico` (`id`, `profesional_diagnostico`, `id_diagnosti
 -- Estructura de tabla para la tabla `aprueba`
 --
 
-CREATE TABLE `aprueba` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `aprueba`;
+CREATE TABLE IF NOT EXISTS `aprueba` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` date NOT NULL,
   `calificacion` int(11) NOT NULL,
   `id_asignatura` int(11) NOT NULL,
-  `id_alumno` int(11) NOT NULL
+  `id_alumno` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_aprueba_asignatura_idx` (`id_asignatura`),
+  KEY `fk_aprueba_alumno_idx` (`id_alumno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -122,10 +137,12 @@ CREATE TABLE `aprueba` (
 -- Estructura de tabla para la tabla `asignatura`
 --
 
-CREATE TABLE `asignatura` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `asignatura`;
+CREATE TABLE IF NOT EXISTS `asignatura` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(40) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `asignatura`
@@ -141,10 +158,12 @@ INSERT INTO `asignatura` (`id`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `carrera`
 --
 
-CREATE TABLE `carrera` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `carrera`;
+CREATE TABLE IF NOT EXISTS `carrera` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(40) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `carrera`
@@ -160,11 +179,15 @@ INSERT INTO `carrera` (`id`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `carrera_asignatura`
 --
 
-CREATE TABLE `carrera_asignatura` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `carrera_asignatura`;
+CREATE TABLE IF NOT EXISTS `carrera_asignatura` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_asignatura` int(11) NOT NULL,
-  `id_carrera` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_carrera` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_carrera_asignatura_asignatura_idx` (`id_asignatura`),
+  KEY `fk_carrera_asignatura_carrera_idx` (`id_carrera`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `carrera_asignatura`
@@ -182,13 +205,17 @@ INSERT INTO `carrera_asignatura` (`id`, `id_asignatura`, `id_carrera`) VALUES
 -- Estructura de tabla para la tabla `cursa`
 --
 
-CREATE TABLE `cursa` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `cursa`;
+CREATE TABLE IF NOT EXISTS `cursa` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `periodo` varchar(20) NOT NULL,
   `anio` int(11) NOT NULL,
   `evaluacion` varchar(30) NOT NULL,
   `id_alumno` int(11) NOT NULL,
-  `id_asignatura` int(11) NOT NULL
+  `id_asignatura` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_cursa_asignatura_idx` (`id_asignatura`),
+  KEY `fk_cursa_alumno_idx` (`id_alumno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -197,12 +224,14 @@ CREATE TABLE `cursa` (
 -- Estructura de tabla para la tabla `diagnostico`
 --
 
-CREATE TABLE `diagnostico` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `diagnostico`;
+CREATE TABLE IF NOT EXISTS `diagnostico` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `diagnostico` varchar(40) NOT NULL,
   `tipo_discapacidad` varchar(40) NOT NULL,
-  `descripcion` varchar(250) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `descripcion` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `diagnostico`
@@ -219,12 +248,23 @@ INSERT INTO `diagnostico` (`id`, `diagnostico`, `tipo_discapacidad`, `descripcio
 -- Estructura de tabla para la tabla `entrevista`
 --
 
-CREATE TABLE `entrevista` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `entrevista`;
+CREATE TABLE IF NOT EXISTS `entrevista` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` date NOT NULL,
   `entrevistador` varchar(40) NOT NULL,
-  `conclusiones` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `conclusiones` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `entrevista`
+--
+
+INSERT INTO `entrevista` (`id`, `fecha`, `entrevistador`, `conclusiones`) VALUES
+(1, '2020-07-14', 'entrevistador1', 'conclucion1'),
+(2, '1241-03-21', 'entrevistador2', 'conclucion2'),
+(3, '2010-03-12', 'entrevistador3', 'conclucion3');
 
 -- --------------------------------------------------------
 
@@ -232,11 +272,24 @@ CREATE TABLE `entrevista` (
 -- Estructura de tabla para la tabla `entrevista_alumno`
 --
 
-CREATE TABLE `entrevista_alumno` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `entrevista_alumno`;
+CREATE TABLE IF NOT EXISTS `entrevista_alumno` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_alumno` int(11) NOT NULL,
-  `id_entrevista` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_entrevista` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_entrevista_alumno_alumno_idx` (`id_alumno`),
+  KEY `fk_entrevista_alumno_entrevista_idx` (`id_entrevista`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `entrevista_alumno`
+--
+
+INSERT INTO `entrevista_alumno` (`id`, `id_alumno`, `id_entrevista`) VALUES
+(1, 12, 1),
+(2, 20, 2),
+(3, 20, 3);
 
 -- --------------------------------------------------------
 
@@ -244,19 +297,24 @@ CREATE TABLE `entrevista_alumno` (
 -- Estructura de tabla para la tabla `familiar`
 --
 
-CREATE TABLE `familiar` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `familiar`;
+CREATE TABLE IF NOT EXISTS `familiar` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_alumno` int(11) NOT NULL,
   `id_persona` int(11) NOT NULL,
-  `parentesco` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `parentesco` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_familiar_alumno_idx` (`id_alumno`),
+  KEY `fk_familiar_persona_idx` (`id_persona`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `familiar`
 --
 
 INSERT INTO `familiar` (`id`, `id_alumno`, `id_persona`, `parentesco`) VALUES
-(1, 12, 13, 'Padre');
+(1, 12, 13, 'Padre'),
+(4, 20, 20, 'asd');
 
 -- --------------------------------------------------------
 
@@ -264,13 +322,15 @@ INSERT INTO `familiar` (`id`, `id_alumno`, `id_persona`, `parentesco`) VALUES
 -- Estructura de tabla para la tabla `persona`
 --
 
-CREATE TABLE `persona` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `persona`;
+CREATE TABLE IF NOT EXISTS `persona` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(36) NOT NULL,
   `dni` int(11) NOT NULL,
   `email` varchar(36) NOT NULL,
-  `telefono` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `telefono` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `persona`
@@ -296,7 +356,8 @@ INSERT INTO `persona` (`id`, `nombre`, `dni`, `email`, `telefono`) VALUES
 -- Estructura Stand-in para la vista `vwalumno`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `vwalumno` (
+DROP VIEW IF EXISTS `vwalumno`;
+CREATE TABLE IF NOT EXISTS `vwalumno` (
 `id` int(11)
 ,`nombre` varchar(36)
 ,`dni` int(11)
@@ -312,7 +373,8 @@ CREATE TABLE `vwalumno` (
 -- Estructura Stand-in para la vista `vwalumno_carrera`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `vwalumno_carrera` (
+DROP VIEW IF EXISTS `vwalumno_carrera`;
+CREATE TABLE IF NOT EXISTS `vwalumno_carrera` (
 `id` int(11)
 ,`id_alumno` int(11)
 ,`id_carrera` int(11)
@@ -325,7 +387,8 @@ CREATE TABLE `vwalumno_carrera` (
 -- Estructura Stand-in para la vista `vwalumno_diagnostico`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `vwalumno_diagnostico` (
+DROP VIEW IF EXISTS `vwalumno_diagnostico`;
+CREATE TABLE IF NOT EXISTS `vwalumno_diagnostico` (
 `id` int(11)
 ,`profesional_diagnostico` varchar(50)
 ,`id_diagnostico` int(11)
@@ -336,10 +399,26 @@ CREATE TABLE `vwalumno_diagnostico` (
 -- --------------------------------------------------------
 
 --
+-- Estructura Stand-in para la vista `vwalumno_entrevista`
+-- (Véase abajo para la vista actual)
+--
+DROP VIEW IF EXISTS `vwalumno_entrevista`;
+CREATE TABLE IF NOT EXISTS `vwalumno_entrevista` (
+`id` int(11)
+,`id_alumno` int(11)
+,`id_entrevista` int(11)
+,`entrevistador` varchar(40)
+,`fecha` date
+);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura Stand-in para la vista `vwcarrera_asignatura`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `vwcarrera_asignatura` (
+DROP VIEW IF EXISTS `vwcarrera_asignatura`;
+CREATE TABLE IF NOT EXISTS `vwcarrera_asignatura` (
 `nombreCarrera` varchar(40)
 ,`nombreAsignatura` varchar(40)
 ,`id` int(11)
@@ -353,7 +432,8 @@ CREATE TABLE `vwcarrera_asignatura` (
 -- Estructura Stand-in para la vista `vwfamiliar`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `vwfamiliar` (
+DROP VIEW IF EXISTS `vwfamiliar`;
+CREATE TABLE IF NOT EXISTS `vwfamiliar` (
 `id` int(11)
 ,`id_alumno` int(11)
 ,`id_persona` int(11)
@@ -368,7 +448,7 @@ CREATE TABLE `vwfamiliar` (
 --
 DROP TABLE IF EXISTS `vwalumno`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwalumno`  AS  select `persona`.`id` AS `id`,`persona`.`nombre` AS `nombre`,`persona`.`dni` AS `dni`,`persona`.`email` AS `email`,`persona`.`telefono` AS `telefono`,`alumno`.`anio_ingreso` AS `anio_ingreso`,`alumno`.`cud` AS `cud` from (`persona` join `alumno` on((`persona`.`id` = `alumno`.`id`))) order by `persona`.`nombre` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwalumno`  AS  select `persona`.`id` AS `id`,`persona`.`nombre` AS `nombre`,`persona`.`dni` AS `dni`,`persona`.`email` AS `email`,`persona`.`telefono` AS `telefono`,`alumno`.`anio_ingreso` AS `anio_ingreso`,`alumno`.`cud` AS `cud` from (`persona` join `alumno` on(`persona`.`id` = `alumno`.`id`)) order by `persona`.`nombre` ;
 
 -- --------------------------------------------------------
 
@@ -377,7 +457,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vwalumno_carrera`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`preoped`@`localhost` SQL SECURITY DEFINER VIEW `vwalumno_carrera`  AS  select `AC`.`id` AS `id`,`AC`.`id_alumno` AS `id_alumno`,`AC`.`id_carrera` AS `id_carrera`,`C`.`nombre` AS `nombre` from (`alumno_carrera` `AC` join `carrera` `C`) where (`AC`.`id_carrera` = `C`.`id`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`preoped`@`localhost` SQL SECURITY DEFINER VIEW `vwalumno_carrera`  AS  select `ac`.`id` AS `id`,`ac`.`id_alumno` AS `id_alumno`,`ac`.`id_carrera` AS `id_carrera`,`c`.`nombre` AS `nombre` from (`alumno_carrera` `ac` join `carrera` `c`) where `ac`.`id_carrera` = `c`.`id` ;
 
 -- --------------------------------------------------------
 
@@ -386,7 +466,16 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`preoped`@`localhost` SQL SECURITY DEFINER VI
 --
 DROP TABLE IF EXISTS `vwalumno_diagnostico`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`preoped`@`%` SQL SECURITY DEFINER VIEW `vwalumno_diagnostico`  AS  select `AD`.`id` AS `id`,`AD`.`profesional_diagnostico` AS `profesional_diagnostico`,`AD`.`id_diagnostico` AS `id_diagnostico`,`AD`.`id_alumno` AS `id_alumno`,`D`.`diagnostico` AS `diagnostico` from (`diagnostico` `D` join `alumno_diagnostico` `AD`) where (`D`.`id` = `AD`.`id_diagnostico`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`preoped`@`%` SQL SECURITY DEFINER VIEW `vwalumno_diagnostico`  AS  select `ad`.`id` AS `id`,`ad`.`profesional_diagnostico` AS `profesional_diagnostico`,`ad`.`id_diagnostico` AS `id_diagnostico`,`ad`.`id_alumno` AS `id_alumno`,`d`.`diagnostico` AS `diagnostico` from (`diagnostico` `d` join `alumno_diagnostico` `ad`) where `d`.`id` = `ad`.`id_diagnostico` ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `vwalumno_entrevista`
+--
+DROP TABLE IF EXISTS `vwalumno_entrevista`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwalumno_entrevista`  AS  select `ae`.`id` AS `id`,`ae`.`id_alumno` AS `id_alumno`,`ae`.`id_entrevista` AS `id_entrevista`,`e`.`entrevistador` AS `entrevistador`,`e`.`fecha` AS `fecha` from (`entrevista_alumno` `ae` join `entrevista` `e`) where `ae`.`id_entrevista` = `e`.`id` ;
 
 -- --------------------------------------------------------
 
@@ -395,7 +484,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`preoped`@`%` SQL SECURITY DEFINER VIEW `vwal
 --
 DROP TABLE IF EXISTS `vwcarrera_asignatura`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`preoped`@`localhost` SQL SECURITY DEFINER VIEW `vwcarrera_asignatura`  AS  select `C`.`nombre` AS `nombreCarrera`,`A`.`nombre` AS `nombreAsignatura`,`CA`.`id` AS `id`,`CA`.`id_asignatura` AS `id_asignatura`,`CA`.`id_carrera` AS `id_carrera` from ((`carrera` `C` join `asignatura` `A`) join `carrera_asignatura` `CA`) where ((`CA`.`id_asignatura` = `A`.`id`) and (`CA`.`id_carrera` = `C`.`id`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`preoped`@`localhost` SQL SECURITY DEFINER VIEW `vwcarrera_asignatura`  AS  select `c`.`nombre` AS `nombreCarrera`,`a`.`nombre` AS `nombreAsignatura`,`ca`.`id` AS `id`,`ca`.`id_asignatura` AS `id_asignatura`,`ca`.`id_carrera` AS `id_carrera` from ((`carrera` `c` join `asignatura` `a`) join `carrera_asignatura` `ca`) where `ca`.`id_asignatura` = `a`.`id` and `ca`.`id_carrera` = `c`.`id` ;
 
 -- --------------------------------------------------------
 
@@ -404,173 +493,8 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`preoped`@`localhost` SQL SECURITY DEFINER VI
 --
 DROP TABLE IF EXISTS `vwfamiliar`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwfamiliar`  AS  select `F`.`id` AS `id`,`F`.`id_alumno` AS `id_alumno`,`F`.`id_persona` AS `id_persona`,`F`.`parentesco` AS `parentesco`,`P`.`nombre` AS `nombre` from (`familiar` `F` join `persona` `P`) where (`F`.`id_persona` = `P`.`id`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwfamiliar`  AS  select `f`.`id` AS `id`,`f`.`id_alumno` AS `id_alumno`,`f`.`id_persona` AS `id_persona`,`f`.`parentesco` AS `parentesco`,`p`.`nombre` AS `nombre` from (`familiar` `f` join `persona` `p`) where `f`.`id_persona` = `p`.`id` ;
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `alumno`
---
-ALTER TABLE `alumno`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `alumno_carrera`
---
-ALTER TABLE `alumno_carrera`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_alumno_carrera_alumno_idx` (`id_alumno`),
-  ADD KEY `fk_alumno_carrera_carrera_idx` (`id_carrera`);
-
---
--- Indices de la tabla `alumno_diagnostico`
---
-ALTER TABLE `alumno_diagnostico`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_alumno_dianostico_alumno_idx` (`id_alumno`),
-  ADD KEY `fk_alumno_diagnostico_diagnostico_idx` (`id_diagnostico`);
-
---
--- Indices de la tabla `aprueba`
---
-ALTER TABLE `aprueba`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_aprueba_asignatura_idx` (`id_asignatura`),
-  ADD KEY `fk_aprueba_alumno_idx` (`id_alumno`);
-
---
--- Indices de la tabla `asignatura`
---
-ALTER TABLE `asignatura`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `carrera`
---
-ALTER TABLE `carrera`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `carrera_asignatura`
---
-ALTER TABLE `carrera_asignatura`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_carrera_asignatura_asignatura_idx` (`id_asignatura`),
-  ADD KEY `fk_carrera_asignatura_carrera_idx` (`id_carrera`);
-
---
--- Indices de la tabla `cursa`
---
-ALTER TABLE `cursa`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_cursa_asignatura_idx` (`id_asignatura`),
-  ADD KEY `fk_cursa_alumno_idx` (`id_alumno`);
-
---
--- Indices de la tabla `diagnostico`
---
-ALTER TABLE `diagnostico`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `entrevista`
---
-ALTER TABLE `entrevista`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `entrevista_alumno`
---
-ALTER TABLE `entrevista_alumno`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_entrevista_alumno_alumno_idx` (`id_alumno`),
-  ADD KEY `fk_entrevista_alumno_entrevista_idx` (`id_entrevista`);
-
---
--- Indices de la tabla `familiar`
---
-ALTER TABLE `familiar`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_familiar_alumno_idx` (`id_alumno`),
-  ADD KEY `fk_familiar_persona_idx` (`id_persona`);
-
---
--- Indices de la tabla `persona`
---
-ALTER TABLE `persona`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `alumno`
---
-ALTER TABLE `alumno`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
---
--- AUTO_INCREMENT de la tabla `alumno_carrera`
---
-ALTER TABLE `alumno_carrera`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT de la tabla `alumno_diagnostico`
---
-ALTER TABLE `alumno_diagnostico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
---
--- AUTO_INCREMENT de la tabla `aprueba`
---
-ALTER TABLE `aprueba`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `asignatura`
---
-ALTER TABLE `asignatura`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `carrera`
---
-ALTER TABLE `carrera`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT de la tabla `carrera_asignatura`
---
-ALTER TABLE `carrera_asignatura`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT de la tabla `cursa`
---
-ALTER TABLE `cursa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `diagnostico`
---
-ALTER TABLE `diagnostico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
---
--- AUTO_INCREMENT de la tabla `entrevista`
---
-ALTER TABLE `entrevista`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `entrevista_alumno`
---
-ALTER TABLE `entrevista_alumno`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `familiar`
---
-ALTER TABLE `familiar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `persona`
---
-ALTER TABLE `persona`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- Restricciones para tablas volcadas
 --
@@ -629,6 +553,7 @@ ALTER TABLE `entrevista_alumno`
 ALTER TABLE `familiar`
   ADD CONSTRAINT `fk_familiar_alumno` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id`),
   ADD CONSTRAINT `fk_familiar_persona` FOREIGN KEY (`id_persona`) REFERENCES `persona` (`id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

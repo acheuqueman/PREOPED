@@ -8,6 +8,8 @@ class Entrevista_Alumno extends ModeloDatosGenerico {
     protected $id_alumno; 
     protected $entrevista;
     protected $alumno; 
+    protected $fecha;
+    protected $entrevistador;
 
     function __construct($array){
         parent::mapeoArrayAtributos($array);
@@ -51,5 +53,21 @@ class Entrevista_Alumno extends ModeloDatosGenerico {
 
     function setAlumno($alumno) {
         $this->alumno = $alumno;
+    }
+
+    function getFecha() {
+        return $this->fecha;
+    }
+
+    function setFecha($fecha) {
+        $this->fecha = $fecha;
+    }
+
+    function getEntrevistador() {
+        return $this->entrevistador;
+    }
+
+    function setEntrevistador($entrevistador) {
+        $this->entrevistador = $entrevistador;
     }
 }

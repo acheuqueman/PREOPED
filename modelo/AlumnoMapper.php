@@ -194,7 +194,6 @@ class AlumnoMapper extends BDMapper {
      */
     public function findEntrevistas($id) {
         
-        //@todo view en la base 
         $this->query = "SELECT * FROM " .Entrevista_AlumnoMapper::NOMBRE_VIEW
                 . " WHERE id_alumno = " . $id;
 
