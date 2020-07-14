@@ -21,7 +21,7 @@
                     <td style="text-align: center">
 
                         <!-- Ini Botones Opciones -->
-                        <a title="Eliminar" href="alumno_carrera.eliminar.php?id=<?= $Diagnostico->getId(); ?>&id_alumno=<?= $Diagnostico->getId_alumno(); ?>" onclick="return confirm('¿Desea realmente eliminar?');">
+                        <a title="Eliminar" href="alumno_carrera.eliminar.php?id=<?= $Carrera->getId(); ?>&id_alumno=<?= $Carrera->getId_alumno(); ?>" onclick="return confirm('¿Desea realmente eliminar?');">
                             <button type="button" class="btn btn-outline-danger">
                                 <span class="oi oi-trash"></span>
                             </button></a>
