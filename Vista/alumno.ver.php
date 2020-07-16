@@ -119,6 +119,21 @@ $Alumno->setEntrevistas($Mapper->findEntrevistas($Alumno->getId()));
 
                         </div>
                     </div>
+
+
+                    <h5>Diagnosticos</h5>
+                    <?php if ($Alumno->getDiagnosticos()) { ?>
+                        <table>
+                            <?php foreach ($Alumno->getDiagnosticos() as $Diagnostico) { ?>
+                                <tr>
+                                    <td><?= $Diagnostico->getDiagnostico(); ?></td>
+                                    <td><?= $Diagnostico->getProfesional_diagnostico(); ?></td>
+
+                                </tr>
+                            <?php } ?>
+                        </table>
+                    <?php } ?>
+                    <hr/>
                 </div>
 
                 <div class="col-md-3">

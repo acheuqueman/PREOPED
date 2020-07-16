@@ -14,7 +14,7 @@ $Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
     <head>
         <?php // include_once '../lib/includesCss.php'; ?>
         <?php // include_once '../lib/includesJs.php'; ?>
-        <title><?= Constantes::NOMBRE_SISTEMA; ?> - Gesti&oacute;n de Alumnos</title>
+        <title><?= Constantes::NOMBRE_SISTEMA; ?> - Gestion de Alumnos</title>
     </head>
     <body style="line-height: 10px">
         <h4>Datos del Alumno</h4><br>
@@ -22,7 +22,7 @@ $Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
         <h5>Datos Personales</h5>
         <h6>Nombre Completo</h6>
         <p><?= $Alumno->getNombre(); ?><p>
-        <h6>A&ntilde;o de ingreso</h6>
+        <h6>Año de ingreso</h6>
         <p><?= $Alumno->getAnio_Ingreso(); ?><p>
         <h6>DNI</h6>
         <p><?= $Alumno->getDni(); ?><p>
@@ -30,9 +30,9 @@ $Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
         <p><?= $Alumno->getCud(); ?><p>
         <hr />    
         <h5>Datos de Contacto</h5>
-        <h6>Correo electr&oacute;nico</h6>
+        <h6>Correo Electronico</h6>
         <p><?= $Alumno->getEmail(); ?><p>
-        <h6>N&uacute;mero de tel&eacute;fono</h6>
+        <h6>Numero Telefonico</h6>
         <p><?= $Alumno->getTelefono(); ?><p>
         <hr />   
         <h5>Diagnosticos</h5>
@@ -63,7 +63,7 @@ $Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
         <h5>Carreras</h5>
         <?php if ($Alumno->getCarreras()) { ?>
             <table>
-                <?php foreach ($Alumno->getFamiliares() as $Familiar) { ?>
+                <?php foreach ($Alumno->getCarreras() as $Carrera) { ?>
                     <tr>
                         <td><?= $Carrera->getNombreCarrera(); ?></td>
                     </tr>
