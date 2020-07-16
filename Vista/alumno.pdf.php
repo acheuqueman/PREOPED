@@ -16,25 +16,28 @@ $Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
         <?php // include_once '../lib/includesJs.php'; ?>
         <title><?= Constantes::NOMBRE_SISTEMA; ?> - Gestion de Alumnos</title>
     </head>
-    <body style="line-height: 10px">
+    <body style="line-height: 5px">
         <h4>Datos del Alumno</h4><br>
-        <img src="../lib/Logo_Cuadrado.png" style="border: none; margin-right: 20px" width="100"> <br>                           
-        <h5>Datos Personales</h5>
-        <h6>Nombre Completo</h6>
-        <p><?= $Alumno->getNombre(); ?><p>
-        <h6>Año de ingreso</h6>
-        <p><?= $Alumno->getAnio_Ingreso(); ?><p>
-        <h6>DNI</h6>
-        <p><?= $Alumno->getDni(); ?><p>
-        <h6>CUD</h6>
-        <p><?= $Alumno->getCud(); ?><p>
-        <hr />    
-        <h5>Datos de Contacto</h5>
-        <h6>Correo Electronico</h6>
-        <p><?= $Alumno->getEmail(); ?><p>
-        <h6>Numero Telefonico</h6>
-        <p><?= $Alumno->getTelefono(); ?><p>
-        <hr />   
+        <span style="display: block"></span>
+        <img src="../lib/Logo_Cuadrado.png" style="border: none; margin-right: 5px;float:left; " width="400"> <br>       
+        <span style="display: block; float:right; margin-left:5px; ">
+            <h5>Datos Personales</h5>
+            <h6>Nombre Completo</h6>
+            <p><?= $Alumno->getNombre(); ?><p>
+            <h6>Año de ingreso</h6>
+            <p><?= $Alumno->getAnio_Ingreso(); ?><p>
+            <h6>DNI</h6>
+            <p><?= $Alumno->getDni(); ?><p>
+            <h6>CUD</h6>
+            <p><?= $Alumno->getCud(); ?><p>
+            <hr />    
+            <h5>Datos de Contacto</h5>
+            <h6>Correo Electronico</h6>
+            <p><?= $Alumno->getEmail(); ?><p>
+            <h6>Numero Telefonico</h6>
+            <p><?= $Alumno->getTelefono(); ?><p>
+            <hr />   
+        </span>
         <h5>Diagnosticos</h5>
         <?php if ($Alumno->getDiagnosticos()) { ?>
             <table>
