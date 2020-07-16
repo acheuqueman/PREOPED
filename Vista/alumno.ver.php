@@ -137,7 +137,7 @@ $Alumno->setEntrevistas($Mapper->findEntrevistas($Alumno->getId()));
                             </div>                            
                         </div>
                     </div>                    
-                    <hr />
+                    <hr/>
 
                     <?php include_once '../gui/bloqueUsuarioLogueado.php'; ?>
                 </div>

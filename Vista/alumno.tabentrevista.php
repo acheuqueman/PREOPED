@@ -6,7 +6,7 @@
 </h5>
 <p></p>
 
-<?php //if ($Alumno->getEntrevista()) { ?>
+<?php if ($Alumno->getEntrevistas()) { ?>
     <table class="table table-striped small table-bordered border-success">
         <thead class="thead-light">
             <tr>
@@ -35,6 +35,6 @@
                 <?php } ?>
         </tbody>
     </table>
-<?php //} ?>
+<?php } ?>
 
 <p></p>
