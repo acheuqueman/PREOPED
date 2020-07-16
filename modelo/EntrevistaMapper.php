@@ -62,43 +62,17 @@ class EntrevistaMapper extends BDMapper{
         return $this->resultset;
     }
 
-    /*
-    public function findAlumnos($id){
-        $this->query = "SELECT A.* "
-                . "FROM Alumno A, "
-                    . "Entrevista_Alumno EA "
-                . "WHERE A.id = EA.id_alumno "
-                    . "AND id_entrevista =".$id;
-        $this->resultset = $this->bdconexion->query($this->query);
-        for ($x = 0; $x < $this->resultset->num_rows; $x++){
-            $this->alumnos[] = new Alumno($this->resultset->fetch_assoc());
-        }
-        return $this->alumnos;
-    }
-    */
-
-    /* 
-     * 
-     * @param Int $id ID del alumno
-     * @return Entrevista_Alumno[]
-     */
     public function findEntrevistados($id) {
         
-        $this->query = "SELECT * FROM " .Entrevista_AlumnoMapper::NOMBRE_VIEW
-                . " WHERE id_entrevista = " . $id;
+        $this->query = "SELECT * FROM ".Entrevista_AlumnoMapper::NOMBRE_VIEW
+                . " WHERE id_entrevista = ".$id;
 
+        $Mapper = new AlumnoMapper();
         $this->resultset = $this->bdconexion->query($this->query);
-        var_dump($this->resultset);
         for ($x = 0; $x < $this->resultset->num_rows; $x++) {
-            //var_dump(new Entrevista_Alumno($this->resultset->fetch_assoc()));
-            $entrevista_alumno = new Entrevista_Alumno($this->resultset->fetch_assoc());
-            $idalumno = $entrevista_alumno->getId_alumno();
-            var_dump($idalumno);
-            //$this->entrevistados[] = new Entrevista_Alumno($this->resultset->fetch_assoc());
-            $this->entrevistados[] = new Alumno($MapperAlumno->findById($idalumno));
+            $fetchassoc = $this->resultset->fetch_assoc();
+            $this->entrevistados[] = new Alumno($Mapper->findById($fetchassoc["id_alumno"]));
         }
-        var_dump(new Entrevista_Alumno($this->resultset->fetch_assoc()));
-        var_dump($this->entrevistados);
         return $this->entrevistados;
         
     }

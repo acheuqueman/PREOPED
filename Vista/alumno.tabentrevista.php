@@ -18,6 +18,7 @@
             <?php 
                 if ($Alumno->getEntrevistas())
                 foreach ($Alumno->getEntrevistas() as $Entrevista) { 
+                    //var_dump($Entrevista);
             ?>
                     <tr>
                         <td><?= $Entrevista->getFecha(); ?></td>
@@ -25,12 +26,12 @@
                         <td style="text-align: center">
 
                             <!-- Ini Botones Opciones -->
-                            <a title="Ver detalle" href="entrevista.ver.php?id=<?= $Entrevista->getId(); ?>">
+                            <a title="Ver detalle" href="entrevista.ver.php?id=<?= $Entrevista->getId_entrevista(); ?>">
                                 <button type="button" class="btn btn-outline-info">
                                     <span class="oi oi-zoom-in"></span>
                                 </button></a>
                             <!-- @todo eliminar entrevista -->
-                            <a title="Eliminar" href="alumno_entrevista.eliminar.php?id=<?= $Entrevista->getId(); ?>" onclick="return confirm('¿Desea realmente eliminar?');">
+                            <a title="Eliminar" href="alumno_entrevista.eliminar.php?id=<?= $Entrevista->getId_entrevista(); ?>" onclick="return confirm('¿Desea realmente eliminar?');">
                                 <button type="button" class="btn btn-outline-danger">
                                     <span class="oi oi-trash"></span>
                                 </button></a>

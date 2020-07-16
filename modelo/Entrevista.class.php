@@ -47,7 +47,7 @@ class Entrevista extends ModeloDatosGenerico{
 
     /**
      * 
-     * @param Entrevista_Alumno[] 
+     * @param Alumnos[] 
      */
     function setEntrevistados($entrevistados) {
         $this->entrevistados = $entrevistados;
