@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 14-07-2020 a las 00:43:23
+-- Tiempo de generación: 16-07-2020 a las 18:05:57
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.3.12
 
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `alumno_diagnostico` (
   PRIMARY KEY (`id`),
   KEY `fk_alumno_dianostico_alumno_idx` (`id_alumno`),
   KEY `fk_alumno_diagnostico_diagnostico_idx` (`id_diagnostico`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `alumno_diagnostico`
@@ -111,7 +111,8 @@ INSERT INTO `alumno_diagnostico` (`id`, `profesional_diagnostico`, `id_diagnosti
 (17, 'Dr. Juan Silva Saldivar', 16, 12),
 (18, 'Dr. Juan Silva Saldivar', 17, 12),
 (19, 'ProDAT Preoped', 1, 22),
-(20, 'ProDAT Preoped', 1, 23);
+(20, 'ProDAT Preoped', 1, 23),
+(24, 'asd', 1, 20);
 
 -- --------------------------------------------------------
 
@@ -255,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `entrevista` (
   `entrevistador` varchar(40) NOT NULL,
   `conclusiones` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `entrevista`
@@ -264,7 +265,15 @@ CREATE TABLE IF NOT EXISTS `entrevista` (
 INSERT INTO `entrevista` (`id`, `fecha`, `entrevistador`, `conclusiones`) VALUES
 (1, '2020-07-14', 'entrevistador1', 'conclucion1'),
 (2, '1241-03-21', 'entrevistador2', 'conclucion2'),
-(3, '2010-03-12', 'entrevistador3', 'conclucion3');
+(3, '2010-03-12', 'entrevistador3', 'conclucion3'),
+(4, '3412-03-12', 'entrevistador4', 'conclucion4'),
+(5, '5333-03-12', 'entrevistador4', 'conclucion4'),
+(6, '0123-03-12', 'entrevistador5', 'conclucion5'),
+(7, '0123-03-12', 'entrevistador6', 'c'),
+(8, '1211-03-12', 'entrevistador7', 'asdasd'),
+(9, '1231-03-12', 'sfsdfsd', 'sdfsdfsdfsd'),
+(10, '1241-03-12', 'p', 'p'),
+(11, '4332-03-12', 'entrevistador4', '1231');
 
 -- --------------------------------------------------------
 
@@ -280,7 +289,7 @@ CREATE TABLE IF NOT EXISTS `entrevista_alumno` (
   PRIMARY KEY (`id`),
   KEY `fk_entrevista_alumno_alumno_idx` (`id_alumno`),
   KEY `fk_entrevista_alumno_entrevista_idx` (`id_entrevista`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `entrevista_alumno`
@@ -289,7 +298,23 @@ CREATE TABLE IF NOT EXISTS `entrevista_alumno` (
 INSERT INTO `entrevista_alumno` (`id`, `id_alumno`, `id_entrevista`) VALUES
 (1, 12, 1),
 (2, 20, 2),
-(3, 20, 3);
+(3, 20, 3),
+(4, 20, 5),
+(5, 22, 5),
+(6, 23, 5),
+(7, 19, 5),
+(8, 21, 6),
+(9, 20, 7),
+(10, 16, 7),
+(11, 20, 8),
+(12, 22, 8),
+(13, 17, 9),
+(14, 18, 9),
+(15, 22, 10),
+(16, 20, 11),
+(17, 22, 11),
+(18, 23, 11),
+(19, 19, 11);
 
 -- --------------------------------------------------------
 
@@ -313,8 +338,7 @@ CREATE TABLE IF NOT EXISTS `familiar` (
 --
 
 INSERT INTO `familiar` (`id`, `id_alumno`, `id_persona`, `parentesco`) VALUES
-(1, 12, 13, 'Padre'),
-(4, 20, 20, 'asd');
+(1, 12, 13, 'Padre');
 
 -- --------------------------------------------------------
 
