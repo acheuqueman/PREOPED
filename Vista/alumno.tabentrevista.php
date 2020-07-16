@@ -6,7 +6,10 @@
 </h5>
 <p></p>
 
+<<<<<<< HEAD
 <?php if ($Alumno->getEntrevistas()) { ?>
+=======
+>>>>>>> ec549227dfd7cbba4128c69913cb352e02c4177a
     <table class="table table-striped small table-bordered border-success">
         <thead class="thead-light">
             <tr>
@@ -16,7 +19,10 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($Alumno->getEntrevistas() as $Entrevista) { ?>
+            <?php 
+                if ($Alumno->getEntrevistas())
+                foreach ($Alumno->getEntrevistas() as $Entrevista) { 
+            ?>
                     <tr>
                         <td><?= $Entrevista->getFecha(); ?></td>
                         <td><?= $Entrevista->getEntrevistador(); ?></td>

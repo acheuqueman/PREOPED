@@ -6,6 +6,10 @@ include_once '../modelo/AlumnoMapper.php';
 $Mapper = new AlumnoMapper();
 $Alumno = new Alumno($Mapper->findById($_GET['id_alumno']));
 
+include_once '../modelo/ColeccionAlumno.php';
+$Coleccion = new ColeccionAlumno();
+
+
 ?>
 
 <html>
@@ -15,6 +19,7 @@ $Alumno = new Alumno($Mapper->findById($_GET['id_alumno']));
         <title><?= Constantes::NOMBRE_SISTEMA; ?> - Gesti&oacute;n de Alumnos</title>
     </head>
     <body>
+        <script>var columnasSinSort = [1, 2];</script>
         <?php include_once '../gui/navbar.php'; ?>
 
         <div class="container-fluid">
@@ -31,8 +36,8 @@ $Alumno = new Alumno($Mapper->findById($_GET['id_alumno']));
 
                         <div class="form-group">
 
+                            
                             <div class="form-row">
-                                <!-- ** Agregar mas participantes a la entrevista? -->
                                 <label>Alumno: <?= $Alumno->getNombre(); ?></label> 
                             </div>
 
@@ -63,11 +68,51 @@ $Alumno = new Alumno($Mapper->findById($_GET['id_alumno']));
                                         <input type="text" class="form-control" id="conclusiones" name="conclusiones" required="">              
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <input type ="submit" class="btn btn-success">  
-                        <a href="alumno.ver.php?id=<?= $Alumno->getId(); ?>"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>                        
+                                <!-- Fomulario seleccion de entrevistados -->
+                                <div class="card-body">
+
+                                    <!-- INI Formulario -->
+                                    
+                                    <table id="tablaSort" class="table table-striped table-hover table-sm ">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>DNI</th>
+                                                <th>Entrevistados</th> 
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($Coleccion->getColeccion() as $AlumnoCol) { ?>
+                                                <tr>
+                                                    <td><?= $AlumnoCol->getNombre(); ?></td>
+                                                    <td align="center"><?= $AlumnoCol->getDni(); ?></td>
+                                                    <td align="center">
+                                                        <?php if ($AlumnoCol->getDni() == $Alumno->getDni()) $checked = "checked"; else $checked = " " ?>
+                                                        <input  type="checkbox" name="id_entrevistados[<?= $AlumnoCol->getId(); ?>]" value="<?= $AlumnoCol->getId();?>" <?= $checked;?> />
+                                                    </td>
+                                                </tr>
+                                            <?php }?>
+                                        </tbody>
+                                    </table>
+
+                                    <!-- @todo Se puede agregar cualquier persona?
+                                    <p>
+                                        <label>¿No encuentra a la persona que busca?</label>
+                                        <a href="persona.crear.php?id_alumno= (alumnoid)" class="btn btn-outline-success">
+                                            <i class="oi oi-plus"></i> Registrar Persona
+                                        </a>                
+                                    </p>
+                                    -->
+                                </div>
+                                <div class="card-footer">
+                                    <label>Opciones:</label>
+                                    <input type ="submit" class="btn btn-success" />  
+                                    <input type="reset" class="btn btn-outline-success" />
+                                    <a href="alumno.ver.php?id=<?= $Alumno->getId(); ?>"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>                        
+                                </div>
+                            </div>
+                        </div>                       
                     </form>
                     <!-- FIN Formulario -->
 
