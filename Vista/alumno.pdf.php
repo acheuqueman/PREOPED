@@ -17,17 +17,17 @@ $Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
         <title><?= Constantes::NOMBRE_SISTEMA; ?> - Gesti&oacute;n de Alumnos</title>
     </head>
     <body>
-        <h7>Datos del Alumno</h7>
-        <img src="../lib/manitos.png" style="background-color: snow; -webkit-border-radius: 50% !important; -moz-border-radius: 50% !important;  border-radius: 50% !important; border: none; margin-right: 20px" width="100" class="rounded float-left img-fluid img-thumbnail" alt="...">                            
-        <h6>Datos Personales</h6>
-        <h4>Nombre Completo</h4>
-        <h2><?= $Alumno->getNombre(); ?></h2>
-        <h4>Ano de Ingreso</h4>
-        <h2><?= $Alumno->getAnio_Ingreso(); ?></h2>
-        <h4>DNI</h4>
-        <h2><?= $Alumno->getDni(); ?></h2>
-        <h4>CUD</h4>
-        <h2><?= $Alumno->getCud(); ?></h2>
+        <h4>Datos del Alumno</h4><br>
+        <img src="../lib/Logo_Cuadrado.png" style="border: none; margin-right: 20px" width="100"> <br>                           
+        <h5>Datos Personales</h5>
+        <h6>Nombre Completo</h6>
+        <p><?= $Alumno->getNombre(); ?><p>
+        <h6>Ano de Ingreso</h6>
+        <p><?= $Alumno->getAnio_Ingreso(); ?><p>
+        <h6>DNI</h6>
+        <p><?= $Alumno->getDni(); ?><p>
+        <h6>CUD</h6>
+        <p><?= $Alumno->getCud(); ?><p>
     </body>
         
 </html>
