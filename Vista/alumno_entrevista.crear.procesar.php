@@ -9,12 +9,15 @@ $Entrevista = new Entrevista($_POST);
 //var_dump($Entrevista);
 $MapperEntrevista = new EntrevistaMapper();
 $idEntrevistaCreada = $MapperEntrevista->insert($Entrevista);
-//var_dump($idObjetoCreado);
-$parametros = array("id_alumno" => $_POST["id_alumno"], "id_entrevista" => $idEntrevistaCreada,);
 
-$Objeto = new Entrevista_Alumno($parametros);
 $Mapper = new Entrevista_AlumnoMapper();
-$idObjetoCreado = $Mapper->insert($Objeto);
+if (isset($_POST["id_entrevistados"])) {
+    foreach ($_POST["id_entrevistados"] as $entrevistado) {
+        $parametros = array("id_entrevista" => $idEntrevistaCreada, "id_alumno" => $entrevistado);
+        $Objeto = new Entrevista_Alumno($parametros);
+        $idObjetoCreado = $Mapper->insert($Objeto);
+    }
+}
 
 ?>
 

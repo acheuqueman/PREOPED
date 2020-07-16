@@ -15,7 +15,6 @@ if (isset($_POST["id_persona"])) {
         $Objeto = new Familiar($parametros);
         $idObjetoCreado = $Mapper->insert($Objeto);
     }
-    
 }
 ?>
 
