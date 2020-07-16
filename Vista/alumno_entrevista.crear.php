@@ -8,8 +8,6 @@ $Alumno = new Alumno($Mapper->findById($_GET['id_alumno']));
 
 include_once '../modelo/ColeccionAlumno.php';
 $Coleccion = new ColeccionAlumno();
-
-
 ?>
 
 <html>
@@ -36,7 +34,7 @@ $Coleccion = new ColeccionAlumno();
 
                         <div class="form-group">
 
-                            
+
                             <div class="form-row">
                                 <label>Alumno: <?= $Alumno->getNombre(); ?></label> 
                             </div>
@@ -70,57 +68,66 @@ $Coleccion = new ColeccionAlumno();
                                 </div>
 
                                 <!-- Fomulario seleccion de entrevistados -->
-                                <div class="card-body">
 
-                                    <!-- INI Formulario -->
-                                    
-                                    <table id="tablaSort" class="table table-striped table-hover table-sm ">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th>Nombre</th>
-                                                <th>DNI</th>
-                                                <th>Entrevistados</th> 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($Coleccion->getColeccion() as $AlumnoCol) { ?>
+                                <!-- INI Formulario -->
+                                <div class="form-row">
+                                    <label for="nombre">Entrevistados</label> 
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-12"> 
+
+                                        <table id="tablaSort" class="table table-striped table-hover table-sm ">
+                                            <thead class="thead-light">
                                                 <tr>
-                                                    <td><?= $AlumnoCol->getNombre(); ?></td>
-                                                    <td align="center"><?= $AlumnoCol->getDni(); ?></td>
-                                                    <td align="center">
-                                                        <?php if ($AlumnoCol->getDni() == $Alumno->getDni()) $checked = "checked"; else $checked = " " ?>
-                                                        <input  type="checkbox" name="id_entrevistados[<?= $AlumnoCol->getId(); ?>]" value="<?= $AlumnoCol->getId();?>" <?= $checked;?> />
-                                                    </td>
+                                                    <th>Nombre</th>
+                                                    <th>DNI</th>
+                                                    <th>Entrevistados</th> 
                                                 </tr>
-                                            <?php }?>
-                                        </tbody>
-                                    </table>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($Coleccion->getColeccion() as $AlumnoCol) { ?>
+                                                    <tr>
+                                                        <td><?= $AlumnoCol->getNombre(); ?></td>
+                                                        <td align="center"><?= $AlumnoCol->getDni(); ?></td>
+                                                        <td align="center">
+                                                            <?php if ($AlumnoCol->getDni() == $Alumno->getDni())
+                                                                $checked = "checked";
+                                                            else
+                                                                $checked = " "
+                                                                ?>
+                                                            <input  type="checkbox" name="id_entrevistados[<?= $AlumnoCol->getId(); ?>]" value="<?= $AlumnoCol->getId(); ?>" <?= $checked; ?> />
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
 
-                                    <!-- @todo Se puede agregar cualquier persona?
-                                    <p>
-                                        <label>¿No encuentra a la persona que busca?</label>
-                                        <a href="persona.crear.php?id_alumno= (alumnoid)" class="btn btn-outline-success">
-                                            <i class="oi oi-plus"></i> Registrar Persona
-                                        </a>                
-                                    </p>
-                                    -->
-                                </div>
-                                <div class="card-footer">
-                                    <label>Opciones:</label>
-                                    <input type ="submit" class="btn btn-success" />  
-                                    <input type="reset" class="btn btn-outline-success" />
-                                    <a href="alumno.ver.php?id=<?= $Alumno->getId(); ?>"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>                        
-                                </div>
+                                        <!-- @todo Se puede agregar cualquier persona?
+                                        <p>
+                                            <label>¿No encuentra a la persona que busca?</label>
+                                            <a href="persona.crear.php?id_alumno= (alumnoid)" class="btn btn-outline-success">
+                                                <i class="oi oi-plus"></i> Registrar Persona
+                                            </a>                
+                                        </p>
+                                        -->
+                                        <div class="card-footer">
+                                            <label>Opciones:</label>
+                                            <input type ="submit" class="btn btn-success" />  
+                                            <input type="reset" class="btn btn-outline-success" />
+                                            <a href="alumno.ver.php?id=<?= $Alumno->getId(); ?>"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>                        
+                                        </div>
+                                    </div>
+                                </div>                       
+                                </form>
+                                <!-- FIN Formulario -->
+
+
+
                             </div>
-                        </div>                       
-                    </form>
-                    <!-- FIN Formulario -->
-
-
-
+                        </div>
                 </div>
-            </div>
-        </div>
-        <?php include_once '../gui/footer.php'; ?>
-    </body>
-</html>
+<?php include_once '../gui/footer.php'; ?>
+                </body>
+                </html>
