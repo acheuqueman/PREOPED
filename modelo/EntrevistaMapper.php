@@ -12,6 +12,12 @@ include_once 'AlumnoMapper.php';
 
 class EntrevistaMapper extends BDMapper{
 
+    /**
+     *
+     * @var Alumno[]
+     */
+    protected $entrevistados;
+
     public function __construct() {
         $this->nombreTabla = "entrevista";
         $this->nombreAtributoId = "id";
@@ -82,9 +88,17 @@ class EntrevistaMapper extends BDMapper{
                 . " WHERE id_entrevista = " . $id;
 
         $this->resultset = $this->bdconexion->query($this->query);
+        var_dump($this->resultset);
         for ($x = 0; $x < $this->resultset->num_rows; $x++) {
-            $this->entrevistados[] = new Entrevista_Alumno($this->resultset->fetch_assoc());
+            //var_dump(new Entrevista_Alumno($this->resultset->fetch_assoc()));
+            $entrevista_alumno = new Entrevista_Alumno($this->resultset->fetch_assoc());
+            $idalumno = $entrevista_alumno->getId_alumno();
+            var_dump($idalumno);
+            //$this->entrevistados[] = new Entrevista_Alumno($this->resultset->fetch_assoc());
+            $this->entrevistados[] = new Alumno($MapperAlumno->findById($idalumno));
         }
+        var_dump(new Entrevista_Alumno($this->resultset->fetch_assoc()));
+        var_dump($this->entrevistados);
         return $this->entrevistados;
         
     }

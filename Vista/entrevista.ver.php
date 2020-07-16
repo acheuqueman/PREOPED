@@ -11,10 +11,14 @@ $Entrevista = new Entrevista($Mapper->findById($_GET['id']));
 //@todo set entrevistados
 
 $MapperAlumno = new AlumnoMapper();
+//var_dump($Entrevista);
+$Entrevista_Alumnos = $Mapper->findEntrevistados($Entrevista->getId());
+var_dump($Entrevista_Alumnos);
 $Entrevistados;
-foreach ($Mapper->findEntrevistados($Entrevista->getId()) as $entrevista_alumno) {
-    $Entrevistados[] = new Alumno($MapperAlumno->findById($entrevista_alumno->$id_alumno));
+foreach ($Entrevista_Alumnos as $entrevista_alumno) {
+    $Entrevistados[] = new Alumno($MapperAlumno->findById($entrevista_alumno->getId_alumno()));
 }
+var_dump($Entrevistados);
 $Entrevista->setEntrevistados($Entrevistados);
 var_dump($Entrevista->getEntrevistados());
 ?>
