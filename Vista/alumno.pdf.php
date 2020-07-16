@@ -18,9 +18,8 @@ $Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
     </head>
     <body style="line-height: 5px">
         <h4>Datos del Alumno</h4><br>
-        <span style="display: block"></span>
-        <img src="../lib/Logo_Cuadrado.png" style="border: none; margin-right: 5px;float:left; " width="400"> <br>       
-        <span style="display: block; float:right; margin-left:5px; ">
+            <img src="../lib/Logo_Cuadrado.png" style="border: none; margin-right: 5px;float:left" width="100"> <br>       
+        <span style="display: block; float:right; margin-left:5px; padding: 0px; clear:both; ">
             <h5>Datos Personales</h5>
             <h6>Nombre Completo</h6>
             <p><?= $Alumno->getNombre(); ?><p>
