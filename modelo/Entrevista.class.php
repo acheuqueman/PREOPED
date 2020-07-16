@@ -6,7 +6,7 @@ class Entrevista extends ModeloDatosGenerico{
     protected $id; 
     protected $fecha;
     protected $entrevistador;
-    protected $entrevistado;
+    protected $entrevistados;
     protected $conclusiones;
     
     function __construct($array){
@@ -25,8 +25,8 @@ class Entrevista extends ModeloDatosGenerico{
         return $this->entrevistador;
     }
 
-    function getEntrevistado() {
-        return $this->entrevistado;
+    function getEntrevistados() {
+        return $this->entrevistados;
     }
 
     function getConclusiones() {
@@ -45,9 +45,14 @@ class Entrevista extends ModeloDatosGenerico{
         $this->entrevistador = $entrevistador;
     }
 
-    function setEntrevistado($entrevistado) {
-        $this->entrevistado = $entrevistado;
+    /**
+     * 
+     * @param Entrevista_Alumno[] 
+     */
+    function setEntrevistados($entrevistados) {
+        $this->entrevistados = $entrevistados;
     }
+    
 
     function setConclusiones($conclusiones) {
         $this->conclusiones = $conclusiones;

@@ -3,6 +3,13 @@
 include_once 'BDMapper.php';
 include_once '../modelo/Alumno.class.php';
 
+include_once 'Entrevista_Alumno.class.php';
+include_once 'Entrevista_AlumnoMapper.php';
+
+include_once 'Alumno.class.php';
+include_once 'AlumnoMapper.php';
+
+
 class EntrevistaMapper extends BDMapper{
 
     public function __construct() {
@@ -48,7 +55,8 @@ class EntrevistaMapper extends BDMapper{
         $this->resultset = $this->bdconexion->query($this->query);
         return $this->resultset;
     }
-    
+
+    /*
     public function findAlumnos($id){
         $this->query = "SELECT A.* "
                 . "FROM Alumno A, "
@@ -60,5 +68,24 @@ class EntrevistaMapper extends BDMapper{
             $this->alumnos[] = new Alumno($this->resultset->fetch_assoc());
         }
         return $this->alumnos;
+    }
+    */
+
+    /* 
+     * 
+     * @param Int $id ID del alumno
+     * @return Entrevista_Alumno[]
+     */
+    public function findEntrevistados($id) {
+        
+        $this->query = "SELECT * FROM " .Entrevista_AlumnoMapper::NOMBRE_VIEW
+                . " WHERE id_entrevista = " . $id;
+
+        $this->resultset = $this->bdconexion->query($this->query);
+        for ($x = 0; $x < $this->resultset->num_rows; $x++) {
+            $this->entrevistados[] = new Entrevista_Alumno($this->resultset->fetch_assoc());
+        }
+        return $this->entrevistados;
+        
     }
 }

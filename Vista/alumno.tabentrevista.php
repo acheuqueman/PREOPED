@@ -6,10 +6,6 @@
 </h5>
 <p></p>
 
-<<<<<<< HEAD
-<?php if ($Alumno->getEntrevistas()) { ?>
-=======
->>>>>>> ec549227dfd7cbba4128c69913cb352e02c4177a
     <table class="table table-striped small table-bordered border-success">
         <thead class="thead-light">
             <tr>
@@ -29,6 +25,10 @@
                         <td style="text-align: center">
 
                             <!-- Ini Botones Opciones -->
+                            <a title="Ver detalle" href="entrevista.ver.php?id=<?= $Entrevista->getId(); ?>">
+                                <button type="button" class="btn btn-outline-info">
+                                    <span class="oi oi-zoom-in"></span>
+                                </button></a>
                             <!-- @todo eliminar entrevista -->
                             <a title="Eliminar" href="alumno_entrevista.eliminar.php?id=<?= $Entrevista->getId(); ?>" onclick="return confirm('¿Desea realmente eliminar?');">
                                 <button type="button" class="btn btn-outline-danger">
@@ -41,6 +41,5 @@
                 <?php } ?>
         </tbody>
     </table>
-<?php } ?>
 
 <p></p>
