@@ -22,33 +22,34 @@ $Mapper = new EntrevistaMapper();
     <tbody>
         <?php
         if ($Alumno->getEntrevistas())
-            foreach ($Alumno->getEntrevistas() as $Entrevista) {
+            foreach ($Alumno->getEntrevistas() as $EntrevistaAlumno) {
                 //var_dump($Entrevista);
         ?>
                 <tr>
-                    <td><?= $Entrevista->getFecha(); ?></td>
-                    <td><?= $Entrevista->getEntrevistador(); ?></td>
+                    <td><?= $EntrevistaAlumno->getFecha(); ?></td>
+                    <td><?= $EntrevistaAlumno->getEntrevistador(); ?></td>
                     <td style="text-align: center">
 
                         <!-- Ini Botones Opciones -->
                         <a title="Ver detalle" href="#">
-                            <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#modal<?= $Entrevista->getId_entrevista(); ?>">
+                            <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#modal<?= $EntrevistaAlumno->getId_entrevista(); ?>">
                                 <span class="oi oi-zoom-in"></span>
                             </button></a>
                         <!-- @todo eliminar entrevista -->
-                        <a title="Eliminar" href="alumno_entrevista.eliminar.php?id=<?= $Entrevista->getId_entrevista(); ?>" onclick="return confirm('¿Desea realmente eliminar?');">
+                        <a title="Eliminar" href="alumno_entrevista.eliminar.php?id=<?= $EntrevistaAlumno->getId_entrevista(); ?>" onclick="return confirm('¿Desea realmente eliminar?');">
                             <button type="button" class="btn btn-outline-danger">
                                 <span class="oi oi-trash"></span>
                             </button></a>
                         <!-- Fin Botones Opciones -->
 
                         <?php
-                        $EntrevistaA = new Entrevista($Mapper->findById($Entrevista->getId_entrevista()));
-                        $EntrevistaA->setEntrevistados($Mapper->findEntrevistados($EntrevistaA->getId()));
-                        $Entrevistados = $EntrevistaA->getEntrevistados();
+                        $Mapper = new EntrevistaMapper();
+                        $Entrevista = new Entrevista($Mapper->findById($EntrevistaAlumno->getId_entrevista()));
+                        $Entrevista->setEntrevistados($Mapper->findEntrevistados($Entrevista->getId()));
+                        $Entrevistados = $Entrevista->getEntrevistados();
                         ?>
                         <!-- Ini Modal -->
-                        <div class="modal fade" id="modal<?= $Entrevista->getId_entrevista(); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal fade" id="modal<?= $EntrevistaAlumno->getId_entrevista(); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -69,10 +70,10 @@ $Mapper = new EntrevistaMapper();
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><?= $EntrevistaA->getEntrevistador(); ?></td>
-                                                    <td><?= $EntrevistaA->getFecha(); ?></td>
+                                                    <td><?= $Entrevista->getEntrevistador(); ?></td>
+                                                    <td><?= $Entrevista->getFecha(); ?></td>
                                                     <td><?php foreach ($Entrevistados as $entrevistado) { ?><?= $entrevistado->getNombre(); ?>, <?php } ?></td>
-                                                    <td><?= $EntrevistaA->getConclusiones(); ?></td>
+                                                    <td><?= $Entrevista->getConclusiones(); ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
