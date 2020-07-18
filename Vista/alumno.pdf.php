@@ -2,6 +2,8 @@
 include_once '../lib/Constantes.Class.php';
 include_once '../modelo/Alumno.class.php';
 include_once '../modelo/AlumnoMapper.php';
+include_once '../modelo/EntrevistaMapper.php';
+include_once '../modelo/Entrevista.class.php';
 
 $Mapper = new AlumnoMapper();
 $Alumno = new Alumno($Mapper->findById($_GET['id']));
@@ -78,7 +80,7 @@ $Alumno->setEntrevistas($Mapper->findEntrevistas($Alumno->getId()));
         <?php if ($Alumno->getEntrevistas())  ?>
         <table>
             <?php
-            foreach ($Alumno->getEntrevistas() as $Entrevista) {
+            foreach ($Alumno->getEntrevistas() as $EntrevistaAlumno) {
                 $Mapper = new EntrevistaMapper();
                 $Entrevista = new Entrevista($Mapper->findById($EntrevistaAlumno->getId_entrevista()));
                 $Entrevista->setEntrevistados($Mapper->findEntrevistados($Entrevista->getId()));
