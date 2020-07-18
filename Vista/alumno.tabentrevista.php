@@ -1,7 +1,6 @@
 <?php
 include_once '../modelo/EntrevistaMapper.php';
 include_once '../modelo/Entrevista.class.php';
-$Mapper = new EntrevistaMapper();
 ?>
 <p></p>
 <h5>Entrevistas 
@@ -24,7 +23,7 @@ $Mapper = new EntrevistaMapper();
         if ($Alumno->getEntrevistas())
             foreach ($Alumno->getEntrevistas() as $EntrevistaAlumno) {
                 //var_dump($Entrevista);
-        ?>
+                ?>
                 <tr>
                     <td><?= $EntrevistaAlumno->getFecha(); ?></td>
                     <td><?= $EntrevistaAlumno->getEntrevistador(); ?></td>
@@ -64,8 +63,7 @@ $Mapper = new EntrevistaMapper();
                                                 <tr>
                                                     <th>Entrevistador</th>
                                                     <th>Fecha</th>
-                                                    <th>Entrevistados</th>
-                                                    <th>Conclusion</th>
+                                                    <th>Entrevistados</th>   
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -73,6 +71,17 @@ $Mapper = new EntrevistaMapper();
                                                     <td><?= $Entrevista->getEntrevistador(); ?></td>
                                                     <td><?= $Entrevista->getFecha(); ?></td>
                                                     <td><?php foreach ($Entrevistados as $entrevistado) { ?><?= $entrevistado->getNombre(); ?>, <?php } ?></td>
+                                                </tr>
+
+                                        </table>
+                                        <table style="width:100%">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th>Conclusion</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
                                                     <td><?= $Entrevista->getConclusiones(); ?></td>
                                                 </tr>
                                             </tbody>

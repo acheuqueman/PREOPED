@@ -8,6 +8,7 @@ $Alumno = new Alumno($Mapper->findById($_GET['id']));
 $Alumno->setDiagnosticos($Mapper->findDiagnosticos($Alumno->getId()));
 $Alumno->setCarreras($Mapper->findCarreras($Alumno->getId()));
 $Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
+$Alumno->setEntrevistas($Mapper->findEntrevistas($Alumno->getId()));
 ?>
 
 <html>
@@ -18,7 +19,7 @@ $Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
     </head>
     <body style="line-height: 5px">
         <h4>Datos del Alumno</h4><br>
-            <img src="../lib/Logo_Cuadrado.png" style="border: none; margin-right: 5px;float:left" width="100"> <br>       
+        <img src="../lib/Logo_Cuadrado.png" style="border: none; margin-right: 5px;float:left" width="100"> <br>       
         <span style="display: block; float:right; margin-left:5px; padding: 0px; clear:both; ">
             <h5>Datos Personales</h5>
             <h6>Nombre Completo</h6>
@@ -74,6 +75,25 @@ $Alumno->setFamiliares($Mapper->findFamiliares($Alumno->getId()));
         <?php } ?>
         <hr/>
         <h5>Entrevistas</h5>
+        <?php if ($Alumno->getEntrevistas())  ?>
+        <table>
+            <?php
+            foreach ($Alumno->getEntrevistas() as $Entrevista) {
+                $Mapper = new EntrevistaMapper();
+                $Entrevista = new Entrevista($Mapper->findById($EntrevistaAlumno->getId_entrevista()));
+                $Entrevista->setEntrevistados($Mapper->findEntrevistados($Entrevista->getId()));
+                $Entrevistados = $Entrevista->getEntrevistados();
+                ?>
+                <tr>
+                    <td>Fecha: <?= $Entrevista->getFecha(); ?></td>
+                    <td>Entrevistador: <?= $Entrevista->getEntrevistador(); ?></td>
+                    <td>Entrevistados: <?php foreach ($Entrevistados as $entrevistado) { ?><?= $entrevistado->getNombre(); ?>, <?php } ?></td>
+                    <br><td><?= $Entrevista->getConclusiones(); ?></td>
+                </tr>
+            <?php } ?>
+        </table>
+
+
 
     </body>
 
