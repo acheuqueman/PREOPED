@@ -15,7 +15,7 @@ include_once '../modelo/Entrevista.class.php';
         <tr>
             <th>Fecha</th>
             <th>Entrevistador</th>
-            <th style="text-align: center">Opciones</th> <!-- vista ampliada con modal -->
+            <th style="text-align: center">Opciones</th> 
         </tr>
     </thead>
     <tbody>
