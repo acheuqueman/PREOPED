@@ -17,7 +17,10 @@ $Coleccion = new ColeccionEntrevista();
         <tbody>
         <?php
         foreach ($Coleccion->getColeccion() as $Entrevista) {
-            //var_dump($Entrevista);
+            $Mapper = new EntrevistaMapper();
+            $Entrevista->setEntrevistados($Mapper->findEntrevistados($Entrevista->getId()));
+            $Entrevistados = $Entrevista->getEntrevistados();
+            if (!$Entrevistados) continue;
             ?>
             <tr>
                 <td><?= $Entrevista->getFecha(); ?></td>
@@ -29,18 +32,13 @@ $Coleccion = new ColeccionEntrevista();
                         <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#modal<?= $Entrevista->getId(); ?>">
                             <span class="oi oi-zoom-in"></span>
                         </button></a>
-                    <!-- @todo eliminar entrevista -->
-                    <a title="Eliminar" href="alumno_entrevista.eliminar.php?id=<?= $Entrevista->getId(); ?>" onclick="return confirm('¿Desea realmente eliminar?');">
+                    <!-- @todo eliminar entrevista, eliminar tambien todas las relaciones? -->
+                    <!-- <a title="Eliminar" href="entrevista.eliminar.php?id= /*(php) $Entrevista->getId(); */ " onclick="return confirm('¿Desea realmente eliminar?');">
                         <button type="button" class="btn btn-outline-danger">
                             <span class="oi oi-trash"></span>
-                        </button></a>
+                        </button></a> -->
                     <!-- Fin Botones Opciones -->
 
-                    <?php
-                    $Mapper = new EntrevistaMapper();
-                    $Entrevista->setEntrevistados($Mapper->findEntrevistados($Entrevista->getId()));
-                    $Entrevistados = $Entrevista->getEntrevistados();
-                    ?>
                     <!-- Ini Modal -->
                     <div class="modal fade" id="modal<?= $Entrevista->getId(); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">

@@ -35,7 +35,7 @@ include_once '../modelo/Entrevista.class.php';
                                 <span class="oi oi-zoom-in"></span>
                             </button></a>
                         <!-- @todo eliminar entrevista -->
-                        <a title="Eliminar" href="alumno_entrevista.eliminar.php?id=<?= $EntrevistaAlumno->getId_entrevista(); ?>" onclick="return confirm('¿Desea realmente eliminar?');">
+                        <a title="Eliminar" href="alumno_entrevista.eliminar.php?id=<?= $EntrevistaAlumno->getId(); ?>&id_alumno=<?= $EntrevistaAlumno->getId_alumno(); ?>" onclick="return confirm('¿Desea realmente eliminar alumno de la entrevista?');">
                             <button type="button" class="btn btn-outline-danger">
                                 <span class="oi oi-trash"></span>
                             </button></a>
