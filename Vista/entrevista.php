@@ -19,7 +19,7 @@
                             <h5 class="card-title oi oi-graph"> Entrevista </h5>
                         </div>
                         <div class="card-body">
-                            
+                        <?php include_once 'entrevistas.bloque.php'; ?>
                         </div>                            
                     </div>
                 </div>
