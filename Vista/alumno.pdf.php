@@ -88,8 +88,14 @@ $Alumno->setEntrevistas($Mapper->findEntrevistas($Alumno->getId()));
                 ?>
                 <tr>
                     <td>Fecha: <?= $Entrevista->getFecha(); ?></td>
+                </tr>
+                <tr>
                     <td>Entrevistador: <?= $Entrevista->getEntrevistador(); ?></td>
+                </tr>
+                <tr>
                     <td>Entrevistados: <?php foreach ($Entrevistados as $entrevistado) { ?><?= $entrevistado->getNombre(); ?>, <?php } ?></td>
+                </tr> 
+                <tr>
                     <br><td><?= $Entrevista->getConclusiones(); ?></td>
                 </tr>
             <?php } ?>
