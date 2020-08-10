@@ -2,7 +2,7 @@
 
 class BDConfig {
     const HOST = "localhost";
-    const USUARIO = "root";
-    const PASS = "root";
+    const USUARIO = "preoped";
+    const PASS = "preoped";
     const SCHEMA = "preoped";
 }
