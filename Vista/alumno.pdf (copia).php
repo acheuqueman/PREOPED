@@ -17,28 +17,29 @@ $Alumno->setEntrevistas($Mapper->findEntrevistas($Alumno->getId()));
     <head>
         <?php // include_once '../lib/includesCss.php'; ?>
         <?php // include_once '../lib/includesJs.php'; ?>
+        <title><?= Constantes::NOMBRE_SISTEMA; ?> - Gestion de Alumnos</title>
     </head>
     <body style="line-height: 5px">
-            <img src="../lib/Logo_Cuadrado.png" style="display:inline-block; border: none; margin-right: 5px;float:left; margin-bottom: -20px" width="100">
-                <br>
-                <title><?= Constantes::NOMBRE_SISTEMA; ?> - Gestion de Alumnos</title> 
-                <h3>Datos del Alumno</h3>
-        <hr/>
-            <h4>Datos Personales</h4>
-            <h5>Nombre Completo: <span><?= $Alumno->getNombre(); ?></span></h5>
-            
-            <h5>Año de ingreso: <span><?= $Alumno->getAnio_Ingreso(); ?></span></h5>
-            
-            <h5>DNI: <span><?= $Alumno->getDni(); ?></span></h5>
-            
-            <h5>CUD: <span><?= $Alumno->getCud(); ?></span></h5>
-            
+        <h4>Datos del Alumno</h4><br>
+        <img src="../lib/Logo_Cuadrado.png" style="border: none; margin-right: 5px;float:left" width="100"> <br>       
+        <span style="display: block; float:right; margin-left:5px; padding: 0px; clear:both; ">
+            <h5>Datos Personales</h5>
+            <h6>Nombre Completo</h6>
+            <p><?= $Alumno->getNombre(); ?><p>
+            <h6>Año de ingreso</h6>
+            <p><?= $Alumno->getAnio_Ingreso(); ?><p>
+            <h6>DNI</h6>
+            <p><?= $Alumno->getDni(); ?><p>
+            <h6>CUD</h6>
+            <p><?= $Alumno->getCud(); ?><p>
             <hr />    
-            <h4>Datos de Contacto</h4>
-            <h5>Correo Electronico: <span><?= $Alumno->getEmail(); ?></span></h5>
-            <h5>Numero Telefonico: <span><?= $Alumno->getTelefono(); ?></span> </h5>
-            
+            <h5>Datos de Contacto</h5>
+            <h6>Correo Electronico</h6>
+            <p><?= $Alumno->getEmail(); ?><p>
+            <h6>Numero Telefonico</h6>
+            <p><?= $Alumno->getTelefono(); ?><p>
             <hr />   
+        </span>
         <h5>Diagnosticos</h5>
         <?php if ($Alumno->getDiagnosticos()) { ?>
             <table>
