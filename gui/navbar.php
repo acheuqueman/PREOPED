@@ -49,7 +49,7 @@
                     <span class="oi oi-person" ></span> Usuarios
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownUsuarios">
-                    <a class="dropdown-item" href="../uargflow/usuarios.php">
+                    <a class="dropdown-item" href="../uargflow/index.php">
                         <span class="oi oi-person" ></span> Usuarios
                     </a>
                     <div class="dropdown-divider"></div>

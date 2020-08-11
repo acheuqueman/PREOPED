@@ -15,7 +15,6 @@ setlocale(LC_TIME, 'es_AR.utf8');
  * 
  */
 class Constantes {
-
     
     const NOMBRE_SISTEMA = "PREOPEDigital";
     
@@ -27,7 +26,7 @@ class Constantes {
     const HOMEURL = "http://localhost/preopedigitalWEB/uargflow/index.php";
     const HOMEAUTH = "http://localhost/preopedigitalWEB/app/index.php";
     
-    const BD_SCHEMA = "aguadelcampo";
-    const BD_USERS = "aguadelcampo";
+    const BD_SCHEMA = "preoped";
+    const BD_USERS = "uargflowPreoped";
     
 }
