@@ -22,8 +22,8 @@ class Constantes {
     // De la aplicación. Ej.: Preoped
     const APPURL = "http://localhost/preoped";
     // De UARGFlow.
-    const HOMEURL = "http://localhost/preoped/uargflow/app/index.php";
-    const HOMEAUTH = "http://localhost/preoped/uargflow/app/usuarios.php";
+    const HOMEURL = "http://localhost/html/preoped/uargflow/app/index.php";
+    const HOMEAUTH = "http://localhost/html/preoped/uargflow/app/usuarios.php";
     
     const BD_SCHEMA = "uargflowPreoped";
     const BD_USERS = "uargflowPreoped";

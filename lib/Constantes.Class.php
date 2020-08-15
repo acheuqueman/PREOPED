@@ -1,9 +1,5 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 setlocale(LC_TIME, 'es_AR.utf8');
 
 /**
@@ -18,13 +14,13 @@ class Constantes {
     
     const NOMBRE_SISTEMA = "PREOPEDigital";
     
-    const WEBROOT = "/var/www/html/preopedigitalWEB/";
+    const WEBROOT = "/var/www/html/preoped/";
     const APPDIR = "uargflow";
         
     const SERVER = "http://localhost";
-    const APPURL = "http://localhost/preopedigitalWEB";
-    const HOMEURL = "http://localhost/preopedigitalWEB/uargflow/index.php";
-    const HOMEAUTH = "http://localhost/preopedigitalWEB/app/index.php";
+    const APPURL = "http://localhost/preoped";
+    const HOMEURL = "http://localhost/html/preoped/Vista/index.php";
+    const HOMEAUTH = "http://localhost/html/preoped/Vista/index.php";
     
     const BD_SCHEMA = "preoped";
     const BD_USERS = "uargflowPreoped";
