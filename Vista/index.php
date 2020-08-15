@@ -21,7 +21,7 @@ include_once '../lib/Constantes.Class.php';
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">
-                    <img src="../lib/img/Logo-UNPA-UARG-azul.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                    <img src="../lib/logopreoped.png" width="30" height="30" class="d-inline-block align-top" alt="">
                     <?php echo Constantes::NOMBRE_SISTEMA; ?> - Login
                 </a>
             </div>
@@ -37,7 +37,7 @@ include_once '../lib/Constantes.Class.php';
                         <div class="card-body">
 
                             <h5>Bienvenido</h5>
-                            <p>Estimado usuario: Bienvenido a la aplicaci&oacute;n UARGFlow BS, una aplicaci&oacute;n desarrollada en la UARG - UNPA.</p>
+                            <p>Estimado usuario: Bienvenido a la aplicaci&oacute;n PREOPEDigital, una aplicaci&oacute;n desarrollada en la UARG - UNPA.</p>
 
                             <div class="row">
                                 <div class="col-12">
@@ -65,7 +65,7 @@ include_once '../lib/Constantes.Class.php';
             </section>
         </div>
         <footer class="footer">
-            UARGFlow BS 
+            PREOPEDigital
             <span class="oi oi-globe"></span> 
             UNPA-UARG
         </footer>
