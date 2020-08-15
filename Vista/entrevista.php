@@ -1,4 +1,7 @@
-<?php include_once '../lib/Constantes.Class.php'; ?>
+<?php 
+include_once '../lib/ControlAcceso.Class.php';
+ControlAcceso::requierePermiso(PermisosSistema::PERMISO_PERMISOS);
+include_once '../lib/Constantes.Class.php'; ?>
 <html>
     <head>
         <?php include_once '../lib/includesCss.php'; ?>

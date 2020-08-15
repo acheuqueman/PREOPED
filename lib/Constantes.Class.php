@@ -20,9 +20,9 @@ class Constantes {
     const SERVER = "http://localhost";
     const APPURL = "http://localhost/preoped";
     const HOMEURL = "http://localhost/preoped/Vista/index.php";
-    const HOMEAUTH = "http://localhost/preoped/Vista/index.php";
+    const HOMEAUTH = "http://localhost/preoped/Vista/inicio.php";
     
     const BD_SCHEMA = "preoped";
-    const BD_USERS = "uargflowPreoped";
+    const BD_USERS = "uargflowpreoped";
     
 }

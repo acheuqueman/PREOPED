@@ -1,4 +1,6 @@
 <?php
+include_once '../lib/ControlAcceso.Class.php';
+ControlAcceso::requierePermiso(PermisosSistema::PERMISO_PERMISOS);
 include_once '../lib/Constantes.Class.php';
 include_once '../modelo/Entrevista_Alumno.class.php';
 include_once '../modelo/Entrevista_AlumnoMapper.php';

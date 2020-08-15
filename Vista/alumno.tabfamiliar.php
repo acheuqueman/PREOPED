@@ -1,3 +1,7 @@
+<?php
+include_once '../lib/ControlAcceso.Class.php';
+ControlAcceso::requierePermiso(PermisosSistema::PERMISO_PERMISOS);
+?>
 <p></p>
 <h5>Grupo Familiar 
     <a href="alumno_familiar.crear.php?id_alumno=<?= $Alumno->getId(); ?>">

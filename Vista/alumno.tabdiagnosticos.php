@@ -1,3 +1,7 @@
+<?php
+include_once '../lib/ControlAcceso.Class.php';
+ControlAcceso::requierePermiso(PermisosSistema::PERMISO_PERMISOS);
+?>
 <p></p>
 <h5>Diagnosticos 
     <a href="alumno_diagnostico.crear.php?id_alumno=<?= $Alumno->getId(); ?>">

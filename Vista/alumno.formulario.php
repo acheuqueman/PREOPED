@@ -1,4 +1,6 @@
 <?php 
+include_once '../lib/ControlAcceso.Class.php';
+ControlAcceso::requierePermiso(PermisosSistema::PERMISO_PERMISOS);
 include_once '../modelo/ColeccionDiagnostico.php'; 
 $Coleccion = new ColeccionDiagnostico(); 
 ?>

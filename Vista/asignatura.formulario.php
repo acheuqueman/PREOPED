@@ -1,3 +1,7 @@
+<?php
+include_once '../lib/ControlAcceso.Class.php';
+ControlAcceso::requierePermiso(PermisosSistema::PERMISO_PERMISOS);
+?>
 <div class="row">&nbsp;</div>
 <div class="row">
     <input type="hidden" name="id" value="<?= isset($Asignatura) ? $Asignatura->getId() :null; ?>">

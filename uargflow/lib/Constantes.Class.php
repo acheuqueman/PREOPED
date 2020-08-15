@@ -25,7 +25,7 @@ class Constantes {
     const HOMEURL = "http://localhost/preoped/uargflow/app/index.php";
     const HOMEAUTH = "http://localhost/preoped/uargflow/app/usuarios.php";
     
-    const BD_SCHEMA = "uargflowPreoped";
-    const BD_USERS = "uargflowPreoped";
+    const BD_SCHEMA = "uargflowpreoped";
+    const BD_USERS = "uargflowpreoped";
     
 }
