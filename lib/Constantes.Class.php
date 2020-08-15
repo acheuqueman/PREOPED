@@ -14,13 +14,13 @@ class Constantes {
     
     const NOMBRE_SISTEMA = "PREOPEDigital";
     
-    const WEBROOT = "/var/www/html/preoped/";
+    const WEBROOT = "/var/www/preoped/";
     const APPDIR = "uargflow";
         
     const SERVER = "http://localhost";
     const APPURL = "http://localhost/preoped";
-    const HOMEURL = "http://localhost/html/preoped/Vista/index.php";
-    const HOMEAUTH = "http://localhost/html/preoped/Vista/index.php";
+    const HOMEURL = "http://localhost/preoped/Vista/index.php";
+    const HOMEAUTH = "http://localhost/preoped/Vista/index.php";
     
     const BD_SCHEMA = "preoped";
     const BD_USERS = "uargflowPreoped";
