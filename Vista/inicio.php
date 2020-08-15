@@ -12,6 +12,7 @@ include_once '../lib/Constantes.Class.php';
     <body>
         <script>var columnasSinSort = [1, 3];</script>
         <script src="../lib/tablaSort.js"></script>
+        
 
         <?php include_once '../gui/navbar.php'; ?>
 

@@ -1,7 +1,7 @@
 <!-- Los estilos de navbar son definidos en la libreria css de Bootstrap -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding: 20px 5%">
 
-    <a class="navbar-brand" href="../Vista/index.php">
+    <a class="navbar-brand" href="../Vista/inicio.php">
         <img src="../lib/logopreoped.png" width="35" height="35" class="d-inline-block align-top" alt="">
         <?= Constantes::NOMBRE_SISTEMA; ?>
     </a>

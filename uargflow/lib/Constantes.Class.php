@@ -20,7 +20,7 @@ class Constantes {
         
     const SERVER = "http://localhost";
     // De la aplicación. Ej.: Preoped
-    const APPURL = "http://localhost/preoped";
+    const APPURL = "http://localhost/preoped/uargflow";
     // De UARGFlow.
     const HOMEURL = "http://localhost/preoped/uargflow/app/index.php";
     const HOMEAUTH = "http://localhost/preoped/uargflow/app/usuarios.php";

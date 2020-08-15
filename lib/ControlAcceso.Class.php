@@ -2,7 +2,7 @@
 
 session_start();
 include_once 'Constantes.Class.php';
-include_once '../modelo/BDColeccionGenerica.Class.php';
+//include_once '../modelo/BDColeccionGenerica.Class.php';
 
 /**
  * Clase de constantes para el uso del sistema de Roles y Permisos.
