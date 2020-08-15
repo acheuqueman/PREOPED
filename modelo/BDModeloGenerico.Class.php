@@ -1,5 +1,5 @@
 <?php 
-include_once 'BDConexion.Class.php';
+include_once 'BDConexionUsuario.php';
 
 /**
  * Descripcion de BDModeloGenerico
