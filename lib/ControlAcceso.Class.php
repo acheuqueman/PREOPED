@@ -2,7 +2,7 @@
 
 session_start();
 include_once 'Constantes.Class.php';
-//include_once '../modelo/BDColeccionGenerica.Class.php';
+include_once '../modelo/BDColeccionGenerica.Class.php';
 
 /**
  * Clase de constantes para el uso del sistema de Roles y Permisos.
@@ -86,7 +86,7 @@ class RolSesion {
     public function setPermisos() {
 
 
-        $this->datos = BDConexion::getInstancia()->query(""
+        $this->datos = BDConexionUsuarios::getInstancia()->query(""
                 . "SELECT p.id, nombre "
                 . "FROM " . Constantes::BD_USERS . ".permiso p "
                 . "JOIN " . Constantes::BD_USERS . ".rol_permiso rp ON p.id = rp.id_permiso "
@@ -158,13 +158,13 @@ class UsuarioSesion {
     public function buscarUsuarioBd() {
 
         /* Buscar usuario en la BD */
-        $this->datos = BDConexion::getInstancia()->query(""
+        $this->datos = BDConexionUsuarios::getInstancia()->query(""
                 . "SELECT id "
                 . "FROM " . Constantes::BD_USERS . ".usuario "
                 . "WHERE email = '{$this->email}' ");
 
         if (!$this->datos) {
-            throw new Exception(BDConexion::getInstancia()->error, BDConexion::getInstancia()->errno);
+            throw new Exception(BDConexionUsuarios::getInstancia()->error, BDConexionUsuarios::getInstancia()->errno);
         }
 
         return $this->datos->fetch_assoc()['id'];
@@ -210,7 +210,7 @@ class UsuarioSesion {
 
     public function setRoles() {
 
-        $this->datos = BDConexion::getInstancia()->query(""
+        $this->datos = BDConexionUsuarios::getInstancia()->query(""
                 . "SELECT r.id, r.nombre "
                 . "FROM " . Constantes::BD_USERS . ".usuario u "
                 . "JOIN " . Constantes::BD_USERS . ".usuario_rol ur ON (u.id = ur.id_usuario) "
