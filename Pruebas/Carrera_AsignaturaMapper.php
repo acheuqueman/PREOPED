@@ -11,6 +11,4 @@ $mapperIdNoExistente = new Carrera_AsignaturaMapper();
 $mapperIdExistente = new Carrera_AsignaturaMapper();
 
 $resultadoIdExistente = $mapperIdExistente->findById(1);
-var_dump($resultadoIdExistente);
 $resultadoIdNoExistente = $mapperIdNoExistente->findById(-1);
-var_dump($resultadoIdNoExistente);

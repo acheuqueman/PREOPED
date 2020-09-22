@@ -11,6 +11,4 @@ $mapperIdNoExistente = new Entrevista_AlumnoMapper();
 $mapperIdExistente = new Entrevista_AlumnoMapper();
 
 $resultadoIdExistente = $mapperIdExistente->findById(1);
-var_dump($resultadoIdExistente);
 $resultadoIdNoExistente = $mapperIdNoExistente->findById(-1);
-var_dump($resultadoIdNoExistente);

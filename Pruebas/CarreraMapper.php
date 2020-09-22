@@ -11,10 +11,6 @@ include_once '../modelo/Carrera.class.php';
 $Cmapper = new CarreraMapper();
 
 $Carrera = new Carrera($Cmapper->findById(1));
-//var_dump($resultadoIdExistente
-//
 //$resultadoIdNoExistente = $mapperIdNoExistente->findById(-1);
-//var_dump($resultadoIdNoExistente);
 
 $asignaturas = $Cmapper->findAsignaturas($Carrera->getId());
-var_dump($asignaturas);

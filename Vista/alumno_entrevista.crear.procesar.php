@@ -8,7 +8,7 @@ include_once '../modelo/Entrevista_Alumno.class.php';
 include_once '../modelo/Entrevista_AlumnoMapper.php';
 
 $Entrevista = new Entrevista($_POST);
-//var_dump($Entrevista);
+
 $MapperEntrevista = new EntrevistaMapper();
 $idEntrevistaCreada = $MapperEntrevista->insert($Entrevista);
 

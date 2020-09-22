@@ -11,6 +11,4 @@ $mapperIdNoExistente = new CursaMapper();
 $mapperIdExistente = new CursaMapper();
 
 $resultadoIdExistente = $mapperIdExistente->findById(1);
-var_dump($resultadoIdExistente);
 $resultadoIdNoExistente = $mapperIdNoExistente->findById(-1);
-var_dump($resultadoIdNoExistente);

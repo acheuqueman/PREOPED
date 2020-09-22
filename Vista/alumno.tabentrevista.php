@@ -24,7 +24,6 @@ include_once '../modelo/Entrevista.class.php';
         <?php
         if ($Alumno->getEntrevistas())
             foreach ($Alumno->getEntrevistas() as $EntrevistaAlumno) {
-                //var_dump($Entrevista);
                 ?>
                 <tr>
                     <td><?= $EntrevistaAlumno->getFecha(); ?></td>

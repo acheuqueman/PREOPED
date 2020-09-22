@@ -54,14 +54,3 @@ class Persona extends ModeloDatosGenerico{
         $this->telefono = $telefono;
     }
 }
-
-/*
-$array["id"] = 1;
-$array["nombre"] = "Ramiro3";
-
-$P1 = new Persona($array);
-var_dump($P1);
- * 
- */
-
-

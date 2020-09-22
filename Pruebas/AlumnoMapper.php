@@ -18,9 +18,7 @@ $resultadoAlumnoNoExistente = $AMaper->findById(-1);
 
 //Recibe familiares del alumno valido
 $familiares = $AMaper->findFamiliares($AlumnoValido->getId());
-var_dump($familiares);
 
 //Recibe diagnosticos del alumno
 $diagnosticos = $AMaper->findDiagnosticos($AlumnoValido->getId());
-var_dump($diagnosticos);
 

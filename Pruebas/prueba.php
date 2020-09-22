@@ -15,9 +15,10 @@ $cursaArray["alumno"] = $A1;
 $arrayAsig["nombre"] = "Asignatura1";
 $cursaArray["asignatura"] = new Asignatura($arrayAsig);
 $C1 = new Cursa($cursaArray);
+
 //var_dump($C1);
-echo $C1->getAlumno()->getNombre();
-echo $C1->getAsignatura()->getNombre();
+// echo $C1->getAlumno()->getNombre();
+// echo $C1->getAsignatura()->getNombre();
 
 include_once 'Diagnostico.class.php';
 include_once 'Alumno_Diagnostico.class.php';
