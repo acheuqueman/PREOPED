@@ -1,4 +1,5 @@
 <?php
+include_once 'BDConfig.php';
 
 /**
  * Description of BDConexion
@@ -17,9 +18,9 @@ class BDConexionUsuarios extends mysqli {
     public static $instancia;
     
     function __construct() {
-        $this->host = "localhost";
-        $this->usuario = "preoped";
-        $this->contrasenia = "preoped";
+        $this->host = BDConfig::HOST;
+        $this->usuario = BDConfig::USUARIO;
+        $this->contrasenia = BDConfig::PASS;
         $this->schema = Constantes::BD_SCHEMA;
 
         parent::__construct($this->host, $this->usuario, $this->contrasenia, $this->schema);
