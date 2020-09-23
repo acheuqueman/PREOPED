@@ -1,5 +1,5 @@
 <?php
-include_once '../lib/ControlAcceso.Class.php';
+include_once '../../lib/ControlAcceso.Class.php';
 ControlAcceso::requierePermiso(PermisosSistema::PERMISO_USUARIOS);
 include_once '../modelo/ColeccionUsuarios.php';
 $ColeccionUsuarios = new ColeccionUsuarios();

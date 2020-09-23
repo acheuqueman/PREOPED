@@ -12,8 +12,8 @@ class Rol extends BDObjetoGenerico {
     private $permisos;
 
     function __construct($id = null) {
-        parent::__construct($id, "rol");
-        $this->setPermisos("rol_permiso", "permiso", "id_rol", "id_permiso", "Permiso");
+        parent::__construct($id, Constantes::BD_USERS . ".rol");
+        $this->setPermisos(Constantes::BD_USERS . ".rol_permiso", Constantes::BD_USERS . ".permiso", "id_rol", "id_permiso", "Permiso");
     }
 
     function getPermisos() {

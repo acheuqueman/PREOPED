@@ -5,6 +5,8 @@
         <img src="../lib/logopreoped.png" width="35" height="35" class="d-inline-block align-top" alt="">
         <?= Constantes::NOMBRE_SISTEMA; ?>
     </a>
+    
+    <?php if (isset($_SESSION['usuario']) && (is_a($_SESSION['usuario'], "UsuarioSesion"))) { ?>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="toggle navigation">
         <span class="navbar-toggler-icon"></span>   
@@ -49,18 +51,18 @@
                     <span class="oi oi-person" ></span> Usuarios
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownUsuarios">
-                    <a class="dropdown-item" href="../uargflow/index.php">
+                    <a class="dropdown-item" href="../uargflow/app/usuarios.php" target="_blank">
                         <span class="oi oi-person" ></span> Usuarios
                     </a>
                     <div class="dropdown-divider"></div>
                     <?php // if (ControlAcceso::verificaPermiso(PermisosSistema::PERMISO_ROLES)) { ?>
-                    <a class="dropdown-item" href="../uargflow/roles.php">
+                    <a class="dropdown-item" href="../uargflow/app/roles.php" target="_blank">
                         <span class = "oi oi-graph" ></span> Roles
                     </a>
                     <div class="dropdown-divider"></div>
                     <?php // } ?>
                     <?php // if (ControlAcceso::verificaPermiso(PermisosSistema::PERMISO_PERMISOS)) { ?>
-                    <a class="dropdown-item" href="../uargflow/permisos.php">
+                    <a class="dropdown-item" href="../uargflow/app/permisos.php" target="_blank">
                         <span class="oi oi-lock-locked" ></span> Permisos
                     </a>
 
@@ -71,12 +73,14 @@
 
 
             <li class="nav-item ml-1">
-                <a class="nav-link btn btn-outline-info btn-sm" href="../uargflow/salir.php">
+                <a class="nav-link btn btn-outline-info btn-sm" href="../Vista/salir.php">
                     <span class="oi oi-account-logout" ></span> Salir
                 </a>
             </li>
         </ul>
     </div>
+    
+    <?php } ?>
 </nav>
 
 

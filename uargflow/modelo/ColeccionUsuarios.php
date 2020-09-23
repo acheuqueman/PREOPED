@@ -12,7 +12,7 @@ class ColeccionUsuarios extends BDColeccionGenerica{
        
     function __construct() {
         parent::__construct();
-        $this->setColeccion("usuario","Usuario");
+        $this->setColeccion(Constantes::BD_USERS . ".usuario","Usuario");
         $this->usuarios = $this->coleccion;
     }
     

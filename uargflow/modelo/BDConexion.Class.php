@@ -18,8 +18,8 @@ class BDConexion extends mysqli {
     
     function __construct() {
         $this->host = "localhost";
-        $this->usuario = "preoped";
-        $this->contrasenia = "preoped";
+        $this->usuario = "root";
+        $this->contrasenia = "Romario_9#";
         $this->schema = Constantes::BD_SCHEMA;
 
         parent::__construct($this->host, $this->usuario, $this->contrasenia, $this->schema);

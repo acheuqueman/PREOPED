@@ -1,5 +1,5 @@
-<?php include_once '../lib/ControlAcceso.Class.php'; 
-include_once '../lib/Constantes.Class.php';
+<?php 
+include_once '../lib/ControlAcceso.Class.php'; 
 ?>
 
 <html>

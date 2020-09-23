@@ -3,7 +3,7 @@
 
     <a class="navbar-brand" href="#">
         <img src="../lib/img/Logo-UNPA-UARG-azul.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        UARGFlow
+        <?= Constantes::NOMBRE_SISTEMA ?>
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="toggle navigation">
@@ -38,7 +38,7 @@
                 <?php } ?>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="../app/salir.php">
+                    <a class="nav-link" href="../../Vista/inicio.php">
                         <span class="oi oi-account-logout" /> 
                         Salir
                     </a>

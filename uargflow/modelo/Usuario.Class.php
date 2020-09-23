@@ -14,8 +14,8 @@ class Usuario extends BDObjetoGenerico {
     private $roles;
 
     function __construct($id = null) {
-        parent::__construct($id, "usuario");
-        $this->setRoles("usuario_rol", "rol", "id_usuario", "id_rol", "Rol");
+        parent::__construct($id, Constantes::BD_USERS . ".usuario");
+        $this->setRoles(Constantes::BD_USERS . ".usuario_rol", Constantes::BD_USERS . ".rol", "id_usuario", "id_rol", "Rol");
     }
 
     function getEmail() {

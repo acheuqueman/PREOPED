@@ -143,12 +143,23 @@ class UsuarioSesion {
             throw new Exception($ex->getMessage(), $ex->getCode());
         }
         
-        if (!$this->id){
+        /*
+         * Modificado. Autoregistro inhabilitado.
+         */
+        /*
+         * 
+        if (!$this->id) {
             try {
                 $this->registrarUsuario();
             } catch (Exception $ex) {
                 throw new Exception($ex->getMessage(), $ex->getCode());
             }
+        }
+         * 
+         */
+        if(!$this->id) {
+            header("Location: ../Vista/usuarioinvalido.php");
+            die();
         }
             
         $this->setRoles();
@@ -352,7 +363,7 @@ class ControlAcceso {
     function creaSesion($email_, $nombre_ = null) {
         try {
             $Usuario = new UsuarioSesion($email_, $nombre_);
-            // $Usuario->buscarUsuarioBd();
+            $Usuario->buscarUsuarioBd();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
