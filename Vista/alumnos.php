@@ -1,7 +1,6 @@
 <?php 
 include_once '../lib/ControlAcceso.Class.php';
 ControlAcceso::requierePermiso(PermisosSistema::PERMISO_PERMISOS);
-var_dump(ControlAcceso::verificaPermiso(PermisosSistema::PERMISO_PERMISOS, $_SESSION['usuario']));
 include_once '../lib/Constantes.Class.php'; ?>
 <html>
     <head>

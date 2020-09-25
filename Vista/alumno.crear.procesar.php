@@ -15,7 +15,7 @@ include_once '../modelo/Alumno_Diagnostico.class.php';
 
 $Diagnostico = new Alumno_Diagnostico($_POST);
 $Diagnostico->setId_alumno($idObjetoCreado);
-$Alumno->addDiagnostico($Diagnostico);
+//$Alumno->addDiagnostico($Diagnostico);
 
 $DiagnosticoMapper = new Alumno_DiagnosticoMapper();
 $DiagnosticoMapper->insert($Diagnostico);
@@ -23,6 +23,8 @@ $DiagnosticoMapper->insert($Diagnostico);
 
 <html>
     <head>
+        <?php include_once '../lib/includesCss.php'; ?>
+        <?php include_once '../lib/includesJs.php'; ?>
         <title><?= Constantes::NOMBRE_SISTEMA; ?> - Alumnos</title>
     </head>
     <body>

@@ -1,5 +1,9 @@
 <?php 
 include_once '../lib/ControlAcceso.Class.php'; 
+$existeUser = true;
+if(!$Usuario->id) {
+  $existeUser = false;
+}
 ?>
 
 <html>
@@ -13,7 +17,7 @@ include_once '../lib/ControlAcceso.Class.php';
         <meta name="google-signin-client_id" content="356408280239-7airslbg59lt2nped9l4dtqm2rf25aii.apps.googleusercontent.com" />
         <script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
         <script type="text/javascript" src="../lib/JQuery/jquery-3.3.1.js"></script>
-        <script type="text/javascript" src="../lib/login.js"></script>
+        <script type="text/javascript" src="../lib/login.js" onload="checkUser(<?= $existeUser ?>)"></script>
         <title><?php echo Constantes::NOMBRE_SISTEMA; ?> - Login</title>
     </head>
     <body>
@@ -58,7 +62,7 @@ include_once '../lib/ControlAcceso.Class.php';
                             <hr />
                             <h5>Ingreso al Sistema</h5>
                             <p>Ud. puede ingresar el sistema si est&aacute; conectado a su e-mail. Por favor haga click en el bot&oacute;n a continuaci&oacute;n y elija su cuenta o realice el login.</p>
-                            <div id="okgoogle" class="g-signin2" data-onsuccess="onSignIn" title="Acceder al Sistema eRecibo"></div>
+                            <div id="okgoogle" class="g-signin2" data-onsuccess="onSignIn" onfailure="onFailure" title="Acceder al Sistema eRecibo"></div>
                         </div>
                     </div>
                 </article>
