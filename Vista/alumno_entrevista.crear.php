@@ -6,7 +6,13 @@ include_once '../modelo/Alumno.class.php';
 include_once '../modelo/AlumnoMapper.php';
 
 $Mapper = new AlumnoMapper();
-$Alumno = new Alumno($Mapper->findById($_GET['id_alumno']));
+$dniAlumnoSelec = -99;
+$id_alumno = $_GET['id_alumno'];
+if ($id_alumno){
+    $AlumnoSelec = new Alumno($Mapper->findById($id_alumno));
+    $dniAlumnoSelec = $AlumnoSelec->getDni();
+}
+
 
 include_once '../modelo/ColeccionAlumno.php';
 $Coleccion = new ColeccionAlumno();
@@ -32,13 +38,13 @@ $Coleccion = new ColeccionAlumno();
 
                     <!-- INI Formulario -->
                     <form action="alumno_entrevista.crear.procesar.php" method="POST">
-                        <input type="hidden" name="id_alumno" value="<?= $Alumno->getId(); ?>" />
+                        
 
                         <div class="form-group">
 
 
                             <div class="form-row">
-                                <label>Alumno: <?= $Alumno->getNombre(); ?></label> 
+                                <!-- <label>Alumno: < $Alumno->getNombre(); ></label> -->
                             </div>
 
                             <div class="form-group">
@@ -65,7 +71,7 @@ $Coleccion = new ColeccionAlumno();
                                 </div>
                                 <div class="form-row">
                                     <div class="col-6">                                       
-                                        <input type="text" class="form-control" id="conclusiones" name="conclusiones" required="">              
+                                        <textarea class="form-control" id="conclusiones" name="conclusiones"> </textarea>
                                     </div>
                                 </div>
 
@@ -92,7 +98,7 @@ $Coleccion = new ColeccionAlumno();
                                                         <td><?= $AlumnoCol->getNombre(); ?></td>
                                                         <td align="center"><?= $AlumnoCol->getDni(); ?></td>
                                                         <td align="center">
-                                                            <?php if ($AlumnoCol->getDni() == $Alumno->getDni())
+                                                            <?php if ($AlumnoCol->getDni() == $dniAlumnoSelec)
                                                                 $checked = "checked";
                                                             else
                                                                 $checked = " "
@@ -118,7 +124,7 @@ $Coleccion = new ColeccionAlumno();
                                             <label>Opciones:</label>
                                             <input type ="submit" class="btn btn-success" />  
                                             <input type="reset" class="btn btn-outline-success" />
-                                            <a href="alumno.ver.php?id=<?= $Alumno->getId(); ?>"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>                        
+                                            <a href="javascript:history.back()"><input type="button" class="btn btn-outline-danger" value="Salir" /></a>                        
                                         </div>
                                     </div>
                                 </div>                       

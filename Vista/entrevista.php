@@ -31,7 +31,7 @@ include_once '../lib/Constantes.Class.php'; ?>
                     <div class="row">
                         <div class="col-md-12">
                             <!-- Evaluar soluciones alternativas -->
-                            <?php $_GET['modelo'] = 'alumno'; ?>
+                            <?php $_GET['modelo'] = 'alumno_entrevista'; ?>
                             <?php include_once '../gui/bloqueMenuContextual.php'; ?>
                         </div>
                     </div>
