@@ -7,10 +7,12 @@
             <a title="" href="../Vista/alumno.crear.php" class="list-group-item list-group-item-action">
                 <span class="oi oi-person"></span> Nuevo Alumno
             </a>
+            <!--
             <a href="#" class="list-group-item list-group-item-action">
                 <span class="oi oi-people"></span> Agregar Familiar
             </a>
-            <a href="#" class="list-group-item list-group-item-action">
+            -->
+            <a href="../Vista/alumno_entrevista.crear.php" class="list-group-item list-group-item-action">
                 <span class="oi oi-document"></span> Registrar Entrevista
             </a>
         </div>                            
