@@ -17,7 +17,7 @@ include_once '../lib/Constantes.Class.php';
 
             <div class="card">
                 <div class="card-header">
-                    <h5 class="oi oi-plus">Crear Asignatura</h5>
+                    <h5 class="oi oi-plus">Nueva Carrera</h5>
                 </div>
                 <div class="card-body">
                     <form action="carrera.crear.procesar.php" method="POST">
