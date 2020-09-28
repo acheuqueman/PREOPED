@@ -51,18 +51,18 @@
                     <span class="oi oi-person" ></span> Usuarios
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownUsuarios">
-                    <a class="dropdown-item" href="../uargflow/app/usuarios.php" target="_blank">
+                    <a class="dropdown-item" href="../Vista/usuarios.php" >
                         <span class="oi oi-person" ></span> Usuarios
                     </a>
                     <div class="dropdown-divider"></div>
                     <?php // if (ControlAcceso::verificaPermiso(PermisosSistema::PERMISO_ROLES)) { ?>
-                    <a class="dropdown-item" href="../uargflow/app/roles.php" target="_blank">
+                    <a class="dropdown-item" href="../Vista/roles.php" >
                         <span class = "oi oi-graph" ></span> Roles
                     </a>
                     <div class="dropdown-divider"></div>
                     <?php // } ?>
                     <?php // if (ControlAcceso::verificaPermiso(PermisosSistema::PERMISO_PERMISOS)) { ?>
-                    <a class="dropdown-item" href="../uargflow/app/permisos.php" target="_blank">
+                    <a class="dropdown-item" href="../Vista/permisos.php" >
                         <span class="oi oi-lock-locked" ></span> Permisos
                     </a>
 

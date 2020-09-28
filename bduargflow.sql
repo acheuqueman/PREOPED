@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.23, for Linux (x86_64)
 --
--- Host: localhost    Database: bdUsuarios
+-- Host: localhost    Database: preoped
 -- ------------------------------------------------------
 -- Server version	5.7.23-0ubuntu0.16.04.1
 
@@ -15,6 +15,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+USE preoped;
 --
 -- Table structure for table `permiso`
 --
@@ -117,7 +118,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (23,'Eder dos Santos','esantos@uarg.unpa.edu.ar');
+INSERT INTO `usuario` VALUES (23,'Preoped','preoped@uarg.unpa.edu.ar');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 

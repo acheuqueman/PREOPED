@@ -1,7 +1,7 @@
 <?php
 include_once '../lib/ControlAcceso.Class.php';
 $existeUser = true;
-if (!Usuario || ($Usuario && !$Usuario->id)) {
+if (!$Usuario || ($Usuario && !$Usuario->id)) {
     $existeUser = false;
 }
 ?>
@@ -32,6 +32,7 @@ if (!Usuario || ($Usuario && !$Usuario->id)) {
             </div>
         </nav>
 
+        <p>&nbsp;</p>
         <div class="container">
             <section id="main-content">
                 <article>
